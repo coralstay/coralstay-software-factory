@@ -1,0 +1,14 @@
+digraph bootstrap {
+  bgcolor="transparent"; rankdir=LR; nodesep=0.3; ranksep=0.42;
+  node [shape=box, style="filled,rounded", fillcolor="#f00004", color="#f00003",
+        fontcolor="#f00001", fontname="Helvetica", fontsize=11, margin="0.18,0.10", penwidth=1.1];
+  edge [color="#f00006", arrowsize=0.7, penwidth=1.2];
+
+  A1 [label="git init"];
+  A2 [label="backlog.md CLI\nnpm i -g"];
+  A3 [label="backlog init"];
+  A4 [label="git-format\n설치"];
+  A5 [label="claude-rails\n설치"];
+  A6 [label="langtoolchain\n설치"];
+  A1 -> A2 -> A3 -> A4 -> A5 -> A6;
+}

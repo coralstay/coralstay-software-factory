@@ -1,0 +1,16 @@
+digraph agent_attach {
+  bgcolor="transparent"; rankdir=TB; nodesep=0.35; ranksep=0.45;
+  node [shape=box, style="filled,rounded", fillcolor="#f00004", color="#f00003",
+        fontcolor="#f00001", fontname="Helvetica", fontsize=11, margin="0.18,0.10", penwidth=1.1];
+  edge [color="#f00003", arrowsize=0.7, penwidth=1.1];
+
+  P  [label="프로젝트", fillcolor="#f00007", color="#f00006", fontcolor="#f00008"];
+  M1 [label="마일스톤 M1\n예시: Verifier+Logger 2개", fillcolor="#f0000e", color="#f0000d"];
+  M2 [label="마일스톤 M2\n예시: Reviewer+Verifier+Logger 3개", fillcolor="#f0000e", color="#f0000d"];
+  T1 [label="태스크 T1\nImplementer+Reviewer+Verifier+Logger 4개", fillcolor="#f0000a", color="#f00009"];
+  T2 [label="태스크 T2\n4개", fillcolor="#f0000a", color="#f00009"];
+  T3 [label="태스크 T3\n4개", fillcolor="#f0000a", color="#f00009"];
+
+  P -> M1; P -> M2;
+  M1 -> T1; M1 -> T2; M2 -> T3;
+}
