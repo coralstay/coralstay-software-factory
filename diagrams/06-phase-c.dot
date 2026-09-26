@@ -1,0 +1,18 @@
+digraph phase_c {
+  bgcolor="transparent"; rankdir=TB; nodesep=0.3; ranksep=0.4;
+  node [shape=box, style="filled,rounded", fillcolor="#f00004", color="#f00003",
+        fontcolor="#f00001", fontname="Helvetica", fontsize=11, margin="0.20,0.11", penwidth=1.1];
+  edge [color="#f00003", arrowsize=0.7, penwidth=1.1];
+
+  C1 [label="태스크 Ready\n(위 순서대로)"];
+  C2 [label="4-agent 동적 생성\nImplementer/Reviewer/Verifier/Logger"];
+  C3 [label="AC 루프\nImplementer 커밋마다 Reviewer+Verifier·DoD 병렬 판단"];
+  C4 [label="전체 AC 종료 →\nVerifier·AC 최종 판정"];
+  C5 [label="check-ac + check-dod\n통과 시 Done + final-summary",
+      fillcolor="#f0000e", color="#f0000d", fontcolor="#f0000d"];
+  B1 [label="Phase B 재진입", fillcolor="#f00007", color="#f00006", fontcolor="#f00008"];
+
+  C1 -> C2 -> C3 -> C4 -> C5;
+  C5 -> B1 [style=dashed, color="#f00002", fontname="Helvetica", fontsize=10,
+            fontcolor="#f00002", label="신규 마일스톤/백로그 필요 발견"];
+}

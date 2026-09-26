@@ -1,0 +1,42 @@
+sequenceDiagram
+    participant Board as 백로그 보드
+    participant Imp as Implementer
+    participant Rev as Reviewer
+    participant VD as Verifier·DoD
+    participant VA as Verifier·AC
+    participant Log as Logger
+
+    Board->>Imp: 태스크 Ready → 동적 생성 (Allocation Policy가 결정)
+    activate Imp
+    Note over Log: 동시에 Logger도 동적 생성 (구간 내내 병행 기록)
+    activate Log
+    Note over Imp,Log: 부착 시 공통 — 태스크 → 상위 마일스톤(들) → 루트까지<br/>문서를 프롬프트 캐시로 읽고 시작 (11절)
+
+    loop AC 단위 반복
+        Imp->>Imp: 구현 → claude-rails 테스트게이트 통과 → 커밋
+        Note over Imp: git-format post-commit이<br/>이 커밋의 토큰 사용량을 즉시 측정
+        par Reviewer — 판단
+            Imp->>Rev: AC 완료 알림
+            activate Rev
+            Rev--)Imp: 리뷰 코멘트
+            Rev-->>Log: 자기 디렉토리 WAL 기록
+            deactivate Rev
+        and Verifier·DoD — 결정적 검사 (Reviewer와 동시)
+            Imp->>VD: 같은 커밋 알림
+            activate VD
+            VD-->>Log: 테스트/lint 결과 WAL 기록
+            deactivate VD
+        end
+    end
+
+    Imp->>VA: 전체 AC+Reviewer 사이클 종료
+    activate VA
+    VA-->>Log: AC 최종 판정 WAL 기록
+    VA-->>Board: AC/DoD 최종 판정
+    deactivate VA
+
+    Imp->>Board: -s Done, final-summary
+    deactivate Imp
+    Log-->>Board: 통합 기록(recap+토큰 합계) 저장
+    deactivate Log
+    Note over Imp,Log: 태스크 종료 → 각 세션 /clear로 컨텍스트 초기화 →<br/>에이전트 전원 회수(retire)
