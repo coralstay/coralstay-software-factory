@@ -33,7 +33,7 @@
 > 'Unorganised Machines'."
 >
 > — 이런 식으로 구조가 대체로 무작위한 기계를 '비정형 기계'라 부르기로 한다.
-> (§ Unorganised machines)
+> (§4 Unorganised machines · *The Essential Turing* p.417)
 
 LLM은 이 계보의 기계다. 그리고 그런 기계의 보편성은 **무조건이 아니라 조건부**다.
 
@@ -41,7 +41,7 @@ LLM은 이 계보의 기계다. 그리고 그런 기계의 보편성은 **무조
 > which will make it into a universal machine with a given storage capacity"
 >
 > — 충분한 수의 유닛을 가진 B형 비정형 기계라면, 주어진 저장 용량 안에서 그것을 보편 기계로
-> 만들어줄 초기 조건을 찾아낼 수 있다. (§ Organising unorganised machinery)
+> 만들어줄 초기 조건을 찾아낼 수 있다. (§8 Organising unorganised machinery · p.423)
 
 같은 보고서에서 튜링은 그 조건을 **규율(discipline)** 과 **자발성(initiative)** 으로 나눈다.
 이 저장소의 이름이 "레일"인 이유가 여기 있다.
@@ -52,7 +52,7 @@ LLM은 이 계보의 기계다. 그리고 그런 기계의 보편성은 **무조
 >
 > — 뇌나 기계를 보편 기계로 바꾸는 것은 규율의 가장 극단적인 형태다. 그러나 규율만으로
 > 지능이 생기지는 않는다. 거기에 더 필요한 것을 우리는 자발성이라 부른다.
-> (§12 Discipline and initiative)
+> (§12 Discipline and initiative · p.431)
 
 **레일이 규율이고, 에이전트가 자발성이다.** 훅 · 테스트 게이트 · 워크트리 격리 · 상태 전이
 규칙은 전부 규율 쪽이고, 그 안에서 무엇을 어떻게 쓸지는 에이전트에게 남긴다. 그래서 이
@@ -64,7 +64,7 @@ Entscheidungsproblem**][cn]이 그어놨다.
 
 > "Hence the Entscheidungsproblem cannot be solved."
 >
-> — 따라서 결정문제는 풀릴 수 없다. (§11, p.262)
+> — 따라서 결정문제는 풀릴 수 없다. (§11 Application to the Entscheidungsproblem, p.262)
 
 임의의 명세가 충족됐는지 판정하는 **일반** 절차는 없다. 그러나 §11이 부정한 것은 일반 절차일
 뿐이고, **각 프로젝트가 스스로 정한 유한한 판정기**는 만들 수 있다 — 그것이 테스트이자
@@ -76,46 +76,8 @@ AC/DoD다. 판정기를 코드로 쓸 수 있는 자리에서는 사람이 판�
 > 4-role 구조가 효과가 있다는 **증거가 아니다.** 그 효과는 아직 아무 문헌으로도 뒷받침되지
 > 않았고, 이 저장소가 직접 측정해야 할 대상이다. RFC 본문의 인용 원칙 — DOI/arXiv가 붙은
 > 인용만 신뢰하고 블로그발 수치는 원문 확인 후 전부 삭제 — 을 여기서도 그대로 적용한다.
-> 1948년 보고서 인용문은 전사본을 기준으로 옮겼다.
-
-## 폰 노이만의 어휘로 말하면 — 정밀도 대신 신뢰도, 깊이 대신 너비
-
-튜링이 *무엇을 구속할 것인가*를 줬다면, 부품의 성질에서 배치를 끌어내는 쪽은 폰 노이만이다.
-『[The Computer and the Brain][vn]』(1958, Silliman 강연)의 세 대목이 이 설계의 두 축과
-그대로 겹친다.
-
-> "the natural componentry favors automata with more, but slower, organs, while the artificial
-> one favors the reverse arrangement of fewer, but faster, organs" (p.51) /
-> "large and efficient natural automata are likely to be highly parallel" (p.52)
->
-> — 자연의 부품은 더 많지만 더 느린 기관을 가진 자동기계 쪽을, 인공의 부품은 그 반대로 더
-> 적지만 더 빠른 기관 쪽을 선호한다 / 크고 효율적인 자연 자동기계는 고도로 병렬일 가능성이 높다.
-
-초·분 단위로 응답하는 LLM 에이전트는 **느린 기관** 쪽이다. 폰 노이만의 기준을 그대로 적용하면
-이 부품은 깊은 직렬이 아니라 **넓은 병렬**로 밀린다 — 앞 절에서 폭을 세는 이유의 고전적 논거다.
-
-> "characterized by less logical and arithmetical depth than we are used to under otherwise
-> similar circumstances" (p.82)
->
-> — 여느 경우에 익숙한 것보다 논리적·산술적 깊이가 얕다는 것이 그 특징이다.
-
-그래서 임계 경로(길이)는 시간 하한일 뿐 아니라 **오차가 누적되는 축**이다. 낮은 정밀도의 부품을
-깊게 쌓을수록 나빠진다.
-
-> "The nervous system is a computing machine which manages to do its exceedingly complicated work
-> on a rather low level of precision… what matters are not the precise positions of definite
-> markers, digits, but the statistical characteristics of their occurrences"
->
-> — 신경계는 지극히 복잡한 일을 상당히 낮은 정밀도로 해내는 계산 기계다. 중요한 것은 표지나
-> 숫자의 정확한 위치가 아니라 그것들이 나타나는 통계적 특성이다.
-> (§ Arithmetical Precision or Logical Reliability, Alternatives)
-
-절 제목 자체가 선택지를 말한다 — **산술적 정밀도냐, 논리적 신뢰도냐.** LLM도 정밀한 마커 기계가
-아니라 통계적 기계이므로, 이 설계는 출력 하나의 정밀도를 끌어올리는 대신 **독립 판정으로 만드는
-시스템 신뢰도** 쪽을 택한다. 아래 오류 증폭 수치가 같은 이야기의 현대적 계량이다.
-
-> **단서 —** 이 책은 공개 전문이 없어 인용문과 페이지 표기 모두 2차 출처 전사를 따랐다. 인쇄본
-> 대조 전까지 [출처와 검증 상태](#출처와-검증-상태)에서 미검증으로 둔다.
+> 위 인용문은 전부 B. J. Copeland 편 『The Essential Turing』(Oxford, 2004)의 수록 원문과
+> 페이지 단위로 대조했다.
 
 ## 목적은 자동화가 아니다
 
@@ -193,9 +155,8 @@ Implementer 세션 내 단계로 접는다.
 | --- | --- |
 | [에이전트_레일_파이프라인.html](./에이전트_레일_파이프라인.html) | **RFC 본문.** 왜·언제·어떻게·얼마나에 대한 근거, 4-role 실행 흐름, 트레이드오프, 31건의 인용. 브라우저로 열람 (약 3.6 MB, 정독 30~40분) |
 | [아키텍처.md](./아키텍처.md) | 실행 기반 설계. 단일 JVM 계층 구조와 수직확장 병목 대응. 아래 요약의 원본 |
-| [Intelligent Machinery (1948)][im] · [전사본][im-tx] | 비정형 기계 · 규율과 자발성 인용 출처 |
-| [On Computable Numbers (1936)][cn] · [전사본][cn-tx] | §11 결정문제 인용 출처 |
-| [The Computer and the Brain (1958)][vn] | 정밀도 대신 신뢰도 · 깊이 대신 너비 인용 출처 |
+| [Intelligent Machinery (1948)][im] · [전사본][im-tx] | 비정형 기계 · 규율과 자발성 인용 출처 (대조본: Copeland 편 『The Essential Turing』, Oxford 2004) |
+| [On Computable Numbers (1936)][cn] · [전사본][cn-tx] | §6 보편 기계 · §11 결정문제 인용 출처 (같은 대조본) |
 
 ## 한눈에 보는 실행 기반
 
@@ -325,9 +286,8 @@ README에도 적용한다. 검증이 진행되면 **이 표의 상태 칸만** �
 
 | 인용 | 출처 | 상태 |
 | --- | --- | --- |
-| §6 보편 기계 · §11 결정문제 | [On Computable Numbers (1936)][cn] · [전사본][cn-tx] | ✅ 전사본 PDF 페이지 대조 완료 (§1 p.230 / §6 p.241 / §11 p.262) |
-| 비정형 기계 · 조건부 보편성 · 규율과 자발성 | [Intelligent Machinery (1948)][im] · [전사본][im-tx] | ⏳ 전사본 + 교차검색 확인. NPL 공식 스캔은 이미지라 텍스트 추출 불가 → 육안 대조 대기 |
-| 정밀도 대신 신뢰도 · 깊이 대신 너비 | [The Computer and the Brain (1958)][vn] | ⏳ 공개 전문 없음 — 2차 출처 전사이며 페이지 표기도 2차 출처 기준. 인쇄본 대조 대기 |
+| §6 보편 기계 · §11 결정문제 (1936) | [원문 스캔][cn] · [전사본][cn-tx] | ✅ 전사본 PDF 페이지 대조(§1 p.230 / §6 p.241 / §11 p.262) + Copeland 편 『The Essential Turing』(Oxford 2004) 수록 원문 재대조 |
+| 비정형 기계 · 조건부 보편성 · 규율과 자발성 (1948) | [NPL 스캔][im] · [전사본][im-tx] | ✅ 『The Essential Turing』 수록 원문과 페이지 단위 대조 완료 (p.417 / p.423 / p.425 / p.431) |
 | 그 외 31건의 인용 | [RFC 각주](./에이전트_레일_파이프라인.html) | RFC 10절 "인용 신뢰도에 대한 실용적 교훈" 참고 |
 
 ## 이 문서를 고치는 규칙
@@ -419,4 +379,3 @@ See [에이전트_레일_파이프라인.html](./에이전트_레일_파이프�
 [cn-tx]: http://www.cs.ox.ac.uk/activities/ieg/e-library/sources/tp2-ie.pdf
 [im]: https://www.npl.co.uk/getattachment/84156b8e-1b00-45b7-9f5e-3179cfa458c5/80916595-Intelligent-Machinery.pdf?lang=en-US
 [im-tx]: https://www.info2007.net/docs/intelligent-machinery-alan-turing.html
-[vn]: https://archive.org/details/computerbrain0000vonn

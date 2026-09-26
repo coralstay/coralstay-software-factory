@@ -740,20 +740,6 @@
         애초에 비교 대상이 다르다.
       </p>
       <p style="margin: 0">
-        이 선택은 부품의 성질에서 나온다. 폰 노이만<sup class="fnref"
-          ><a href="#fn32">[32]</a></sup
-        >은 신경계를 "a computing machine which manages to do its exceedingly
-        complicated work on a rather low level of precision"이라 부르며, 거기서
-        중요한 것은 "not the precise positions of definite markers, digits, but
-        the statistical characteristics of their occurrences"라고 했다. 해당
-        절의 제목 자체가 <i>Arithmetical Precision or Logical Reliability,
-        Alternatives</i>다 — 부품의 정밀도를 끌어올리는 길과 시스템의 신뢰도를
-        설계하는 길은 다르다는 것이다. LLM도 정밀한 마커 기계가 아니라 통계적
-        기계이므로, 이 설계는 출력 하나의 정밀도가 아니라
-        <b>독립 판정으로 만드는 시스템 신뢰도</b> 쪽을 택한다. 14절의 오류 증폭
-        수치(중앙집중 검증 4.4 대 독립 17.2)가 같은 이야기의 현대적 계량이다.
-      </p>
-      <p style="margin: 0">
         <b>반증 가능한 중단 기준</b>: Implementer 단독 + self-review 대비,
         4-agent 구조가 AC 재작업률·회귀 발생률을 유의미하게 낮추지 못하면
         Reviewer/Verifier를 별도 프로세스가 아니라 Implementer 세션 내
@@ -1098,21 +1084,6 @@ flowchart LR
         실제로 이득이었는가"를 계산할 수 있는 유일한 자료이고, 백로그가 계속
         재생성되는 이 구조에서 Gustafson 쪽 가정(용량을 늘리면 처리량도 는다)이
         실제로 성립하는지 확인하는 방법이기도 하다.
-      </p>
-      <p style="margin: 0">
-        길이와 폭이라는 두 축은 새로 만든 잣대가 아니다. 폰 노이만<sup
-          class="fnref"
-          ><a href="#fn32">[32]</a></sup
-        >은 부품의 속도가 곧 구조를 결정한다고 봤다 — "the natural componentry
-        favors automata with more, but slower, organs, while the artificial one
-        favors the reverse arrangement of fewer, but faster, organs"(p.51),
-        그래서 "large and efficient natural automata are likely to be highly
-        parallel"(p.52)이라는 것이다. 초·분 단위로 응답하는 LLM 에이전트는
-        <b>느린 기관</b> 쪽이고, 그 componentry는 깊은 직렬이 아니라 넓은 병렬로
-        밀린다. 같은 책이 신경계를 "characterized by less logical and
-        arithmetical depth"(p.82)라고 정리한 것도 같은 방향이다 — 그래서 여기서
-        길이는 단순한 시간 하한이 아니라 <b>오차가 누적되는 축</b>으로 읽는다
-        (14절 오류 증폭 표와 같은 방향).
       </p>
       <p style="margin: 0; font-size: 13.5px; color: var(--ink-muted)">
         반증 조건: 실측된 폭이 거의 항상 1~2에 머문다면, 이 백로그는 애초에
@@ -1588,10 +1559,12 @@ flowchart LR
           사라지지만, 확인되지 않았다.
         </li>
         <li>
-          <b>헤드리스 세션 간 메시징의 실동 여부</b> — Claude Code의 세션 간
+          <b>헤드리스 세션 간 메시징의 실환경 확인</b> — Claude Code의 세션 간
           메시징 자체는 기본 기능으로 확인됐으나,
-          <code>claude -p</code> 헤드리스 프로세스가 실제로 inbox를 여는지는
-          확인되지 않았다. 터미널 두 곳에서 헤드리스 프로세스를 띄우고 세 번째
+          <code>claude -p</code> 헤드리스 프로세스도 inbox 소켓을 바인딩한다고
+          공식 문서가 명시한다(bare 모드는 예외)<sup class="fnref"
+            ><a href="#fn25">[25]</a></sup
+          >. 남은 것은 실환경 확인뿐이다. 터미널 두 곳에서 헤드리스 프로세스를 띄우고 세 번째
           세션에서 <code>/list-agents</code>로 잡히는지 보면 30분 안에
           확인된다(11절).
         </li>
@@ -1927,9 +1900,14 @@ flowchart LR
       </p>
       <p style="margin: 0; font-size: 13.5px; color: var(--ink-muted)">
         06절 Agent Spawner가 스폰하는 <code>claude -p</code> 헤드리스 프로세스가
-        이 메시징의 inbox를 실제로 여는지는 아직 실측하지 않았다(09절). 안
-        열리면 폴백으로 Logger가 이미 보고 있는 WAL 디렉토리를 파일 메일박스로
-        재사용한다(폴링).
+        이 메시징의 inbox를 여는지는 공식 문서가 직접 답한다 — 헤드리스 세션도
+        대화형과 똑같이 inbox 소켓을 바인딩하며 목록에 나타나고, 다만
+        bare 모드에서는 소켓을 바인딩하지 않아 메시지를 받지 못한다<sup
+          class="fnref"
+          ><a href="#fn25">[25]</a></sup
+        >. 따라서 Spawner는 bare 모드를 쓰지 않는다. 문서상 근거는 확보됐고 실환경
+        확인만 남았다(09절). 그래도 안 되면 폴백으로 Logger가 이미 보고 있는 WAL
+        디렉토리를 파일 메일박스로 재사용한다(폴링).
       </p>
     </div>
 
@@ -2061,8 +2039,8 @@ flowchart LR
           <tr>
             <td>에이전트 간 메시징</td>
             <td>
-              세션 간 메시징 기능 자체는 존재. 헤드리스 프로세스에서도 되는지는
-              미확인
+              세션 간 메시징 기능 자체는 존재. 헤드리스도 inbox를 바인딩한다고
+              문서에 명시(bare 모드 제외) — 실환경 확인만 남음
             </td>
             <td>
               <code>ListAgents</code>/<code>SendMessage</code>는 기본 기능이다.
@@ -2202,10 +2180,7 @@ flowchart LR
         다양성) 두 축으로 복잡도를 형식화한다 — "복합 소프트웨어 프로젝트"를
         막연히 말하는 대신 쓸 수 있는 실제 잣대다. Next.js/Spring+DB 스캐폴드는
         두 축 모두 낮게 나올 것으로 예상된다. 깊이와 너비라는 두 축은 04-0의 스케줄
-        계측(임계 경로 길이와 그래프 폭)과도 같은 형태이며, 폰 노이만<sup
-          class="fnref"
-          ><a href="#fn32">[32]</a></sup
-        >이 느린 부품일수록 깊이가 아니라 너비로 가야 한다고 본 것과도 겹친다.
+        계측(임계 경로 길이와 그래프 폭)과도 같은 형태다.
       </p>
     </div>
 
@@ -2255,12 +2230,15 @@ flowchart LR
       <li id="fn2">
         <span class="fn-num">[2]</span
         ><span
-          >Andrew Ng / DeepLearning.AI, “Agentic AI” (agentic workflow 정의) —
+          >Andrew Ng, “Agentic Design Patterns Part 5: Multi-Agent
+          Collaboration”, <i>The Batch</i> (DeepLearning.AI) — 본문의 “결과
+          품질을 예측하기 어렵다” 인용 출처. 코스 페이지가 아니라 이 글이
+          원문이다.
           <a
-            href="https://www.deeplearning.ai/courses/agentic-ai"
+            href="https://www.deeplearning.ai/the-batch/agentic-design-patterns-part-5-multi-agent-collaboration"
             target="_blank"
             rel="noopener"
-            >https://www.deeplearning.ai/courses/agentic-ai</a
+            >https://www.deeplearning.ai/the-batch/agentic-design-patterns-part-5-multi-agent-collaboration</a
           ></span
         >
       </li>
@@ -2539,9 +2517,16 @@ flowchart LR
       <li id="fn25">
         <span class="fn-num">[25]</span
         ><span
-          >Claude Code <code>SendMessage</code>/<code>ListAgents</code> 도구
-          설명 — 이 세션에서 직접 확인한 내장 도구 설명이며, 안정적인 공개 URL은
-          확인되지 않았다. <span class="fn-none">(링크 없음)</span></span
+          >Claude Code Docs, “Cross-session messaging” 및 “Agent teams” — 본문의
+          세 주장(머신 로컬 per-session 소켓·Anthropic 서버 비경유, 메시지는 순수
+          텍스트로 보내는 쪽 대화 이력·파일 미포함, Agent Teams는 실험적이나 세션
+          간 메시징은 기본 기능)을 공식 문서에서 확인했다.
+          <a
+            href="https://code.claude.com/docs/en/cross-session-messaging"
+            target="_blank"
+            rel="noopener"
+            >https://code.claude.com/docs/en/cross-session-messaging</a
+          ></span
         >
       </li>
       <li id="fn26">
@@ -2610,23 +2595,6 @@ flowchart LR
             Business</i
           >, Blue Hole Press, 2010, ISBN 978-0984521401 — 안정적인 공개 URL은
           확인되지 않았다. <span class="fn-none">(링크 없음)</span></span
-        >
-      </li>
-      <li id="fn32">
-        <span class="fn-num">[32]</span
-        ><span
-          >John von Neumann,
-          <i>The Computer and the Brain</i>, Yale University Press, 1958
-          (Silliman Lectures) — 인용문은 공개 전문이 없어 2차 출처 전사를 따랐고
-          페이지 표기도 2차 출처 기준이다. 인쇄본 대조 전까지 미검증으로 둔다.
-          <span class="fn-none">(원문 링크 없음 · 대출본:
-            <a
-              href="https://archive.org/details/computerbrain0000vonn"
-              target="_blank"
-              rel="noopener"
-              >archive.org</a
-            >)</span
-          ></span
         >
       </li>
     </ol>
