@@ -20,7 +20,7 @@
 | 질문 | 지금까지의 답 |
 | --- | --- |
 | **왜** | 처리량이 아니라 **판단의 독립성**. Reviewer/Verifier가 Implementer의 추론을 상속받지 않도록 컨텍스트 격리 자체를 게이트로 쓴다 |
-| **언제** | 단일 에이전트 기준선 성공률이 **~45% 미만**인 복잡한 태스크에만. 판단 단위는 프로젝트가 아니라 태스크다 |
+| **언제** | 단일 에이전트가 이미 안정적으로 해내는 태스크에는 쓰지 않는다. 판단 단위는 프로젝트가 아니라 태스크이며, 경계선은 빌려오지 않고 이 저장소에서 직접 측정한다 |
 | **어떻게** | 네 역할을 완전히 독립된 프로세스로 두고, JVM 오케스트레이터가 정책을 외부에서 주입해 스폰·회수한다 |
 | **얼마나** | 역할 수·모델은 Allocation Policy가 결정하고, 동시성 상한은 `min(그래프 폭, 자원 실측(peak RSS·API 한도))` — 순차 그래프의 **길이(임계 경로)** 와 **폭(동시 배정 가능 태스크 수)** 을 스케줄 라운드마다 센다 |
 
@@ -73,10 +73,49 @@ AC/DoD다. 판정기를 코드로 쓸 수 있는 자리에서는 사람이 판�
 아니다.)
 
 > **인용에 대한 정직한 단서 —** 튜링의 두 논문은 이 설계에 **어휘와 문제 설정**을 줬을 뿐,
-> 4-role 구조가 효과가 있다는 **증거가 아니다.** 효과에 대한 경험적 근거는 아래 "언제 쓰는가"의
-> 현대 문헌([scaling] 등)에 따로 적었고, RFC 본문의 인용 원칙 — DOI/arXiv가 붙은
+> 4-role 구조가 효과가 있다는 **증거가 아니다.** 그 효과는 아직 아무 문헌으로도 뒷받침되지
+> 않았고, 이 저장소가 직접 측정해야 할 대상이다. RFC 본문의 인용 원칙 — DOI/arXiv가 붙은
 > 인용만 신뢰하고 블로그발 수치는 원문 확인 후 전부 삭제 — 을 여기서도 그대로 적용한다.
 > 1948년 보고서 인용문은 전사본을 기준으로 옮겼다.
+
+## 폰 노이만의 어휘로 말하면 — 정밀도 대신 신뢰도, 깊이 대신 너비
+
+튜링이 *무엇을 구속할 것인가*를 줬다면, 부품의 성질에서 배치를 끌어내는 쪽은 폰 노이만이다.
+『[The Computer and the Brain][vn]』(1958, Silliman 강연)의 세 대목이 이 설계의 두 축과
+그대로 겹친다.
+
+> "the natural componentry favors automata with more, but slower, organs, while the artificial
+> one favors the reverse arrangement of fewer, but faster, organs" (p.51) /
+> "large and efficient natural automata are likely to be highly parallel" (p.52)
+>
+> — 자연의 부품은 더 많지만 더 느린 기관을 가진 자동기계 쪽을, 인공의 부품은 그 반대로 더
+> 적지만 더 빠른 기관 쪽을 선호한다 / 크고 효율적인 자연 자동기계는 고도로 병렬일 가능성이 높다.
+
+초·분 단위로 응답하는 LLM 에이전트는 **느린 기관** 쪽이다. 폰 노이만의 기준을 그대로 적용하면
+이 부품은 깊은 직렬이 아니라 **넓은 병렬**로 밀린다 — 앞 절에서 폭을 세는 이유의 고전적 논거다.
+
+> "characterized by less logical and arithmetical depth than we are used to under otherwise
+> similar circumstances" (p.82)
+>
+> — 여느 경우에 익숙한 것보다 논리적·산술적 깊이가 얕다는 것이 그 특징이다.
+
+그래서 임계 경로(길이)는 시간 하한일 뿐 아니라 **오차가 누적되는 축**이다. 낮은 정밀도의 부품을
+깊게 쌓을수록 나빠진다.
+
+> "The nervous system is a computing machine which manages to do its exceedingly complicated work
+> on a rather low level of precision… what matters are not the precise positions of definite
+> markers, digits, but the statistical characteristics of their occurrences"
+>
+> — 신경계는 지극히 복잡한 일을 상당히 낮은 정밀도로 해내는 계산 기계다. 중요한 것은 표지나
+> 숫자의 정확한 위치가 아니라 그것들이 나타나는 통계적 특성이다.
+> (§ Arithmetical Precision or Logical Reliability, Alternatives)
+
+절 제목 자체가 선택지를 말한다 — **산술적 정밀도냐, 논리적 신뢰도냐.** LLM도 정밀한 마커 기계가
+아니라 통계적 기계이므로, 이 설계는 출력 하나의 정밀도를 끌어올리는 대신 **독립 판정으로 만드는
+시스템 신뢰도** 쪽을 택한다. 아래 오류 증폭 수치가 같은 이야기의 현대적 계량이다.
+
+> **단서 —** 이 책은 공개 전문이 없어 인용문과 페이지 표기 모두 2차 출처 전사를 따랐다. 인쇄본
+> 대조 전까지 [출처와 검증 상태](#출처와-검증-상태)에서 미검증으로 둔다.
 
 ## 목적은 자동화가 아니다
 
@@ -130,16 +169,23 @@ Implementer 세션 내 단계로 접는다.
 
 | 쓴다 | 근거 |
 | --- | --- |
-| 단일 에이전트 기준선 성공률이 낮은(~45% 미만) 복잡한 태스크 | 260개 구성 실험에서 기준선 45%를 넘으면 멀티에이전트 조율 이득이 마이너스로 전환된다 ([scaling]) |
+| 구현자의 추론을 물려받으면 안 되는 태스크 | 판단의 독립성이 곧 이 구조의 존재 이유다. 같은 맥락을 공유한 자기검토로는 잡히지 않는 오류가 대상 |
 | 판정을 게이트로 닫을 수 있는 작업 | 미들웨어는 Exit Code만 심사한다. AC/DoD가 없으면 이 구조가 보장하는 것은 아무것도 없다 |
-| 오류 증폭을 억제해야 하는 작업 | 같은 연구([scaling])에서 분산·독립 에이전트가 오류를 증폭한 반면 중앙집중 조율은 크게 억제했다 — Verifier를 게이트로 두는 선택의 근거 |
+| 회귀 비용이 큰 작업 | 놓친 회귀의 비용이 검증에 드는 토큰·시간과 비대칭일 때, 게이트를 하나 더 두는 편이 싸다 |
 | 감사 추적이 필요한 작업 | 모든 시도가 커밋으로 남고, 인간용 이력은 Squash로 따로 관리된다 |
 
 | 쓰지 않는다 | 근거 |
 | --- | --- |
-| 단일 에이전트가 이미 잘 해내는 태스크 (Next.js 스캐폴드, 단순 CRUD) | 조율 오버헤드가 이득을 갉아먹는다. SWE-bench Verified에서 멀티에이전트가 단일 대비 하락하는 이유도 같다 (RFC 14절) |
+| 단일 에이전트가 이미 안정적으로 해내는 태스크 (Next.js 스캐폴드, 단순 CRUD) | 조율 오버헤드가 이득을 갉아먹는다. 재작업도 회귀도 거의 없는 태스크에 게이트를 네 겹 두는 것은 비용만 남는다 |
 | 서로 의존하거나 같은 파일을 건드리는 태스크 | 병렬로 돌리지 않는다. 의존성 그래프와 파일 결합도 두 신호로 순차/병렬을 가른다 |
 | 채점 기준을 쓸 수 없는 작업 | Reviewer/Verifier의 pass/fail 기준이 없으면 4-role은 성립하지 않는다 (아래 "아직 정하지 않은 것") |
+
+**경계선은 아직 없다.** "얼마나 어려워야 4-role을 쓰는가"의 임계값을 남의 벤치마크에서
+빌려오지 않는다. 멀티에이전트 조율의 손익을 다룬 문헌이 있긴 하지만, 그 연구들이 재는 것은
+과제 정확도이고 이 설계가 내세우는 것은 판단의 독립성이라 종속변수가 다르다. 게다가 배정
+시점에는 "이 태스크의 난이도"를 아직 모른다. 그래서 경계선은 [로드맵](#로드맵)대로 이
+저장소의 재작업률·회귀 발생률로 **직접 측정해서** 정한다. 그때까지 판단은 위의 반증 기준
+하나뿐이다.
 
 ## 문서
 
@@ -149,6 +195,7 @@ Implementer 세션 내 단계로 접는다.
 | [아키텍처.md](./아키텍처.md) | 실행 기반 설계. 단일 JVM 계층 구조와 수직확장 병목 대응. 아래 요약의 원본 |
 | [Intelligent Machinery (1948)][im] · [전사본][im-tx] | 비정형 기계 · 규율과 자발성 인용 출처 |
 | [On Computable Numbers (1936)][cn] · [전사본][cn-tx] | §11 결정문제 인용 출처 |
+| [The Computer and the Brain (1958)][vn] | 정밀도 대신 신뢰도 · 깊이 대신 너비 인용 출처 |
 
 ## 한눈에 보는 실행 기반
 
@@ -257,10 +304,12 @@ my-agent-orchestrator/
    Spawner·Registry·세마포어·토큰 측정을 한 번에 검증한다.
 2. **실측 3종** — 헤드리스 세션 간 메시징 실동 여부, `backlog.md`의 의존성/마일스톤/상태 필드
    실제 지원 범위, `claude` 프로세스 peak RSS와 API 분당 한도.
-3. **JVM 오케스트레이터** — Watcher / Queue / Policy / Spawner / Registry.
+3. **경계선 측정** — walking skeleton이 태스크별 성공/실패와 재작업·회귀를 남기면, 어떤
+   태스크에 4-role이 값을 하는지를 이 백로그의 실제 분포로 정할 수 있다.
+4. **JVM 오케스트레이터** — Watcher / Queue / Policy / Spawner / Registry.
    이 설계에서 유일하게 처음부터 만들어야 하는 부분이다.
-4. **`claude-rails` 역할 인식 확장** — 기존 훅을 role별로 분기.
-5. **정적 분석 · 대시보드** — `JavaParser` 콜 그래프 → Javalin + Vis.js.
+5. **`claude-rails` 역할 인식 확장** — 기존 훅을 role별로 분기.
+6. **정적 분석 · 대시보드** — `JavaParser` 콜 그래프 → Javalin + Vis.js.
 
 ## 아직 정하지 않은 것
 
@@ -278,7 +327,7 @@ README에도 적용한다. 검증이 진행되면 **이 표의 상태 칸만** �
 | --- | --- | --- |
 | §6 보편 기계 · §11 결정문제 | [On Computable Numbers (1936)][cn] · [전사본][cn-tx] | ✅ 전사본 PDF 페이지 대조 완료 (§1 p.230 / §6 p.241 / §11 p.262) |
 | 비정형 기계 · 조건부 보편성 · 규율과 자발성 | [Intelligent Machinery (1948)][im] · [전사본][im-tx] | ⏳ 전사본 + 교차검색 확인. NPL 공식 스캔은 이미지라 텍스트 추출 불가 → 육안 대조 대기 |
-| 45% 임계값 · 오류 증폭 · 조율 이득 역전 | [arXiv:2512.08296][scaling] | ⏳ RFC 14절이 원본. README는 요약만 싣고 수치는 RFC를 따른다 |
+| 정밀도 대신 신뢰도 · 깊이 대신 너비 | [The Computer and the Brain (1958)][vn] | ⏳ 공개 전문 없음 — 2차 출처 전사이며 페이지 표기도 2차 출처 기준. 인쇄본 대조 대기 |
 | 그 외 31건의 인용 | [RFC 각주](./에이전트_레일_파이프라인.html) | RFC 10절 "인용 신뢰도에 대한 실용적 교훈" 참고 |
 
 ## 이 문서를 고치는 규칙
@@ -289,9 +338,10 @@ RFC 본문·링크·논문 검증이 계속 진행되므로 이 README도 자주
 1. **원본은 하나다.** 수치·근거·인용의 원본은 RFC(`에이전트_레일_파이프라인.html`)이고,
    실행 기반 상세의 원본은 `아키텍처.md`다. README는 요약과 진입점일 뿐이며, 어긋나면 원본이
    맞다. 새 근거가 생기면 **원본을 먼저 고치고** 그다음 이 문서를 맞춘다.
-2. **수치는 옮겨 적지 않는다.** README 본문에는 판단에 필요한 최소한(예: ~45% 기준선)만
-   남기고, 정확한 계수·p값·벤치마크 폭은 RFC에 둔다. 새 수치를 README에 넣고 싶어지면 그건
-   RFC에 들어갈 내용이다.
+2. **수치는 옮겨 적지 않는다.** README 본문에는 판단에 필요한 최소한만 남기고, 계수·p값·
+   벤치마크 폭 같은 것은 RFC에 둔다. 새 수치를 README에 넣고 싶어지면 그건 RFC에 들어갈
+   내용이다. **외부 문헌의 수치를 이 설계의 근거처럼 쓰지 않는다** — 종속변수가 같은지부터
+   확인하고, 다르면 인용하지 않는다.
 3. **링크는 문서 맨 아래 한 블록에서만 정의한다.** 본문은 `[표시][키]` 형태로만 쓴다. URL이
    바뀌면 아래 "링크" 블록 한 곳만 고치면 된다.
 4. **검증 상태는 위 표에서만 관리한다.** 본문에 "확인됨/미확인"을 흩뿌리지 않는다.
@@ -345,13 +395,14 @@ automate* but *how far to lay the rails*. On the judging side, [*On Computable N
 is no *general* decision procedure, only the finite, per-project one you write yourself, which is
 what a test gate is. **Turing supplies the vocabulary and the framing here, not the evidence.**
 
-The empirical bounds come from current literature and are deliberately restrictive: multi-agent
-orchestration pays off only when a single agent's baseline success rate is low (past roughly 45%
-the gain turns negative, [scaling]), the decision is made per task rather than per project,
-and the structure carries a falsifiable stopping rule — if four roles do not measurably reduce
-rework and regressions against a single Implementer with self-review, the roles collapse back into
-one session. What remains deliberately unfilled is the Reviewer/Verifier scoring criteria; they
-will not be guessed at.
+No threshold is borrowed from outside. Work on when multi-agent orchestration pays off measures
+task accuracy, whereas this design claims independence of judgment — a different dependent
+variable — and the difficulty of a task is not known at dispatch time anyway. So the boundary is
+to be measured here, from this repository's own rework and regression rates. Until then the only
+rule is the falsifiable stopping criterion: if four roles do not measurably reduce rework and
+regressions against a single Implementer with self-review, the roles collapse back into one
+session. What remains deliberately unfilled is the Reviewer/Verifier scoring criteria; they will
+not be guessed at.
 
 See [에이전트_레일_파이프라인.html](./에이전트_레일_파이프라인.html) for the RFC and
 [아키텍처.md](./아키텍처.md) for the execution substrate (both Korean). Licensed under
@@ -368,4 +419,4 @@ See [에이전트_레일_파이프라인.html](./에이전트_레일_파이프�
 [cn-tx]: http://www.cs.ox.ac.uk/activities/ieg/e-library/sources/tp2-ie.pdf
 [im]: https://www.npl.co.uk/getattachment/84156b8e-1b00-45b7-9f5e-3179cfa458c5/80916595-Intelligent-Machinery.pdf?lang=en-US
 [im-tx]: https://www.info2007.net/docs/intelligent-machinery-alan-turing.html
-[scaling]: https://arxiv.org/abs/2512.08296
+[vn]: https://archive.org/details/computerbrain0000vonn

@@ -606,11 +606,11 @@
         </li>
         <li>
           <b>판단은 프로젝트 종류가 아니라 그 순간의 태스크 난이도로 한다</b>:
-          단일 에이전트가 이미 잘 해내는 태스크(성공률 ~45% 이상)에는
-          멀티에이전트를 쓰지 않는다. Next.js 스캐폴드나 Spring+DB 단순 CRUD처럼
-          단순하게 시작한 프로젝트라도, 이후 태스크의 난이도가 그 기준을
-          넘어서면 그 시점부터 4-role 전체를 쓴다 — 판단은 프로젝트 단위가
-          아니라 태스크마다 반복한다 (14절).
+          단일 에이전트가 이미 안정적으로 해내는 태스크에는 멀티에이전트를 쓰지
+          않는다. Next.js 스캐폴드나 Spring+DB 단순 CRUD처럼 단순하게 시작한
+          프로젝트라도, 이후 태스크의 난이도가 올라가면 그 시점부터 4-role
+          전체를 쓴다 — 판단은 프로젝트 단위가 아니라 태스크마다 반복한다.
+          경계선 자체는 아직 없고, 직접 측정해서 정한다 (14절).
         </li>
         <li>
           <b>부트스트랩 순서는 고정</b>: <code>git init</code> → backlog.md CLI
@@ -682,8 +682,9 @@
           <tr>
             <td><b>언제</b> 쓰는가</td>
             <td>
-              단일 에이전트 성공률이 ~45% 미만인 복잡한 작업에만. 여러 태스크가
-              동시에 Ready면 의존성·파일 결합이 있는 것만 순차, 나머지는 병렬
+              단일 에이전트가 이미 안정적으로 해내는 작업에는 쓰지 않는다
+              (경계선은 측정 대상, 14절). 여러 태스크가 동시에 Ready면
+              의존성·파일 결합이 있는 것만 순차, 나머지는 병렬
             </td>
             <td>04-0 · 14절</td>
           </tr>
@@ -737,6 +738,20 @@
         것이 목적이다 — 위 세 인용 중 어느 것도 이 목적을 반박하지 않는다. [1]이
         경고하는 워크로드는 병렬 리서치용으로 최적화된 것이라, 이 설계와는
         애초에 비교 대상이 다르다.
+      </p>
+      <p style="margin: 0">
+        이 선택은 부품의 성질에서 나온다. 폰 노이만<sup class="fnref"
+          ><a href="#fn32">[32]</a></sup
+        >은 신경계를 "a computing machine which manages to do its exceedingly
+        complicated work on a rather low level of precision"이라 부르며, 거기서
+        중요한 것은 "not the precise positions of definite markers, digits, but
+        the statistical characteristics of their occurrences"라고 했다. 해당
+        절의 제목 자체가 <i>Arithmetical Precision or Logical Reliability,
+        Alternatives</i>다 — 부품의 정밀도를 끌어올리는 길과 시스템의 신뢰도를
+        설계하는 길은 다르다는 것이다. LLM도 정밀한 마커 기계가 아니라 통계적
+        기계이므로, 이 설계는 출력 하나의 정밀도가 아니라
+        <b>독립 판정으로 만드는 시스템 신뢰도</b> 쪽을 택한다. 14절의 오류 증폭
+        수치(중앙집중 검증 4.4 대 독립 17.2)가 같은 이야기의 현대적 계량이다.
       </p>
       <p style="margin: 0">
         <b>반증 가능한 중단 기준</b>: Implementer 단독 + self-review 대비,
@@ -1083,6 +1098,21 @@ flowchart LR
         실제로 이득이었는가"를 계산할 수 있는 유일한 자료이고, 백로그가 계속
         재생성되는 이 구조에서 Gustafson 쪽 가정(용량을 늘리면 처리량도 는다)이
         실제로 성립하는지 확인하는 방법이기도 하다.
+      </p>
+      <p style="margin: 0">
+        길이와 폭이라는 두 축은 새로 만든 잣대가 아니다. 폰 노이만<sup
+          class="fnref"
+          ><a href="#fn32">[32]</a></sup
+        >은 부품의 속도가 곧 구조를 결정한다고 봤다 — "the natural componentry
+        favors automata with more, but slower, organs, while the artificial one
+        favors the reverse arrangement of fewer, but faster, organs"(p.51),
+        그래서 "large and efficient natural automata are likely to be highly
+        parallel"(p.52)이라는 것이다. 초·분 단위로 응답하는 LLM 에이전트는
+        <b>느린 기관</b> 쪽이고, 그 componentry는 깊은 직렬이 아니라 넓은 병렬로
+        밀린다. 같은 책이 신경계를 "characterized by less logical and
+        arithmetical depth"(p.82)라고 정리한 것도 같은 방향이다 — 그래서 여기서
+        길이는 단순한 시간 하한이 아니라 <b>오차가 누적되는 축</b>으로 읽는다
+        (14절 오류 증폭 표와 같은 방향).
       </p>
       <p style="margin: 0; font-size: 13.5px; color: var(--ink-muted)">
         반증 조건: 실측된 폭이 거의 항상 1~2에 머문다면, 이 백로그는 애초에
@@ -1846,6 +1876,22 @@ flowchart LR
           직접 열어본다</b
         >는 원칙을 이 문서 작성 내내 적용했다.
       </p>
+      <p style="margin: 0">
+        <b
+          >여기에 하나를 덧붙인다 — 원문이 맞아도 재는 것이 다르면 인용하지
+          않는다.</b
+        >
+        14절에는 멀티에이전트 조율의 손익 임계값(arXiv:2512.08296<sup
+          class="fnref"
+          ><a href="#fn22">[22]</a></sup
+        >)과 그 반대쪽 사례(arXiv:2505.16979<sup class="fnref"
+          ><a href="#fn23">[23]</a></sup
+        >)를 정량 근거로 싣고 있었다. 원문 대조에서 판본마다 계수가 바뀌는 것을
+        확인했고(같은 논문의 임계 효과가 벤치마크를 넓히자 절반 가까이 약해졌다),
+        더 결정적으로 <b>두 연구가 재는 것은 과제 정확도인데 이 설계가 내세우는
+        것은 판단의 독립성</b>이라 종속변수가 달랐다. 그래서 수치를 고치는 대신
+        인용 자체를 14절에서 뺐다. 두 항목은 기록을 위해 각주에만 남긴다.
+      </p>
     </div>
   </section>
 
@@ -2118,38 +2164,32 @@ flowchart LR
       맞는가"다. Next.js 스캐폴드나 Spring+DB 단순 CRUD는 그 질문에 답하기 위한
       예시일 뿐, 프로젝트 전체가 영구히 4-role 대상에서 제외된다는 뜻이 아니다 —
       같은 프로젝트 안에서도 태스크 난이도가 올라가면 그 태스크부터 4-role을
-      쓴다. 근거 있는 정량적 답이 있었고, 12절의 walking-skeleton 권장을 숫자로
-      뒷받침한다.
+      쓴다. 그 난이도의 경계선을 외부 수치로 정하려던 시도는 아래처럼 철회했고,
+      지금은 측정 대상으로 남겨둔다.
     </p>
 
     <div class="callout">
-      <h3>정량적 임계값 — 단일 에이전트 기준선 ~45%</h3>
+      <h3>경계선은 빌려오지 않는다</h3>
       <p style="margin: 0">
-        "Towards a Science of Scaling Agent Systems"<sup class="fnref"
-          ><a href="#fn22">[22]</a></sup
-        >(arXiv:2512.08296, 260개 구성 실험): 단일 에이전트 기준선 성공률이
-        ~45%를 넘으면 멀티에이전트 조율의 이득이 줄어들다 못해 마이너스로
-        전환된다(β=−0.408, p&lt;0.001). 그 지점을 넘으면 조율 오버헤드가 이득을
-        갉아먹는다. 부수 발견: 분산·독립적 에이전트는 오류를 17.2배 증폭시키는
-        반면 중앙집중형 조율(이 설계의 Verifier 게이트와 같은 형태)은 4.4배로
-        억제한다 — Verifier를 게이트로 두는 구조 선택이 경험적으로 뒷받침된다.
+        "얼마나 어려워야 4-role을 쓰는가"에 대한 정량적 임계값을 외부 연구에서
+        가져오려 했고, 한동안 이 자리에 특정 수치를 적어뒀다. <b>뺐다.</b>
+        멀티에이전트 조율의 손익을 다루는 연구들이 재는 것은 과제 정확도이고, 이
+        설계가 내세우는 것은 판단의 독립성이라 <b>종속변수가 다르다</b>. 정확도
+        기준으로 "이득 없음"이 나와도 회귀 방지 가치는 별도로 남고, 반대로
+        정확도가 올라가도 그것이 독립 판정 덕이라는 보장이 없다.
       </p>
       <p style="margin: 0">
-        소프트웨어 공학 특화 증거: SWE-bench Verified에서 멀티에이전트가 단일
-        에이전트 대비 소폭 하락(−2%~−15%)하는 이유가 바로 프론티어 모델이 이미
-        그 벤치마크에서 ~45% 기준선을 넘기 때문이다. Next.js 스캐폴드나
-        Spring+DB CRUD처럼 "단일 유능한 에이전트가 이미 대부분 해내는" 태스크가
-        여기 해당한다 — 이런 태스크엔 4-role 파이프라인이 순이익이 아니라
-        순손실일 가능성이 높다. 같은 프로젝트라도 태스크가 이 기준을 넘어서면
-        판단은 다시 계산된다.
+        운용상으로도 쓸 수 없다. 배정 시점에 "이 태스크의 단일 에이전트 기준선
+        성공률"은 알 수 없고, 벤치마크 평균 정확도는 눈앞의 이 태스크의 성공률이
+        아니다. 게다가 소프트웨어에서 놓친 회귀의 비용은 검증에 드는 토큰·시간과
+        비대칭인데, 평균 성능을 보는 지표에는 그 비대칭이 들어 있지 않다.
       </p>
       <p style="margin: 0">
-        반대쪽 증거로 "Know the Ropes"<sup class="fnref"
-          ><a href="#fn23">[23]</a></sup
-        >(arXiv:2505.16979)는 단일 에이전트 기준선이 매우 낮은 어려운 조합
-        문제에서 멀티에이전트 분해가 극적 향상(3%→95%, 11%→100%)을 낸다고
-        보고한다 — 두 논문이 같은 결론에 수렴한다: 멀티에이전트의 가치는 단일
-        에이전트가 이미 얼마나 잘하는가에 반비례한다.
+        그래서 이 문서는 임계값을 명시하지 않는다. 판단 기준은 00절의 반증 가능한
+        중단 기준 하나이고, 경계선은 12절 walking skeleton이 쌓는 태스크별
+        성공/실패·재작업·회귀 기록으로 <b>이 저장소의 도메인에서 직접 측정해</b>
+        정한다. 남의 임계값을 상수로 박아두는 것보다 이쪽이 이 문서의 성격에도
+        맞는다.
       </p>
     </div>
 
@@ -2161,8 +2201,11 @@ flowchart LR
         >(arXiv:2510.04311)는 깊이(depth, 추론 길이) × 너비(width, 필요 역량의
         다양성) 두 축으로 복잡도를 형식화한다 — "복합 소프트웨어 프로젝트"를
         막연히 말하는 대신 쓸 수 있는 실제 잣대다. Next.js/Spring+DB 스캐폴드는
-        두 축 모두 낮게 나올 것으로 예상되고, 그 예측이 위 45% 기준선 결과와
-        일치한다.
+        두 축 모두 낮게 나올 것으로 예상된다. 깊이와 너비라는 두 축은 04-0의 스케줄
+        계측(임계 경로 길이와 그래프 폭)과도 같은 형태이며, 폰 노이만<sup
+          class="fnref"
+          ><a href="#fn32">[32]</a></sup
+        >이 느린 부품일수록 깊이가 아니라 너비로 가야 한다고 본 것과도 겹친다.
       </p>
     </div>
 
@@ -2177,18 +2220,17 @@ flowchart LR
         </li>
         <li>
           ChatDev/MetaGPT/AutoGen류 파이프라인을 말 그대로 trivial한 CRUD
-          스캐폴드에 직접 돌려 보고한 연구는 찾지 못했다 — SWE-bench 하락 결과가
-          가장 근접한 간접 증거일 뿐이다.
+          스캐폴드에 직접 돌려 보고한 연구는 찾지 못했다 — 이 대목은 근거 없이
+          상식에 기대고 있다.
         </li>
       </ul>
     </div>
 
     <p>
-      00절의 반증 가능한 중단 기준과 12절의 walking-skeleton 권장이 이제 실제
-      수치(45% 임계값, SWE-bench 하락폭)로 뒷받침된다 — 작고 단순한 프로젝트는
-      Implementer 단독으로 시작하고, 4-role 전체는 단일 에이전트가 자주
-      실패하는(기준선 45% 미만) 더 복잡한 작업에 아껴 쓰는 것이 문헌과 일치하는
-      선택이다.
+      정리하면 이 절에는 빌려온 숫자가 없다. 작고 단순한 프로젝트는 Implementer
+      단독으로 시작하고, 4-role 전체는 단일 에이전트가 자주 실패하는 더 복잡한
+      작업에 아껴 쓴다 — 그 "자주"의 경계선은 00절의 반증 기준과 12절
+      walking-skeleton의 실측이 채운다.
     </p>
   </section>
 
@@ -2461,6 +2503,8 @@ flowchart LR
             target="_blank"
             rel="noopener"
             >https://arxiv.org/abs/2512.08296</a
+          ><br /><span class="fn-none"
+            >본문 인용 없음 — 종속변수 불일치로 14절에서 제외(10절 기록).</span
           ></span
         >
       </li>
@@ -2474,6 +2518,8 @@ flowchart LR
             target="_blank"
             rel="noopener"
             >https://arxiv.org/abs/2505.16979</a
+          ><br /><span class="fn-none"
+            >본문 인용 없음 — 종속변수 불일치로 14절에서 제외(10절 기록).</span
           ></span
         >
       </li>
@@ -2564,6 +2610,23 @@ flowchart LR
             Business</i
           >, Blue Hole Press, 2010, ISBN 978-0984521401 — 안정적인 공개 URL은
           확인되지 않았다. <span class="fn-none">(링크 없음)</span></span
+        >
+      </li>
+      <li id="fn32">
+        <span class="fn-num">[32]</span
+        ><span
+          >John von Neumann,
+          <i>The Computer and the Brain</i>, Yale University Press, 1958
+          (Silliman Lectures) — 인용문은 공개 전문이 없어 2차 출처 전사를 따랐고
+          페이지 표기도 2차 출처 기준이다. 인쇄본 대조 전까지 미검증으로 둔다.
+          <span class="fn-none">(원문 링크 없음 · 대출본:
+            <a
+              href="https://archive.org/details/computerbrain0000vonn"
+              target="_blank"
+              rel="noopener"
+              >archive.org</a
+            >)</span
+          ></span
         >
       </li>
     </ol>
