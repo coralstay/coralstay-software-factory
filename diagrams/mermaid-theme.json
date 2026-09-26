@@ -1,0 +1,28 @@
+{
+  "theme": "base",
+  "themeVariables": {
+    "fontFamily": "IBM Plex Sans, ui-sans-serif, system-ui, sans-serif",
+    "fontSize": "14px",
+    "textColor": "#f00001",
+    "lineColor": "#f00003",
+    "primaryColor": "#f00004",
+    "primaryBorderColor": "#f00003",
+    "primaryTextColor": "#f00001",
+    "actorBkg": "#f00004",
+    "actorBorder": "#f00003",
+    "actorTextColor": "#f00001",
+    "actorLineColor": "#f00003",
+    "signalColor": "#f00003",
+    "signalTextColor": "#f00001",
+    "labelBoxBkgColor": "#f00005",
+    "labelBoxBorderColor": "#f00003",
+    "labelTextColor": "#f00001",
+    "loopTextColor": "#f00001",
+    "noteBkgColor": "#f00007",
+    "noteBorderColor": "#f00006",
+    "noteTextColor": "#f00008",
+    "activationBkgColor": "#f00005",
+    "activationBorderColor": "#f00003",
+    "sequenceNumberColor": "#f00004"
+  }
+}
