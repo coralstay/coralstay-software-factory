@@ -250,15 +250,20 @@ Implementer 세션 내 단계로 접는다.
 
 ### 6. 디렉토리 구조
 
+오케스트레이터는 별도 [구현 저장소][impl]에서 만든다. 패키지는 RFC 06절 컴포넌트명을 따르고,
+`(예정)`이 없는 것만 실제로 있다. Board Watcher · Request Queue · Allocation Policy는 첫
+마일스톤(단발 `run <taskId>`) 범위 밖이고, 계층 2~4(내장 DB · 정적 분석 · 대시보드)도 아직 설계로만 있다.
+
 ```text
-my-agent-orchestrator/
+agent-orchestartor/
 ├── backlog/                        # [상태 저장소] 마크다운 태스크 카드
-├── src/main/java/com/orchestrator/
-│   ├── allocator/                  # [계층 1] ProcessBuilder 기반 순수 배정자
-│   ├── interceptor/                # [계층 2] 임베디드 DB 연동 캐시 미들웨어
-│   ├── parser/                     # [계층 3] JavaParser 기반 정적 분석기
-│   └── web/                        # [계층 4] Javalin 초경량 UI 서버
-└── src/main/resources/public/      # 대시보드 / Vis.js 콜 그래프 페이지
+└── src/main/java/com/coralstay/orchestrator/
+    ├── Main.java · RunCommand.java # CLI 진입점 · (예정) run 흐름 배선
+    ├── backlog/                    # backlog CLI 래퍼 — 태스크 판독
+    ├── workspace/                  # 태스크별 git worktree · task/<id> 브랜치
+    ├── spawn/                      # (예정) Agent Spawner
+    ├── registry/                   # (예정) Session Registry
+    └── ledger/                     # (예정) git-logbook 트레일러 판독
 ```
 
 → [상세](./아키텍처.md#6-프로젝트-디렉토리-구조)
@@ -424,3 +429,4 @@ See [에이전트_레일_파이프라인.html](./에이전트_레일_파이프�
 [cn-tx]: http://www.cs.ox.ac.uk/activities/ieg/e-library/sources/tp2-ie.pdf
 [im]: https://www.npl.co.uk/getattachment/84156b8e-1b00-45b7-9f5e-3179cfa458c5/80916595-Intelligent-Machinery.pdf?lang=en-US
 [im-tx]: https://www.info2007.net/docs/intelligent-machinery-alan-turing.html
+[impl]: https://github.com/coralstay/agent-orchestartor
