@@ -1380,8 +1380,8 @@
         <code>backlog task edit 7 --dep task-1 --dep task-2</code>로 의존성을
         선언하면, "완료되지 않았고 선언한 의존성이 전부 완료된 태스크"인지를
         뜻하는 <code>isReady</code>를 backlog.md 스스로 계산해준다. 즉 06절
-        Board Watcher는 의존성 그래프를 직접 만들 필요 없이 이 필드를 그대로
-        읽으면 된다. 실제 출력 형태:
+        Board Watcher는 의존성 그래프를 직접 만들 필요 없이 이 필드를 읽으면
+        된다(단, 그대로는 아니다 — 아래 실측). 실제 출력 형태:
       </p>
       <div class="diagram">
         <pre
@@ -1408,6 +1408,26 @@ Dependents (2 direct, 2 total):
         >). "Depends on"이 04-0의 순차 체인, "Dependents"가 그 체인이 끝나야
         풀리는 하류 태스크다.
       </div>
+      <p style="margin: 0; font-size: 13.5px; color: var(--ink-muted)">
+        <b>실측 (2026-10-03, backlog.md 1.51.0, agent-orchestartor AO-2)</b> —
+        ⓐ <code>backlog task view &lt;id&gt; --plain</code>은 제목·상태·마일스톤·AC
+        체크 여부와 위 형태의 Dependency Graph(전이 의존까지 트리)를 준다. 상태 줄에는
+        글리프가 붙고(<code>○ To Do</code> · <code>◒ In Progress</code> ·
+        <code>✔ Done</code>), 그래프 안에서는 Done이 <code>[completed]</code>로 찍힌다.
+        <code>isReady</code>·<code>readiness</code>는 <code>--plain</code>에 <b>없고</b>
+        <code>--json</code>(<code>schemaVersion: 1</code>)에만 있다 — 여기에는
+        <code>dependencies</code>, <code>readiness</code>{<code>isReady</code>,
+        <code>isBlocked</code>, <code>blockingDependencies</code>,
+        <code>missingDependencies</code>}, <code>milestone</code>,
+        <code>acceptanceCriteria</code>가 구조화돼 나온다. ⓑ <b><code>isReady</code>는
+        "할당해도 된다"가 아니다.</b> "Done이 아니고 의존이 전부 Done"이라 사람이 선점한
+        <code>In Progress</code> 태스크도 <code>isReady: true</code>이고
+        <code>task list --ready</code>에도 나온다. 할당자는 <code>status == To Do</code>를
+        함께 걸어야 하며, 이것이 위 사람 선점 락의 실제 구현 조건이다. ⓒ
+        <code>backlog draft promote</code>는 다른 draft를 가리키는 의존성
+        (<code>DRAFT-n</code>)을 승격된 태스크 ID로 바꾸지 않는다 — draft 단계에서 건
+        의존성은 승격 뒤 다시 설정해야 한다.
+      </p>
       <p style="margin: 0; font-size: 13.5px; color: var(--ink-muted)">
         "순차 다음 병렬"은 이 문서에서 두 층위로 따로 적용된다 — 혼동하지 않도록
         구분해둔다. <b>태스크 사이</b>에서는 이 절의 규칙대로 의존·결합이 있는
@@ -2124,7 +2144,8 @@ Dependents (2 direct, 2 total):
     </div>
     <p style="margin: 0; font-size: 13.5px; color: var(--ink-muted)">
       "blocked"는 상태 값이 아니라 backlog.md가 의존성으로부터 계산하는 파생
-      속성(<code>isBlocked</code>, 04-0절의 <code>isReady</code>와 짝)이고,
+      속성(<code>isBlocked</code>, 04-0절의 <code>isReady</code>와 짝 — 둘 다
+      <code>--json</code> 출력에만 있다, 04-0절 실측)이고,
       "archive"는 상태가 아니라 <code>milestone archive</code>류의 별도 동작이다
       — 둘 다 이전 판(v19 이전)에서 상태 값으로 잘못 나열돼 있었다.
     </p>
@@ -2163,8 +2184,9 @@ Dependents (2 direct, 2 total):
         대신, backlog.md가 이미 읽기 시점에 계산해 내려주는
         <code>readiness</code>(<code>isReady</code>, <code>isBlocked</code>,
         <code>blockingDependencies</code>, <code>missingDependencies</code>)를
-        그대로 쓴다 — 이미 "의존 태스크가 안 끝나서 막힘"과 "의존 태스크 자체가
-        안 보여서 막힘"을 구분해서 준다. 필요하면 그 위에 오케스트레이터 자신의
+        쓴다 — 이미 "의존 태스크가 안 끝나서 막힘"과 "의존 태스크 자체가
+        안 보여서 막힘"을 구분해서 준다. 단 <code>isReady</code>는
+        <code>In Progress</code>도 참으로 주므로 상태 값과 함께 읽는다(04-0절 실측). 필요하면 그 위에 오케스트레이터 자신의
         계산된(비저장) 레이어를 얹는다 — Airflow가
         <code>TaskInstanceState</code>(태스크 단위, 세밀함) 위에 더 성긴
         <code>DagRunState</code>(실행 단위)를 따로 두는 것과 같은 층위 분리다.
