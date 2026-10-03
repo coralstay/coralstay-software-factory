@@ -39,4 +39,4 @@ sequenceDiagram
     deactivate Imp
     Log-->>Board: 통합 기록(recap+토큰 합계) 저장
     deactivate Log
-    Note over Imp,Log: 태스크 종료 → 각 세션 /clear로 컨텍스트 초기화 →<br/>에이전트 전원 회수(retire)
+    Note over Imp,Log: 태스크 종료 → 각 claude -p 프로세스 종료 = 컨텍스트 폐기<br/>(/clear 단계 없음) → 에이전트 전원 회수(retire, 절차는 Registry에서 확정)
