@@ -1,0 +1,3 @@
+# 부품 저장소는 각자 독립된 git 저장소다 (components/<name>)
+components/
+.DS_Store

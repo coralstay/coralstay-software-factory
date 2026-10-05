@@ -1409,7 +1409,7 @@ Dependents (2 direct, 2 total):
         풀리는 하류 태스크다.
       </div>
       <p style="margin: 0; font-size: 13.5px; color: var(--ink-muted)">
-        <b>실측 (2026-10-03, backlog.md 1.51.0, agent-orchestartor AO-2)</b> —
+        <b>실측 (2026-10-03, backlog.md 1.51.0, agent-orchestrator AO-2)</b> —
         ⓐ <code>backlog task view &lt;id&gt; --plain</code>은 제목·상태·마일스톤·AC
         체크 여부와 위 형태의 Dependency Graph(전이 의존까지 트리)를 준다. 상태 줄에는
         글리프가 붙고(<code>○ To Do</code> · <code>◒ In Progress</code> ·
@@ -1717,7 +1717,7 @@ Dependents (2 direct, 2 total):
         </li>
       </ul>
       <p style="margin: 0; font-size: 13.5px; color: var(--ink-muted)">
-        <b>근거와 남은 것 (2026-10-03, agent-orchestartor AO-4)</b> — 위
+        <b>근거와 남은 것 (2026-10-03, agent-orchestrator AO-4)</b> — 위
         스폰 측 서술은 Spawner 코드에서 정한 설계 사실이다: 프롬프트를
         <code>-p</code> 인자 하나로 넘기고 stdin을 닫아 띄운 뒤, 프로세스가
         끝나면(타임아웃이면 자손까지 종료) 결과만 남는다 — 세션에 명령을 더 보낼
@@ -1725,7 +1725,7 @@ Dependents (2 direct, 2 total):
         실제 <code>claude</code>로의 확인은 E2E(AO-8)에서 한다.
       </p>
       <p style="margin: 0; font-size: 13.5px; color: var(--ink-muted)">
-        <b>회수 정의 확정 (2026-10-03, agent-orchestartor AO-5)</b> — Registry
+        <b>회수 정의 확정 (2026-10-03, agent-orchestrator AO-5)</b> — Registry
         구현에서 위 세 단계를 한 호출로 묶었다: 살아 있으면 자손 목록을 먼저 떠
         두고 SIGTERM → 유예 → SIGKILL로 프로세스·자손을 끝낸 뒤, 목록에서 제거에
         성공한 경우에만 허가를 반납한다. 그래서 회수는 여러 번 불러도 안전하고

@@ -255,7 +255,7 @@ Implementer 세션 내 단계로 접는다.
 마일스톤(단발 `run <taskId>`) 범위 밖이고, 계층 2~4(내장 DB · 정적 분석 · 대시보드)도 아직 설계로만 있다.
 
 ```text
-agent-orchestartor/
+agent-orchestrator/
 ├── backlog/                        # [상태 저장소] 마크다운 태스크 카드
 └── src/main/java/com/coralstay/orchestrator/
     ├── Main.java · RunCommand.java # CLI 진입점 · (예정) run 흐름 배선
@@ -430,4 +430,4 @@ See [에이전트_레일_파이프라인.html](./에이전트_레일_파이프�
 [cn-tx]: http://www.cs.ox.ac.uk/activities/ieg/e-library/sources/tp2-ie.pdf
 [im]: https://www.npl.co.uk/getattachment/84156b8e-1b00-45b7-9f5e-3179cfa458c5/80916595-Intelligent-Machinery.pdf?lang=en-US
 [im-tx]: https://www.info2007.net/docs/intelligent-machinery-alan-turing.html
-[impl]: https://github.com/coralstay/agent-orchestartor
+[impl]: https://github.com/coralstay/agent-orchestrator
