@@ -176,6 +176,7 @@ Implementer 세션 내 단계로 접는다.
 
 | 문서 | 내용 |
 | --- | --- |
+| [design/](./design) | **Sigkill Foundry 설계 문서 (SDD 명세).** 제안서 · 요구사항 명세서 · 아키텍처 설계서 · 구현 계획서 · 구현 결과 보고서의 다섯 문서로 이어진다. 편집 원본은 Claude 앱 문서이고 이 디렉토리는 사본이다 |
 | [에이전트_레일_파이프라인.pdf](./에이전트_레일_파이프라인.pdf) | **RFC 읽기용 (26쪽).** GitHub이 바로 렌더하므로 여기부터 읽으면 된다. `build-pdf.sh`로 재생성하는 생성물이다 |
 | [에이전트_레일_파이프라인.html](./에이전트_레일_파이프라인.html) | **RFC 원본.** 왜·언제·어떻게·얼마나에 대한 근거, 4-role 실행 흐름, 트레이드오프, 31건의 인용. GitHub은 저장소 안의 HTML을 렌더하지 않으므로 내려받아 브라우저로 연다 (180 KB · 자바스크립트 없음) |
 | [diagrams/](./diagrams) | 다이어그램 **원본**. 8개는 Graphviz `.dot`, 태스크 시퀀스 1개는 mermaid `.mmd`다. `build-diagrams.py`가 SVG로 렌더해 HTML에 인라인한다 |
@@ -187,7 +188,7 @@ Implementer 세션 내 단계로 접는다.
 
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
-│                     [ 단일 JVM 프로세스 (Java 22+) ]                   │
+│                     [ 단일 JVM 프로세스 (Java 25) ]                    │
 │                                                                        │
 │ ┌──────────────────────┐   ┌──────────────────────┐   ┌──────────────┐ │
 │ │ 1. Pure Allocator    │ ─>│ 2. Embedded DB       │ ─>│ 3. UI Server │ │
@@ -250,15 +251,20 @@ Implementer 세션 내 단계로 접는다.
 
 ### 6. 디렉토리 구조
 
+오케스트레이터는 별도 [구현 저장소][impl]에서 만든다. 패키지는 RFC 06절 컴포넌트명을 따르고,
+`(예정)`이 없는 것만 실제로 있다. Board Watcher · Request Queue · Allocation Policy는 첫
+마일스톤(단발 `run <taskId>`) 범위 밖이고, 계층 2~4(내장 DB · 정적 분석 · 대시보드)도 아직 설계로만 있다.
+
 ```text
-my-agent-orchestrator/
+agent-orchestrator/
 ├── backlog/                        # [상태 저장소] 마크다운 태스크 카드
-├── src/main/java/com/orchestrator/
-│   ├── allocator/                  # [계층 1] ProcessBuilder 기반 순수 배정자
-│   ├── interceptor/                # [계층 2] 임베디드 DB 연동 캐시 미들웨어
-│   ├── parser/                     # [계층 3] JavaParser 기반 정적 분석기
-│   └── web/                        # [계층 4] Javalin 초경량 UI 서버
-└── src/main/resources/public/      # 대시보드 / Vis.js 콜 그래프 페이지
+└── src/main/java/com/coralstay/orchestrator/
+    ├── Main.java · RunCommand.java # CLI 진입점 · (예정) run 흐름 배선
+    ├── backlog/                    # backlog CLI 래퍼 — 태스크 판독
+    ├── workspace/                  # 태스크별 git worktree · task/<id> 브랜치
+    ├── spawn/                      # (예정) Agent Spawner
+    ├── registry/                   # (예정) Session Registry
+    └── ledger/                     # (예정) git-logbook 트레일러 판독
 ```
 
 → [상세](./아키텍처.md#6-프로젝트-디렉토리-구조)
@@ -288,15 +294,17 @@ my-agent-orchestrator/
 ## 로드맵
 
 1. **Walking skeleton (다음 착수 지점)** — 4-role 전체가 아니라 Implementer 하나만 스폰 →
-   작업 → 토큰 집계 → `/clear` → 회수. 아직 없는 채점 기준을 요구하지 않는 유일한 조각이면서
+   작업 → 토큰 집계 → 회수(프로세스·자손 종료 + Registry 제거 — 헤드리스 세션은 종료가 곧
+   컨텍스트 폐기라 `/clear` 단계가 없다). 아직 없는 채점 기준을 요구하지 않는 유일한 조각이면서
    Spawner·Registry·세마포어·토큰 측정을 한 번에 검증한다.
 2. **실측 3종** — 헤드리스 세션 간 메시징 실동 여부, `backlog.md`의 의존성/마일스톤/상태 필드
-   실제 지원 범위, `claude` 프로세스 peak RSS와 API 분당 한도.
+   실제 지원 범위, `claude` 프로세스 peak RSS와 API 분당 한도. 진행 상태는
+   [출처와 검증 상태](#출처와-검증-상태) 표에서만 갱신한다.
 3. **경계선 측정** — walking skeleton이 태스크별 성공/실패와 재작업·회귀를 남기면, 어떤
    태스크에 4-role이 값을 하는지를 이 백로그의 실제 분포로 정할 수 있다.
 4. **JVM 오케스트레이터** — Watcher / Queue / Policy / Spawner / Registry.
    이 설계에서 유일하게 처음부터 만들어야 하는 부분이다.
-5. **`claude-rails` 역할 인식 확장** — 기존 훅을 role별로 분기.
+5. **`claude-code-agile-hooks` 역할 인식 확장** — 기존 훅을 role별로 분기.
 6. **정적 분석 · 대시보드** — `JavaParser` 콜 그래프 → Javalin + Vis.js.
 
 ## 아직 정하지 않은 것
@@ -323,6 +331,8 @@ README에도 적용한다. 검증이 진행되면 **이 표의 상태 칸만** �
 | §6 보편 기계 · §11 결정문제 (1936) | [원문 스캔][cn] · [전사본][cn-tx] | ✅ 전사본 PDF 페이지 대조(§1 p.230 / §6 p.241 / §11 p.262) + Copeland 편 『The Essential Turing』(Oxford 2004) 수록 원문 재대조 |
 | 비정형 기계 · 조건부 보편성 · 규율과 자발성 (1948) | [NPL 스캔][im] · [전사본][im-tx] | ✅ 『The Essential Turing』 수록 원문과 페이지 단위 대조 완료 (p.417 / p.423 / p.425 / p.431) |
 | 그 외 31건의 인용 | [RFC 각주](./에이전트_레일_파이프라인.html) | RFC 10절 "인용 신뢰도에 대한 실용적 교훈" 참고 |
+| 로드맵 2 실측 — `backlog.md` 의존성/마일스톤/상태 필드 지원 범위 | [RFC 04-0절 실측](./에이전트_레일_파이프라인.html) | ✅ backlog.md 1.51.0 실측(2026-10-03). `isReady`를 그대로 할당 조건으로 쓸 수 없다는 정정 포함 |
+| 로드맵 2 실측 — 헤드리스 세션 간 메시징 · `claude` peak RSS · API 분당 한도 | — | ⏳ |
 
 ## 이 문서를 고치는 규칙
 
