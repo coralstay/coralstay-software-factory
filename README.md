@@ -176,7 +176,7 @@ Implementer 세션 내 단계로 접는다.
 
 | 문서 | 내용 |
 | --- | --- |
-| [design/](./design) | **Sigkill Foundry 블루프린트 (SDD 명세, 작성 중).** 편집 원본은 Claude 앱 문서이고 이 디렉토리는 사본이다 |
+| [design/](./design) | **Sigkill Foundry 설계 문서 (SDD 명세).** 제안서 · 요구사항 명세서 · 아키텍처 설계서 · 구현 계획서 · 구현 결과 보고서의 다섯 문서로 이어진다. 편집 원본은 Claude 앱 문서이고 이 디렉토리는 사본이다 |
 | [에이전트_레일_파이프라인.pdf](./에이전트_레일_파이프라인.pdf) | **RFC 읽기용 (26쪽).** GitHub이 바로 렌더하므로 여기부터 읽으면 된다. `build-pdf.sh`로 재생성하는 생성물이다 |
 | [에이전트_레일_파이프라인.html](./에이전트_레일_파이프라인.html) | **RFC 원본.** 왜·언제·어떻게·얼마나에 대한 근거, 4-role 실행 흐름, 트레이드오프, 31건의 인용. GitHub은 저장소 안의 HTML을 렌더하지 않으므로 내려받아 브라우저로 연다 (180 KB · 자바스크립트 없음) |
 | [diagrams/](./diagrams) | 다이어그램 **원본**. 8개는 Graphviz `.dot`, 태스크 시퀀스 1개는 mermaid `.mmd`다. `build-diagrams.py`가 SVG로 렌더해 HTML에 인라인한다 |
