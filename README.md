@@ -304,7 +304,7 @@ agent-orchestrator/
    태스크에 4-role이 값을 하는지를 이 백로그의 실제 분포로 정할 수 있다.
 4. **JVM 오케스트레이터** — Watcher / Queue / Policy / Spawner / Registry.
    이 설계에서 유일하게 처음부터 만들어야 하는 부분이다.
-5. **`claude-rails` 역할 인식 확장** — 기존 훅을 role별로 분기.
+5. **`interlock` 역할 인식 확장** — 기존 훅을 role별로 분기.
 6. **정적 분석 · 대시보드** — `JavaParser` 콜 그래프 → Javalin + Vis.js.
 
 ## 아직 정하지 않은 것
