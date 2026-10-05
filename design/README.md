@@ -48,7 +48,7 @@ Claude Code 세션을 찍어내고 `kill -9`로 끊어내는 소프트웨어 공
 | --- | --- | --- | --- |
 | 3.01 | [시스템 구성](./3-아키텍처-설계서/01-시스템-구성.md) | 작성 전 | [열기](https://claude.ai/artifact/Q1CJ63Gc6nnTsuwL1u8Uht) |
 | 3.02 | [동작 명세](./3-아키텍처-설계서/02-동작-명세.md) | 작성 전 | [열기](https://claude.ai/artifact/XBRS4SM3GHxtU41GBQLZiT) |
-| 3.03 | [부품 명세](./3-아키텍처-설계서/03-부품-명세.md) | 작성 전 | [열기](https://claude.ai/artifact/HHJgR3WFsfngx6sc5SwZNU) |
+| 3.03 | [컴포넌트 명세](./3-아키텍처-설계서/03-컴포넌트-명세.md) | 작성 전 | [열기](https://claude.ai/artifact/HHJgR3WFsfngx6sc5SwZNU) |
 | 3.04 | [인터페이스 계약](./3-아키텍처-설계서/04-인터페이스-계약.md) | 작성 전 | [열기](https://claude.ai/artifact/G5jcsfayUeiK9mRaUHV2tH) |
 | 3.05 | [설계 결정](./3-아키텍처-설계서/05-설계-결정.md) | 작성 전 | [열기](https://claude.ai/artifact/Gitrf6QTfB4pSvJA3KrpsF) |
 
