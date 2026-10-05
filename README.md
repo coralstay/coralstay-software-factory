@@ -363,7 +363,7 @@ RFC 본문·링크·논문 검증이 계속 진행되므로 이 README도 자주
 
 ## 라이선스
 
-[GNU AGPL-3.0](./LICENSE) — 문서와 아티팩트를 포함한 저장소 전체에 적용된다.
+[GNU AGPL-3.0](./LICENSE) — 문서와 아티팩트를 포함한 저장소 전체에 적용된다(전문: [`LICENSE`](./LICENSE), [GNU AGPL-3.0 원문][agpl]).
 
 - **상용 라이선스 —** 저작권자가 단독이므로 듀얼 라이선스가 가능하다. AGPL 조건(네트워크
   서비스 제공 시 수정 소스 공개)이 맞지 않는 상용 사용은 별도 협의한다.
@@ -418,7 +418,7 @@ not be guessed at.
 
 See [에이전트_레일_파이프라인.html](./에이전트_레일_파이프라인.html) for the RFC and
 [아키텍처.md](./아키텍처.md) for the execution substrate (both Korean). Licensed under
-[AGPL-3.0](./LICENSE); commercial licensing available on request —
+[AGPL-3.0](./LICENSE) ([original text][agpl]); commercial licensing available on request —
 <coralstay3595@gmail.com> or a GitHub issue.
 
 ---
@@ -431,4 +431,4 @@ See [에이전트_레일_파이프라인.html](./에이전트_레일_파이프�
 [cn-tx]: http://www.cs.ox.ac.uk/activities/ieg/e-library/sources/tp2-ie.pdf
 [im]: https://www.npl.co.uk/getattachment/84156b8e-1b00-45b7-9f5e-3179cfa458c5/80916595-Intelligent-Machinery.pdf?lang=en-US
 [im-tx]: https://www.info2007.net/docs/intelligent-machinery-alan-turing.html
-[impl]: https://github.com/coralstay/agent-orchestrator
+[agpl]: https://www.gnu.org/licenses/agpl-3.0.html
