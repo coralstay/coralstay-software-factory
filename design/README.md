@@ -4,22 +4,25 @@ Claude Code 세션을 찍어내고 `kill -9`로 끊어내는 소프트웨어 공
 에이전트를 독립 프로세스로 스폰·회수하는 파이프라인의 설계서. 문서 정보와 작성 규칙은
 [0장](./00-문서-정보.md)에 있다.
 
+**편집 원본은 Claude 앱의 문서들이다** ([목차 문서](https://claude.ai/artifact/QAJmbuZWtjpfawkDHReQs6)). 이 디렉토리의 `*.md`는 Claude가
+동기화하는 사본이며, 문서와 어긋나면 문서가 맞다.
+
 ## 목차
 
-| 장 | 제목 | 상태 |
-| --- | --- | --- |
-| 00 | [문서 정보](./00-문서-정보.md) | 초안 |
-| 01 | [요약](./01-요약.md) | 초안 |
-| 02 | [배경과 동기](./02-배경과-동기.md) | 초안 |
-| 03 | [목표와 비목표](./03-목표와-비목표.md) | 작성 전 |
-| 04 | [핵심 개념](./04-핵심-개념.md) | 작성 전 |
-| 05 | [시스템 구성](./05-시스템-구성.md) | 작성 전 |
-| 06 | [실행 흐름](./06-실행-흐름.md) | 작성 전 |
-| 07 | [부품 명세](./07-부품-명세.md) | 작성 전 |
-| 08 | [계약](./08-계약.md) | 작성 전 |
-| 09 | [측정과 검증](./09-측정과-검증.md) | 작성 전 |
-| 10 | [결정 기록](./10-결정-기록.md) | 작성 전 |
-| 11 | [미해결 질문](./11-미해결-질문.md) | 작성 전 |
-| 12 | [구현 계획](./12-구현-계획.md) | 작성 전 |
-| 13 | [관련 연구 · 인용](./13-관련-연구-인용.md) | 작성 전 |
-| 부록 | [용어집 · 다이어그램](./부록-용어집-다이어그램.md) | 작성 전 |
+| 장 | 제목 | 상태 | Claude 앱 문서 |
+| --- | --- | --- | --- |
+| 00 | [문서 정보](./00-문서-정보.md) | 초안 | [열기](https://claude.ai/artifact/Kkh1r7pdyVWymAfC2Ba97e) |
+| 01 | [요약](./01-요약.md) | 초안 | [열기](https://claude.ai/artifact/EwBucnjb1FJZfwH9QPg3sh) |
+| 02 | [배경과 동기](./02-배경과-동기.md) | 초안 | [열기](https://claude.ai/artifact/DmWDN6zKAdfrbLkrzfpshU) |
+| 03 | [목표와 비목표](./03-목표와-비목표.md) | 작성 전 | [열기](https://claude.ai/artifact/QbmDXni7oiBb5BdDKA37hP) |
+| 04 | [핵심 개념](./04-핵심-개념.md) | 작성 전 | [열기](https://claude.ai/artifact/HFSpoquu2H8JskZMKPy9m9) |
+| 05 | [시스템 구성](./05-시스템-구성.md) | 작성 전 | [열기](https://claude.ai/artifact/Q1CJ63Gc6nnTsuwL1u8Uht) |
+| 06 | [실행 흐름](./06-실행-흐름.md) | 작성 전 | [열기](https://claude.ai/artifact/XBRS4SM3GHxtU41GBQLZiT) |
+| 07 | [부품 명세](./07-부품-명세.md) | 작성 전 | [열기](https://claude.ai/artifact/HHJgR3WFsfngx6sc5SwZNU) |
+| 08 | [계약](./08-계약.md) | 작성 전 | [열기](https://claude.ai/artifact/G5jcsfayUeiK9mRaUHV2tH) |
+| 09 | [측정과 검증](./09-측정과-검증.md) | 작성 전 | [열기](https://claude.ai/artifact/FcjuvQYDBTAYLaV8sds3Fd) |
+| 10 | [결정 기록](./10-결정-기록.md) | 작성 전 | [열기](https://claude.ai/artifact/1KyyZ1AHuzNfq1hrTc8G3S) |
+| 11 | [미해결 질문](./11-미해결-질문.md) | 작성 전 | [열기](https://claude.ai/artifact/Gitrf6QTfB4pSvJA3KrpsF) |
+| 12 | [구현 계획](./12-구현-계획.md) | 작성 전 | [열기](https://claude.ai/artifact/5FEhZ2ED4yGwnSs1mAoVeh) |
+| 13 | [관련 연구 · 인용](./13-관련-연구-인용.md) | 작성 전 | [열기](https://claude.ai/artifact/8abff2b7koK1vfGpf1k9R5) |
+| 부록 | [용어집 · 다이어그램](./부록-용어집-다이어그램.md) | 작성 전 | [열기](https://claude.ai/artifact/F1tfo4uREJ4zNopy71TPvA) |
