@@ -13,7 +13,7 @@ sequenceDiagram
     Note over Imp,Log: 부착 시 공통 — 태스크 → 상위 마일스톤(들) → 루트까지<br/>문서를 프롬프트 캐시로 읽고 시작 (11절)
 
     loop AC 단위 반복
-        Imp->>Imp: 구현 → claude-rails 테스트게이트 통과 → 커밋
+        Imp->>Imp: 구현 → claude-code-agile-hooks 테스트게이트 통과 → 커밋
         Note over Imp: git-format post-commit이<br/>이 커밋의 토큰 사용량을 즉시 측정
         par Reviewer — 판단
             Imp->>Rev: AC 완료 알림
