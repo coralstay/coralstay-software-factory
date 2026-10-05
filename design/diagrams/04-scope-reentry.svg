@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg data-generated-by="design/build-diagrams.py" role="img" aria-label="04-scope-reentry" width="614pt" height="119pt"
+ viewBox="0.00 0.00 614.00 119.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<style>:root { --diagram-ink: #1a2330; --diagram-muted: #51616c; --diagram-line: #c9d3d8; --diagram-surface: #ffffff; --diagram-surface-2: #eaf0f2; --diagram-accent: #0e7c86; --diagram-accent-bg: #d8eeef; --diagram-accent-ink: #08565d; --diagram-impl: #2b6cb0; --diagram-impl-bg: #dbe9f7; --diagram-review: #7c3aed; --diagram-review-bg: #ece3fc; --diagram-verify: #2f855a; --diagram-verify-bg: #def0e6; --diagram-logger: #5b6b78; --diagram-logger-bg: #e4e9ec; }
+@media (prefers-color-scheme: dark) { :root { --diagram-ink: #e7eef2; --diagram-muted: #9aaab4; --diagram-line: #2e3d47; --diagram-surface: #182129; --diagram-surface-2: #1f2a33; --diagram-accent: #3fc4ce; --diagram-accent-bg: #163238; --diagram-accent-ink: #8ee3e9; --diagram-impl: #7db3e8; --diagram-impl-bg: #1c2c3d; --diagram-review: #b79bf5; --diagram-review-bg: #291f3d; --diagram-verify: #7cd1a3; --diagram-verify-bg: #173226; --diagram-logger: #a6b4bd; --diagram-logger-bg: #232e36; } }</style>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 114.9)">
+<title>scope_reentry</title>
+<g id="node1" class="node">
+<title>X1</title>
+<path fill="var(--diagram-surface)" stroke="var(--diagram-line)" stroke-width="1.1" d="M120.42,-63.9C120.42,-63.9 12,-63.9 12,-63.9 6,-63.9 0,-57.9 0,-51.9 0,-51.9 0,-33 0,-33 0,-27 6,-21 12,-21 12,-21 120.42,-21 120.42,-21 126.42,-21 132.42,-27 132.42,-33 132.42,-33 132.42,-51.9 132.42,-51.9 132.42,-57.9 126.42,-63.9 120.42,-63.9"/>
+<text xml:space="preserve" text-anchor="middle" x="66.21" y="-46.25" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">Implementer/Verifier가</text>
+<text xml:space="preserve" text-anchor="middle" x="66.21" y="-32" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">AC 밖 작업 발견</text>
+</g>
+<g id="node2" class="node">
+<title>X2</title>
+<polygon fill="var(--diagram-accent-bg)" stroke="var(--diagram-accent)" stroke-width="1.1" points="225.37,-73.83 169.42,-42.45 225.37,-11.07 281.32,-42.45 225.37,-73.83"/>
+<text xml:space="preserve" text-anchor="middle" x="225.37" y="-46.25" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-accent-ink)">사용자에게</text>
+<text xml:space="preserve" text-anchor="middle" x="225.37" y="-32" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-accent-ink)">먼저 확인</text>
+</g>
+<g id="edge1" class="edge">
+<title>X1&#45;&gt;X2</title>
+<path fill="none" stroke="var(--diagram-line)" stroke-width="1.1" d="M132.95,-42.45C141.87,-42.45 151.02,-42.45 159.92,-42.45"/>
+<polygon fill="var(--diagram-line)" stroke="var(--diagram-line)" stroke-width="1.1" points="159.7,-44.9 166.7,-42.45 159.7,-40 159.7,-44.9"/>
+</g>
+<g id="node3" class="node">
+<title>X3</title>
+<path fill="var(--diagram-surface)" stroke="var(--diagram-line)" stroke-width="1.1" d="M427.99,-110.9C427.99,-110.9 347.32,-110.9 347.32,-110.9 341.32,-110.9 335.32,-104.9 335.32,-98.9 335.32,-98.9 335.32,-80 335.32,-80 335.32,-74 341.32,-68 347.32,-68 347.32,-68 427.99,-68 427.99,-68 433.99,-68 439.99,-74 439.99,-80 439.99,-80 439.99,-98.9 439.99,-98.9 439.99,-104.9 433.99,-110.9 427.99,-110.9"/>
+<text xml:space="preserve" text-anchor="middle" x="387.66" y="-93.25" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">Phase B 재진입</text>
+<text xml:space="preserve" text-anchor="middle" x="387.66" y="-79" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">(브리핑부터 다시)</text>
+</g>
+<g id="edge2" class="edge">
+<title>X2&#45;&gt;X3</title>
+<path fill="none" stroke="var(--diagram-accent)" stroke-width="1.1" d="M263.14,-53.23C281.99,-58.76 305.42,-65.63 326.79,-71.9"/>
+<polygon fill="var(--diagram-accent)" stroke="var(--diagram-accent)" stroke-width="1.1" points="325.87,-74.18 333.27,-73.8 327.24,-69.48 325.87,-74.18"/>
+<text xml:space="preserve" text-anchor="middle" x="308.32" y="-71.26" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="10.00" fill="var(--diagram-accent-ink)">승인</text>
+</g>
+<g id="node4" class="node">
+<title>X4</title>
+<path fill="var(--diagram-surface)" stroke="var(--diagram-line)" stroke-width="1.1" d="M414.49,-42.9C414.49,-42.9 360.82,-42.9 360.82,-42.9 354.82,-42.9 348.82,-36.9 348.82,-30.9 348.82,-30.9 348.82,-12 348.82,-12 348.82,-6 354.82,0 360.82,0 360.82,0 414.49,0 414.49,0 420.49,0 426.49,-6 426.49,-12 426.49,-12 426.49,-30.9 426.49,-30.9 426.49,-36.9 420.49,-42.9 414.49,-42.9"/>
+<text xml:space="preserve" text-anchor="middle" x="387.66" y="-25.25" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">현재 태스크</text>
+<text xml:space="preserve" text-anchor="middle" x="387.66" y="-11" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">범위 유지</text>
+</g>
+<g id="edge3" class="edge">
+<title>X2&#45;&gt;X4</title>
+<path fill="none" stroke="var(--diagram-line)" stroke-width="1.1" d="M271.44,-36.54C292.86,-33.74 318.44,-30.39 340.05,-27.56"/>
+<polygon fill="var(--diagram-line)" stroke="var(--diagram-line)" stroke-width="1.1" points="340.15,-30.01 346.78,-26.67 339.52,-25.16 340.15,-30.01"/>
+<text xml:space="preserve" text-anchor="middle" x="308.32" y="-35.08" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="10.00" fill="var(--diagram-muted)">반려</text>
+</g>
+<g id="node5" class="node">
+<title>X5</title>
+<path fill="var(--diagram-surface)" stroke="var(--diagram-line)" stroke-width="1.1" d="M594.41,-110.9C594.41,-110.9 488.99,-110.9 488.99,-110.9 482.99,-110.9 476.99,-104.9 476.99,-98.9 476.99,-98.9 476.99,-80 476.99,-80 476.99,-74 482.99,-68 488.99,-68 488.99,-68 594.41,-68 594.41,-68 600.41,-68 606.41,-74 606.41,-80 606.41,-80 606.41,-98.9 606.41,-98.9 606.41,-104.9 600.41,-110.9 594.41,-110.9"/>
+<text xml:space="preserve" text-anchor="middle" x="541.7" y="-93.25" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">신규 마일스톤/태스크로</text>
+<text xml:space="preserve" text-anchor="middle" x="541.7" y="-79" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">보드에 추가</text>
+</g>
+<g id="edge4" class="edge">
+<title>X3&#45;&gt;X5</title>
+<path fill="none" stroke="var(--diagram-line)" stroke-width="1.1" d="M440.13,-89.45C449.1,-89.45 458.58,-89.45 468,-89.45"/>
+<polygon fill="var(--diagram-line)" stroke="var(--diagram-line)" stroke-width="1.1" points="467.94,-91.9 474.94,-89.45 467.94,-87 467.94,-91.9"/>
+</g>
+</g>
+</svg>

@@ -1,0 +1,19 @@
+digraph scope_reentry {
+  bgcolor="transparent"; rankdir=LR; nodesep=0.35; ranksep=0.5;
+  node [shape=box, style="filled,rounded", fillcolor="#f00004", color="#f00003",
+        fontcolor="#f00001", fontname="Helvetica", fontsize=11, margin="0.18,0.10", penwidth=1.1];
+  edge [color="#f00003", arrowsize=0.7, penwidth=1.1, fontname="Helvetica", fontsize=10,
+        fontcolor="#f00002"];
+
+  X1 [label="Implementer/Verifier가\nAC 밖 작업 발견"];
+  X2 [label="사용자에게\n먼저 확인", shape=diamond, style="filled", fillcolor="#f00007",
+      color="#f00006", fontcolor="#f00008", margin="0.05,0.02"];
+  X3 [label="Phase B 재진입\n(브리핑부터 다시)"];
+  X4 [label="현재 태스크\n범위 유지"];
+  X5 [label="신규 마일스톤/태스크로\n보드에 추가"];
+
+  X1 -> X2;
+  X2 -> X3 [label="승인", color="#f00006", fontcolor="#f00008"];
+  X2 -> X4 [label="반려"];
+  X3 -> X5;
+}

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg data-generated-by="design/build-diagrams.py" role="img" aria-label="09-orchestrator" width="1080pt" height="116pt"
+ viewBox="0.00 0.00 1080.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<style>:root { --diagram-ink: #1a2330; --diagram-muted: #51616c; --diagram-line: #c9d3d8; --diagram-surface: #ffffff; --diagram-surface-2: #eaf0f2; --diagram-accent: #0e7c86; --diagram-accent-bg: #d8eeef; --diagram-accent-ink: #08565d; --diagram-impl: #2b6cb0; --diagram-impl-bg: #dbe9f7; --diagram-review: #7c3aed; --diagram-review-bg: #ece3fc; --diagram-verify: #2f855a; --diagram-verify-bg: #def0e6; --diagram-logger: #5b6b78; --diagram-logger-bg: #e4e9ec; }
+@media (prefers-color-scheme: dark) { :root { --diagram-ink: #e7eef2; --diagram-muted: #9aaab4; --diagram-line: #2e3d47; --diagram-surface: #182129; --diagram-surface-2: #1f2a33; --diagram-accent: #3fc4ce; --diagram-accent-bg: #163238; --diagram-accent-ink: #8ee3e9; --diagram-impl: #7db3e8; --diagram-impl-bg: #1c2c3d; --diagram-review: #b79bf5; --diagram-review-bg: #291f3d; --diagram-verify: #7cd1a3; --diagram-verify-bg: #173226; --diagram-logger: #a6b4bd; --diagram-logger-bg: #232e36; } }</style>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 112.33)">
+<title>orchestrator</title>
+<g id="node1" class="node">
+<title>W</title>
+<path fill="var(--diagram-surface)" stroke="var(--diagram-line)" stroke-width="1.1" d="M115.17,-108.33C115.17,-108.33 12,-108.33 12,-108.33 6,-108.33 0,-102.33 0,-96.33 0,-96.33 0,-79.67 0,-79.67 0,-73.67 6,-67.67 12,-67.67 12,-67.67 115.17,-67.67 115.17,-67.67 121.17,-67.67 127.17,-73.67 127.17,-79.67 127.17,-79.67 127.17,-96.33 127.17,-96.33 127.17,-102.33 121.17,-108.33 115.17,-108.33"/>
+<text xml:space="preserve" text-anchor="middle" x="63.59" y="-90.67" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">Board Watcher</text>
+<text xml:space="preserve" text-anchor="middle" x="63.59" y="-78.67" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">backlog 상태변화 감지</text>
+</g>
+<g id="node2" class="node">
+<title>Q</title>
+<path fill="var(--diagram-surface)" stroke="var(--diagram-line)" stroke-width="1.1" d="M254.97,-106C254.97,-106 177.3,-106 177.3,-106 171.3,-106 165.3,-100 165.3,-94 165.3,-94 165.3,-82 165.3,-82 165.3,-76 171.3,-70 177.3,-70 177.3,-70 254.97,-70 254.97,-70 260.97,-70 266.97,-76 266.97,-82 266.97,-82 266.97,-94 266.97,-94 266.97,-100 260.97,-106 254.97,-106"/>
+<text xml:space="preserve" text-anchor="middle" x="216.13" y="-83.55" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">Request Queue</text>
+</g>
+<g id="edge1" class="edge">
+<title>W&#45;&gt;Q</title>
+<path fill="none" stroke="var(--diagram-line)" stroke-width="1.1" d="M127.56,-88C137.06,-88 146.83,-88 156.24,-88"/>
+<polygon fill="var(--diagram-line)" stroke="var(--diagram-line)" stroke-width="1.1" points="156.09,-90.45 163.09,-88 156.09,-85.55 156.09,-90.45"/>
+</g>
+<g id="node3" class="node">
+<title>D</title>
+<path fill="var(--diagram-surface)" stroke="var(--diagram-line)" stroke-width="1.1" d="M468.76,-67.33C468.76,-67.33 385.09,-67.33 385.09,-67.33 379.09,-67.33 373.09,-61.33 373.09,-55.33 373.09,-55.33 373.09,-38.67 373.09,-38.67 373.09,-32.67 379.09,-26.68 385.09,-26.68 385.09,-26.68 468.76,-26.68 468.76,-26.68 474.76,-26.68 480.76,-32.67 480.76,-38.67 480.76,-38.67 480.76,-55.33 480.76,-55.33 480.76,-61.33 474.76,-67.33 468.76,-67.33"/>
+<text xml:space="preserve" text-anchor="middle" x="426.93" y="-49.67" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">Dispatcher</text>
+<text xml:space="preserve" text-anchor="middle" x="426.93" y="-37.67" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">(용량 제한 워커풀)</text>
+</g>
+<g id="edge2" class="edge">
+<title>Q&#45;&gt;D</title>
+<path fill="none" stroke="var(--diagram-line)" stroke-width="1.1" d="M267.31,-78.82C293.5,-73.96 326.05,-67.81 355.09,-62 358.1,-61.4 361.18,-60.77 364.3,-60.14"/>
+<polygon fill="var(--diagram-line)" stroke="var(--diagram-line)" stroke-width="1.1" points="364.58,-62.58 370.95,-58.77 363.59,-57.78 364.58,-62.58"/>
+</g>
+<g id="node5" class="node">
+<title>S</title>
+<path fill="var(--diagram-surface)" stroke="var(--diagram-line)" stroke-width="1.1" d="M625.43,-67.33C625.43,-67.33 529.76,-67.33 529.76,-67.33 523.76,-67.33 517.76,-61.33 517.76,-55.33 517.76,-55.33 517.76,-38.67 517.76,-38.67 517.76,-32.67 523.76,-26.68 529.76,-26.68 529.76,-26.68 625.43,-26.68 625.43,-26.68 631.43,-26.68 637.43,-32.67 637.43,-38.67 637.43,-38.67 637.43,-55.33 637.43,-55.33 637.43,-61.33 631.43,-67.33 625.43,-67.33"/>
+<text xml:space="preserve" text-anchor="middle" x="577.6" y="-49.67" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">Agent Spawner</text>
+<text xml:space="preserve" text-anchor="middle" x="577.6" y="-37.67" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">역할별 프로세스 실행</text>
+</g>
+<g id="edge3" class="edge">
+<title>D&#45;&gt;S</title>
+<path fill="none" stroke="var(--diagram-line)" stroke-width="1.1" d="M481.18,-47C490.17,-47 499.62,-47 508.92,-47"/>
+<polygon fill="var(--diagram-line)" stroke="var(--diagram-line)" stroke-width="1.1" points="508.74,-49.45 515.74,-47 508.74,-44.55 508.74,-49.45"/>
+</g>
+<g id="node4" class="node">
+<title>Pol</title>
+<path fill="var(--diagram-accent-bg)" stroke="var(--diagram-accent)" stroke-width="1.1" stroke-dasharray="5,2" d="M256.09,-47.33C256.09,-47.33 176.17,-47.33 176.17,-47.33 170.17,-47.33 164.17,-41.33 164.17,-35.33 164.17,-35.33 164.17,-18.67 164.17,-18.67 164.17,-12.67 170.17,-6.68 176.17,-6.68 176.17,-6.68 256.09,-6.68 256.09,-6.68 262.09,-6.68 268.09,-12.68 268.09,-18.68 268.09,-18.68 268.09,-35.33 268.09,-35.33 268.09,-41.33 262.09,-47.33 256.09,-47.33"/>
+<text xml:space="preserve" text-anchor="middle" x="216.13" y="-29.68" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-accent-ink)">Allocation Policy</text>
+<text xml:space="preserve" text-anchor="middle" x="216.13" y="-17.68" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-accent-ink)">= 외부 주입 지점</text>
+</g>
+<g id="edge4" class="edge">
+<title>Pol&#45;&gt;D</title>
+<path fill="none" stroke="var(--diagram-accent)" stroke-width="1.1" stroke-dasharray="5,2" d="M268.32,-29.63C294.34,-31.2 326.45,-33.51 355.09,-36.6 358.02,-36.92 361.02,-37.26 364.04,-37.63"/>
+<polygon fill="var(--diagram-accent)" stroke="var(--diagram-accent)" stroke-width="1.1" points="363.7,-40.06 370.95,-38.52 364.32,-35.2 363.7,-40.06"/>
+<text xml:space="preserve" text-anchor="middle" x="320.59" y="-51.5" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="10.00" fill="var(--diagram-accent-ink)">역할·개수·시점 +</text>
+<text xml:space="preserve" text-anchor="middle" x="320.59" y="-39.3" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="10.00" fill="var(--diagram-accent-ink)">모델/프로바이더</text>
+</g>
+<g id="node6" class="node">
+<title>M1</title>
+<path fill="var(--diagram-impl-bg)" stroke="var(--diagram-impl)" stroke-width="1.1" d="M862.48,-95C862.48,-95 776.56,-95 776.56,-95 770.56,-95 764.56,-89 764.56,-83 764.56,-83 764.56,-71 764.56,-71 764.56,-65 770.56,-59 776.56,-59 776.56,-59 862.48,-59 862.48,-59 868.48,-59 874.48,-65 874.48,-71 874.48,-71 874.48,-83 874.48,-83 874.48,-89 868.48,-95 862.48,-95"/>
+<text xml:space="preserve" text-anchor="middle" x="819.52" y="-72.55" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">Claude Code CLI</text>
+</g>
+<g id="edge5" class="edge">
+<title>S&#45;&gt;M1</title>
+<path fill="none" stroke="var(--diagram-line)" stroke-width="1.1" d="M637.9,-54.42C673.74,-58.9 719.39,-64.6 755.82,-69.16"/>
+<polygon fill="var(--diagram-line)" stroke="var(--diagram-line)" stroke-width="1.1" points="755.5,-71.59 762.75,-70.03 756.1,-66.73 755.5,-71.59"/>
+<text xml:space="preserve" text-anchor="middle" x="689.93" y="-66.44" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="10.00" fill="var(--diagram-muted)">claude&#45;code</text>
+</g>
+<g id="node7" class="node">
+<title>M2</title>
+<path fill="var(--diagram-logger-bg)" stroke="var(--diagram-logger)" stroke-width="1.1" d="M884.6,-36C884.6,-36 754.43,-36 754.43,-36 748.43,-36 742.43,-30 742.43,-24 742.43,-24 742.43,-12 742.43,-12 742.43,-6 748.43,0 754.43,0 754.43,0 884.6,0 884.6,0 890.6,0 896.6,-6 896.6,-12 896.6,-12 896.6,-24 896.6,-24 896.6,-30 890.6,-36 884.6,-36"/>
+<text xml:space="preserve" text-anchor="middle" x="819.52" y="-14.68" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">OpenAI/Gemini/로컬모델 등</text>
+</g>
+<g id="edge6" class="edge">
+<title>S&#45;&gt;M2</title>
+<path fill="none" stroke="var(--diagram-line)" stroke-width="1.1" d="M637.63,-34.81C643.63,-33.77 649.64,-32.81 655.43,-32 680.71,-28.46 708.34,-25.68 733.55,-23.56"/>
+<polygon fill="var(--diagram-line)" stroke="var(--diagram-line)" stroke-width="1.1" points="733.56,-26.02 740.34,-23 733.16,-21.13 733.56,-26.02"/>
+<text xml:space="preserve" text-anchor="middle" x="689.93" y="-34.5" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="10.00" fill="var(--diagram-muted)">그 외 프로바이더</text>
+</g>
+<g id="node8" class="node">
+<title>R</title>
+<path fill="var(--diagram-verify-bg)" stroke="var(--diagram-verify)" stroke-width="1.1" d="M1060.02,-67.33C1060.02,-67.33 945.6,-67.33 945.6,-67.33 939.6,-67.33 933.6,-61.33 933.6,-55.33 933.6,-55.33 933.6,-38.67 933.6,-38.67 933.6,-32.67 939.6,-26.68 945.6,-26.68 945.6,-26.68 1060.02,-26.68 1060.02,-26.68 1066.02,-26.68 1072.02,-32.67 1072.02,-38.67 1072.02,-38.67 1072.02,-55.33 1072.02,-55.33 1072.02,-61.33 1066.02,-67.33 1060.02,-67.33"/>
+<text xml:space="preserve" text-anchor="middle" x="1002.81" y="-49.67" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">Session Registry</text>
+<text xml:space="preserve" text-anchor="middle" x="1002.81" y="-37.67" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">생존 에이전트 추적 · 회수</text>
+</g>
+<g id="edge7" class="edge">
+<title>M1&#45;&gt;R</title>
+<path fill="none" stroke="var(--diagram-line)" stroke-width="1.1" d="M874.91,-68C890.68,-65.39 908.21,-62.49 925.08,-59.7"/>
+<polygon fill="var(--diagram-line)" stroke="var(--diagram-line)" stroke-width="1.1" points="925.15,-62.17 931.66,-58.61 924.35,-57.33 925.15,-62.17"/>
+</g>
+<g id="edge8" class="edge">
+<title>M2&#45;&gt;R</title>
+<path fill="none" stroke="var(--diagram-line)" stroke-width="1.1" d="M897.14,-30.26C906.31,-31.72 915.68,-33.22 924.86,-34.69"/>
+<polygon fill="var(--diagram-line)" stroke="var(--diagram-line)" stroke-width="1.1" points="924.28,-37.08 931.58,-35.77 925.06,-32.24 924.28,-37.08"/>
+</g>
+</g>
+</svg>

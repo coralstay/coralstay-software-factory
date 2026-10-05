@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg data-generated-by="design/build-diagrams.py" role="img" aria-label="03-backlogging" width="756pt" height="51pt"
+ viewBox="0.00 0.00 756.00 51.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<style>:root { --diagram-ink: #1a2330; --diagram-muted: #51616c; --diagram-line: #c9d3d8; --diagram-surface: #ffffff; --diagram-surface-2: #eaf0f2; --diagram-accent: #0e7c86; --diagram-accent-bg: #d8eeef; --diagram-accent-ink: #08565d; --diagram-impl: #2b6cb0; --diagram-impl-bg: #dbe9f7; --diagram-review: #7c3aed; --diagram-review-bg: #ece3fc; --diagram-verify: #2f855a; --diagram-verify-bg: #def0e6; --diagram-logger: #5b6b78; --diagram-logger-bg: #e4e9ec; }
+@media (prefers-color-scheme: dark) { :root { --diagram-ink: #e7eef2; --diagram-muted: #9aaab4; --diagram-line: #2e3d47; --diagram-surface: #182129; --diagram-surface-2: #1f2a33; --diagram-accent: #3fc4ce; --diagram-accent-bg: #163238; --diagram-accent-ink: #8ee3e9; --diagram-impl: #7db3e8; --diagram-impl-bg: #1c2c3d; --diagram-review: #b79bf5; --diagram-review-bg: #291f3d; --diagram-verify: #7cd1a3; --diagram-verify-bg: #173226; --diagram-logger: #a6b4bd; --diagram-logger-bg: #232e36; } }</style>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 46.9)">
+<title>backlogging</title>
+<g id="node1" class="node">
+<title>B1</title>
+<path fill="var(--diagram-surface)" stroke="var(--diagram-line)" stroke-width="1.1" d="M122.67,-41.77C122.67,-41.77 12,-41.77 12,-41.77 6,-41.77 0,-35.77 0,-29.77 0,-29.77 0,-13.12 0,-13.12 0,-7.12 6,-1.12 12,-1.12 12,-1.12 122.67,-1.12 122.67,-1.12 128.67,-1.12 134.67,-7.12 134.67,-13.12 134.67,-13.12 134.67,-29.77 134.67,-29.77 134.67,-35.77 128.67,-41.77 122.67,-41.77"/>
+<text xml:space="preserve" text-anchor="middle" x="67.34" y="-24.13" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">브리핑</text>
+<text xml:space="preserve" text-anchor="middle" x="67.34" y="-9.88" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">overview/board/search</text>
+</g>
+<g id="node2" class="node">
+<title>B2</title>
+<path fill="var(--diagram-surface)" stroke="var(--diagram-line)" stroke-width="1.1" d="M262.59,-41.77C262.59,-41.77 176.67,-41.77 176.67,-41.77 170.67,-41.77 164.67,-35.77 164.67,-29.77 164.67,-29.77 164.67,-13.12 164.67,-13.12 164.67,-7.12 170.67,-1.12 176.67,-1.12 176.67,-1.12 262.59,-1.12 262.59,-1.12 268.59,-1.12 274.59,-7.12 274.59,-13.12 274.59,-13.12 274.59,-29.77 274.59,-29.77 274.59,-35.77 268.59,-41.77 262.59,-41.77"/>
+<text xml:space="preserve" text-anchor="middle" x="219.63" y="-24.13" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">plan mode</text>
+<text xml:space="preserve" text-anchor="middle" x="219.63" y="-12.13" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">계획 프롬프트 출력</text>
+</g>
+<g id="edge1" class="edge">
+<title>B1&#45;&gt;B2</title>
+<path fill="none" stroke="var(--diagram-accent)" stroke-width="1.2" d="M135.13,-21.45C141.97,-21.45 148.9,-21.45 155.69,-21.45"/>
+<polygon fill="var(--diagram-accent)" stroke="var(--diagram-accent)" stroke-width="1.2" points="155.38,-23.9 162.38,-21.45 155.38,-19 155.38,-23.9"/>
+</g>
+<g id="node3" class="node">
+<title>B3</title>
+<path fill="var(--diagram-surface)" stroke="var(--diagram-line)" stroke-width="1.1" d="M373.26,-39.45C373.26,-39.45 316.59,-39.45 316.59,-39.45 310.59,-39.45 304.59,-33.45 304.59,-27.45 304.59,-27.45 304.59,-15.45 304.59,-15.45 304.59,-9.45 310.59,-3.45 316.59,-3.45 316.59,-3.45 373.26,-3.45 373.26,-3.45 379.26,-3.45 385.26,-9.45 385.26,-15.45 385.26,-15.45 385.26,-27.45 385.26,-27.45 385.26,-33.45 379.26,-39.45 373.26,-39.45"/>
+<text xml:space="preserve" text-anchor="middle" x="344.93" y="-17" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">draft create</text>
+</g>
+<g id="edge2" class="edge">
+<title>B2&#45;&gt;B3</title>
+<path fill="none" stroke="var(--diagram-accent)" stroke-width="1.2" d="M275.07,-21.45C281.96,-21.45 288.98,-21.45 295.77,-21.45"/>
+<polygon fill="var(--diagram-accent)" stroke="var(--diagram-accent)" stroke-width="1.2" points="295.4,-23.9 302.4,-21.45 295.4,-19 295.4,-23.9"/>
+</g>
+<g id="node4" class="node">
+<title>B4</title>
+<path fill="var(--diagram-accent-bg)" stroke="var(--diagram-accent)" stroke-width="1.1" d="M480.93,-39.45C480.93,-39.45 427.26,-39.45 427.26,-39.45 421.26,-39.45 415.26,-33.45 415.26,-27.45 415.26,-27.45 415.26,-15.45 415.26,-15.45 415.26,-9.45 421.26,-3.45 427.26,-3.45 427.26,-3.45 480.93,-3.45 480.93,-3.45 486.93,-3.45 492.93,-9.45 492.93,-15.45 492.93,-15.45 492.93,-27.45 492.93,-27.45 492.93,-33.45 486.93,-39.45 480.93,-39.45"/>
+<text xml:space="preserve" text-anchor="middle" x="454.1" y="-18.12" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-accent-ink)">사용자 승인</text>
+</g>
+<g id="edge3" class="edge">
+<title>B3&#45;&gt;B4</title>
+<path fill="none" stroke="var(--diagram-accent)" stroke-width="1.2" d="M385.53,-21.45C392.23,-21.45 399.26,-21.45 406.13,-21.45"/>
+<polygon fill="var(--diagram-accent)" stroke="var(--diagram-accent)" stroke-width="1.2" points="405.91,-23.9 412.91,-21.45 405.91,-19 405.91,-23.9"/>
+</g>
+<g id="node5" class="node">
+<title>B5</title>
+<path fill="var(--diagram-surface)" stroke="var(--diagram-line)" stroke-width="1.1" d="M601.35,-39.45C601.35,-39.45 534.93,-39.45 534.93,-39.45 528.93,-39.45 522.93,-33.45 522.93,-27.45 522.93,-27.45 522.93,-15.45 522.93,-15.45 522.93,-9.45 528.93,-3.45 534.93,-3.45 534.93,-3.45 601.35,-3.45 601.35,-3.45 607.35,-3.45 613.35,-9.45 613.35,-15.45 613.35,-15.45 613.35,-27.45 613.35,-27.45 613.35,-33.45 607.35,-39.45 601.35,-39.45"/>
+<text xml:space="preserve" text-anchor="middle" x="568.14" y="-17" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">draft promote</text>
+</g>
+<g id="edge4" class="edge">
+<title>B4&#45;&gt;B5</title>
+<path fill="none" stroke="var(--diagram-accent)" stroke-width="1.2" d="M493.34,-21.45C499.94,-21.45 506.9,-21.45 513.81,-21.45"/>
+<polygon fill="var(--diagram-accent)" stroke="var(--diagram-accent)" stroke-width="1.2" points="513.69,-23.9 520.69,-21.45 513.69,-19 513.69,-23.9"/>
+</g>
+<g id="node6" class="node">
+<title>B6</title>
+<path fill="var(--diagram-surface)" stroke="var(--diagram-line)" stroke-width="1.1" d="M736.02,-42.9C736.02,-42.9 655.35,-42.9 655.35,-42.9 649.35,-42.9 643.35,-36.9 643.35,-30.9 643.35,-30.9 643.35,-12 643.35,-12 643.35,-6 649.35,0 655.35,0 655.35,0 736.02,0 736.02,0 742.02,0 748.02,-6 748.02,-12 748.02,-12 748.02,-30.9 748.02,-30.9 748.02,-36.9 742.02,-42.9 736.02,-42.9"/>
+<text xml:space="preserve" text-anchor="middle" x="695.69" y="-25.25" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">보드에 반영</text>
+<text xml:space="preserve" text-anchor="middle" x="695.69" y="-11" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">(마일스톤/태스크)</text>
+</g>
+<g id="edge5" class="edge">
+<title>B5&#45;&gt;B6</title>
+<path fill="none" stroke="var(--diagram-accent)" stroke-width="1.2" d="M613.76,-21.45C620.4,-21.45 627.33,-21.45 634.23,-21.45"/>
+<polygon fill="var(--diagram-accent)" stroke="var(--diagram-accent)" stroke-width="1.2" points="634.11,-23.9 641.11,-21.45 634.11,-19 634.11,-23.9"/>
+</g>
+</g>
+</svg>

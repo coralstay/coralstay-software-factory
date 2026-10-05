@@ -1,0 +1,21 @@
+digraph hierarchy {
+  bgcolor="transparent"; rankdir=TB; splines=ortho; nodesep=0.35; ranksep=0.45;
+  node [shape=box, style="filled,rounded", fillcolor="#f00004", color="#f00003",
+        fontcolor="#f00001", fontname="Helvetica", fontsize=11, margin="0.18,0.10", penwidth=1.1];
+  edge [color="#f00003", arrowsize=0.7, penwidth=1.1];
+
+  P  [label="프로젝트", fillcolor="#f00007", color="#f00006", fontcolor="#f00008"];
+  M1 [label="마일스톤 M1\n(평평한 목록의 원소)"];
+  M2 [label="마일스톤 M2"];
+  T0 [label="독립 태스크 T0\n(마일스톤 없이도 가능)"];
+  T1 [label="태스크 T1"];
+  T2 [label="태스크 T2"];
+  T1a[label="서브태스크 T1.1\n(parentTaskId=T1)"];
+  AC1[label="AC 1", shape=box, style="filled", fillcolor="#f00005"];
+  AC2[label="AC 2", shape=box, style="filled", fillcolor="#f00005"];
+  AC3[label="AC 1", shape=box, style="filled", fillcolor="#f00005"];
+
+  P -> M1; P -> M2; P -> T0;
+  M1 -> T1; M1 -> T2;
+  T1 -> T1a; T1 -> AC1; T1 -> AC2; T2 -> AC3;
+}

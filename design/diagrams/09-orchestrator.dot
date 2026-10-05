@@ -1,0 +1,24 @@
+digraph orchestrator {
+  bgcolor="transparent"; rankdir=LR; nodesep=0.32; ranksep=0.48;
+  node [shape=box, style="filled,rounded", fillcolor="#f00004", color="#f00003",
+        fontcolor="#f00001", fontname="Helvetica", fontsize=11, margin="0.18,0.10", penwidth=1.1];
+  edge [color="#f00003", arrowsize=0.7, penwidth=1.1, fontname="Helvetica", fontsize=10,
+        fontcolor="#f00002"];
+
+  W   [label="Board Watcher\nbacklog 상태변화 감지"];
+  Q   [label="Request Queue"];
+  D   [label="Dispatcher\n(용량 제한 워커풀)"];
+  Pol [label="Allocation Policy\n= 외부 주입 지점", fillcolor="#f00007", color="#f00006",
+       fontcolor="#f00008", shape=box, style="filled,rounded,dashed"];
+  S   [label="Agent Spawner\n역할별 프로세스 실행"];
+  M1  [label="Claude Code CLI", fillcolor="#f0000a", color="#f00009"];
+  M2  [label="OpenAI/Gemini/로컬모델 등", fillcolor="#f00010", color="#f0000f"];
+  R   [label="Session Registry\n생존 에이전트 추적 · 회수", fillcolor="#f0000e", color="#f0000d"];
+
+  W -> Q -> D -> S;
+  Pol -> D [style=dashed, color="#f00006", fontcolor="#f00008",
+            label="역할·개수·시점 +\n모델/프로바이더"];
+  S -> M1 [label="claude-code"];
+  S -> M2 [label="그 외 프로바이더"];
+  M1 -> R; M2 -> R;
+}
