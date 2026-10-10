@@ -10,7 +10,6 @@
 
 - [design/README.md](./design/README.md) — Sigkill Foundry 설계 문서(SDD) 목차. 제안서 · 요구사항 명세서 ·
   아키텍처 설계서 · 구현 계획서 · 구현 결과 보고서의 다섯 문서로 이어진다.
-- [Claude 앱 목차 문서][toc] — 설계 문서의 편집 원본. `design/`은 그 사본이다.
 
 ## 컴포넌트 저장소
 
@@ -42,8 +41,7 @@ Claude Code sessions and kills them when their work is done. Software tasks are 
 Reviewer, Verifier, Logger — spawned and reclaimed as independent processes by a JVM orchestrator.
 The point is **independence of judgment, not throughput**: Reviewer and Verifier must not inherit the
 Implementer's reasoning, so context isolation itself is used as a gate. This repository contains only
-the design documents (Korean, under [`design/`](./design/README.md); the editable originals live in
-[Claude][toc]); the implementation lives in the component repositories above. Licensed under
+the design documents (Korean, under [`design/`](./design/README.md)); the implementation lives in the component repositories above. Licensed under
 [AGPL-3.0](./LICENSE) ([original text][agpl]); commercial licensing available on request — <coralstay3595@gmail.com> or a
 GitHub issue.
 
@@ -53,7 +51,6 @@ GitHub issue.
 
 <!-- 본문의 모든 외부 링크는 여기서만 정의한다. URL이 바뀌면 이 블록만 고친다. -->
 
-[toc]: https://claude.ai/artifact/QAJmbuZWtjpfawkDHReQs6
 [ao]: https://github.com/coralstay/agent-orchestrator
 [hooks]: https://github.com/coralstay/claude-code-agile-hooks
 [commit]: https://github.com/coralstay/coding-agent-git-commit-tool
