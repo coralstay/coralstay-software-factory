@@ -7,8 +7,7 @@ digraph bootstrap {
   A1 [label="git init"];
   A2 [label="backlog.md CLI\nnpm i -g"];
   A3 [label="backlog init"];
-  A4 [label="git-format\n설치"];
+  A4 [label="coding-agent-git-commit-tool\n설치"];
   A5 [label="claude-code-agile-hooks\n설치"];
-  A6 [label="langtoolchain\n설치"];
-  A1 -> A2 -> A3 -> A4 -> A5 -> A6;
+  A1 -> A2 -> A3 -> A4 -> A5;
 }

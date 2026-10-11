@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg data-generated-by="design/build-diagrams.py" role="img" aria-label="02-bootstrap" width="667pt" height="49pt"
+ viewBox="0.00 0.00 667.00 49.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<style>:root { --diagram-ink: #1a2330; --diagram-muted: #51616c; --diagram-line: #c9d3d8; --diagram-surface: #ffffff; --diagram-surface-2: #eaf0f2; --diagram-accent: #0e7c86; --diagram-accent-bg: #d8eeef; --diagram-accent-ink: #08565d; --diagram-impl: #2b6cb0; --diagram-impl-bg: #dbe9f7; --diagram-review: #7c3aed; --diagram-review-bg: #ece3fc; --diagram-verify: #2f855a; --diagram-verify-bg: #def0e6; --diagram-logger: #5b6b78; --diagram-logger-bg: #e4e9ec; }
+@media (prefers-color-scheme: dark) { :root { --diagram-ink: #e7eef2; --diagram-muted: #9aaab4; --diagram-line: #2e3d47; --diagram-surface: #182129; --diagram-surface-2: #1f2a33; --diagram-accent: #3fc4ce; --diagram-accent-bg: #163238; --diagram-accent-ink: #8ee3e9; --diagram-impl: #7db3e8; --diagram-impl-bg: #1c2c3d; --diagram-review: #b79bf5; --diagram-review-bg: #291f3d; --diagram-verify: #7cd1a3; --diagram-verify-bg: #173226; --diagram-logger: #a6b4bd; --diagram-logger-bg: #232e36; } }</style>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 44.65)">
+<title>bootstrap</title>
+<g id="node1" class="node">
+<title>A1</title>
+<path fill="var(--diagram-surface)" stroke="var(--diagram-line)" stroke-width="1.1" d="M42,-38.33C42,-38.33 12,-38.33 12,-38.33 6,-38.33 0,-32.33 0,-26.33 0,-26.33 0,-14.32 0,-14.32 0,-8.33 6,-2.32 12,-2.32 12,-2.32 42,-2.32 42,-2.32 48,-2.32 54,-8.32 54,-14.32 54,-14.32 54,-26.33 54,-26.33 54,-32.33 48,-38.33 42,-38.33"/>
+<text xml:space="preserve" text-anchor="middle" x="27" y="-15.88" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">git init</text>
+</g>
+<g id="node2" class="node">
+<title>A2</title>
+<path fill="var(--diagram-surface)" stroke="var(--diagram-line)" stroke-width="1.1" d="M172.92,-39.52C172.92,-39.52 96,-39.52 96,-39.52 90,-39.52 84,-33.52 84,-27.52 84,-27.52 84,-13.12 84,-13.12 84,-7.12 90,-1.12 96,-1.12 96,-1.12 172.92,-1.12 172.92,-1.12 178.92,-1.12 184.92,-7.12 184.92,-13.12 184.92,-13.12 184.92,-27.52 184.92,-27.52 184.92,-33.52 178.92,-39.52 172.92,-39.52"/>
+<text xml:space="preserve" text-anchor="middle" x="134.46" y="-21.88" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">backlog.md CLI</text>
+<text xml:space="preserve" text-anchor="middle" x="134.46" y="-9.88" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">npm i &#45;g</text>
+</g>
+<g id="edge1" class="edge">
+<title>A1&#45;&gt;A2</title>
+<path fill="none" stroke="var(--diagram-accent)" stroke-width="1.2" d="M54.34,-20.32C60.74,-20.32 67.84,-20.32 75.09,-20.32"/>
+<polygon fill="var(--diagram-accent)" stroke="var(--diagram-accent)" stroke-width="1.2" points="74.81,-22.78 81.81,-20.33 74.81,-17.88 74.81,-22.78"/>
+</g>
+<g id="node3" class="node">
+<title>A3</title>
+<path fill="var(--diagram-surface)" stroke="var(--diagram-line)" stroke-width="1.1" d="M282.09,-38.33C282.09,-38.33 226.92,-38.33 226.92,-38.33 220.92,-38.33 214.92,-32.33 214.92,-26.33 214.92,-26.33 214.92,-14.32 214.92,-14.32 214.92,-8.33 220.92,-2.32 226.92,-2.32 226.92,-2.32 282.09,-2.32 282.09,-2.32 288.09,-2.32 294.09,-8.32 294.09,-14.32 294.09,-14.32 294.09,-26.33 294.09,-26.33 294.09,-32.33 288.09,-38.33 282.09,-38.33"/>
+<text xml:space="preserve" text-anchor="middle" x="254.51" y="-15.88" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">backlog init</text>
+</g>
+<g id="edge2" class="edge">
+<title>A2&#45;&gt;A3</title>
+<path fill="none" stroke="var(--diagram-accent)" stroke-width="1.2" d="M185.18,-20.32C192.09,-20.32 199.18,-20.32 206.05,-20.32"/>
+<polygon fill="var(--diagram-accent)" stroke="var(--diagram-accent)" stroke-width="1.2" points="205.78,-22.78 212.78,-20.33 205.78,-17.88 205.78,-22.78"/>
+</g>
+<g id="node4" class="node">
+<title>A4</title>
+<path fill="var(--diagram-surface)" stroke="var(--diagram-line)" stroke-width="1.1" d="M474.51,-40.65C474.51,-40.65 336.09,-40.65 336.09,-40.65 330.09,-40.65 324.09,-34.65 324.09,-28.65 324.09,-28.65 324.09,-12 324.09,-12 324.09,-6 330.09,0 336.09,0 336.09,0 474.51,0 474.51,0 480.51,0 486.51,-6 486.51,-12 486.51,-12 486.51,-28.65 486.51,-28.65 486.51,-34.65 480.51,-40.65 474.51,-40.65"/>
+<text xml:space="preserve" text-anchor="middle" x="405.3" y="-23" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">coding&#45;agent&#45;git&#45;commit&#45;tool</text>
+<text xml:space="preserve" text-anchor="middle" x="405.3" y="-11" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">설치</text>
+</g>
+<g id="edge3" class="edge">
+<title>A3&#45;&gt;A4</title>
+<path fill="none" stroke="var(--diagram-accent)" stroke-width="1.2" d="M294.6,-20.32C301.1,-20.32 308.06,-20.32 315.22,-20.32"/>
+<polygon fill="var(--diagram-accent)" stroke="var(--diagram-accent)" stroke-width="1.2" points="314.87,-22.78 321.87,-20.33 314.87,-17.88 314.87,-22.78"/>
+</g>
+<g id="node5" class="node">
+<title>A5</title>
+<path fill="var(--diagram-surface)" stroke="var(--diagram-line)" stroke-width="1.1" d="M647.43,-40.65C647.43,-40.65 528.51,-40.65 528.51,-40.65 522.51,-40.65 516.51,-34.65 516.51,-28.65 516.51,-28.65 516.51,-12 516.51,-12 516.51,-6 522.51,0 528.51,0 528.51,0 647.43,0 647.43,0 653.43,0 659.43,-6 659.43,-12 659.43,-12 659.43,-28.65 659.43,-28.65 659.43,-34.65 653.43,-40.65 647.43,-40.65"/>
+<text xml:space="preserve" text-anchor="middle" x="587.97" y="-23" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">claude&#45;code&#45;agile&#45;hooks</text>
+<text xml:space="preserve" text-anchor="middle" x="587.97" y="-11" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">설치</text>
+</g>
+<g id="edge4" class="edge">
+<title>A4&#45;&gt;A5</title>
+<path fill="none" stroke="var(--diagram-accent)" stroke-width="1.2" d="M486.86,-20.32C493.74,-20.32 500.7,-20.32 507.57,-20.32"/>
+<polygon fill="var(--diagram-accent)" stroke="var(--diagram-accent)" stroke-width="1.2" points="507.4,-22.78 514.4,-20.33 507.4,-17.88 507.4,-22.78"/>
+</g>
+</g>
+</svg>

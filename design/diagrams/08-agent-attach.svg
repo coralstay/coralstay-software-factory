@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg data-generated-by="design/build-diagrams.py" role="img" aria-label="08-agent-attach" width="552pt" height="194pt"
+ viewBox="0.00 0.00 552.00 194.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<style>:root { --diagram-ink: #1a2330; --diagram-muted: #51616c; --diagram-line: #c9d3d8; --diagram-surface: #ffffff; --diagram-surface-2: #eaf0f2; --diagram-accent: #0e7c86; --diagram-accent-bg: #d8eeef; --diagram-accent-ink: #08565d; --diagram-impl: #2b6cb0; --diagram-impl-bg: #dbe9f7; --diagram-review: #7c3aed; --diagram-review-bg: #ece3fc; --diagram-verify: #2f855a; --diagram-verify-bg: #def0e6; --diagram-logger: #5b6b78; --diagram-logger-bg: #e4e9ec; }
+@media (prefers-color-scheme: dark) { :root { --diagram-ink: #e7eef2; --diagram-muted: #9aaab4; --diagram-line: #2e3d47; --diagram-surface: #182129; --diagram-surface-2: #1f2a33; --diagram-accent: #3fc4ce; --diagram-accent-bg: #163238; --diagram-accent-ink: #8ee3e9; --diagram-impl: #7db3e8; --diagram-impl-bg: #1c2c3d; --diagram-review: #b79bf5; --diagram-review-bg: #291f3d; --diagram-verify: #7cd1a3; --diagram-verify-bg: #173226; --diagram-logger: #a6b4bd; --diagram-logger-bg: #232e36; } }</style>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 189.8)">
+<title>agent_attach</title>
+<g id="node1" class="node">
+<title>P</title>
+<path fill="var(--diagram-accent-bg)" stroke="var(--diagram-accent)" stroke-width="1.1" d="M367.54,-185.8C367.54,-185.8 326.62,-185.8 326.62,-185.8 320.62,-185.8 314.62,-179.8 314.62,-173.8 314.62,-173.8 314.62,-161.8 314.62,-161.8 314.62,-155.8 320.62,-149.8 326.62,-149.8 326.62,-149.8 367.54,-149.8 367.54,-149.8 373.54,-149.8 379.54,-155.8 379.54,-161.8 379.54,-161.8 379.54,-173.8 379.54,-173.8 379.54,-179.8 373.54,-185.8 367.54,-185.8"/>
+<text xml:space="preserve" text-anchor="middle" x="347.08" y="-164.48" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-accent-ink)">프로젝트</text>
+</g>
+<g id="node2" class="node">
+<title>M1</title>
+<path fill="var(--diagram-verify-bg)" stroke="var(--diagram-verify)" stroke-width="1.1" d="M309.29,-117.8C309.29,-117.8 188.88,-117.8 188.88,-117.8 182.88,-117.8 176.88,-111.8 176.88,-105.8 176.88,-105.8 176.88,-86.9 176.88,-86.9 176.88,-80.9 182.88,-74.9 188.88,-74.9 188.88,-74.9 309.29,-74.9 309.29,-74.9 315.29,-74.9 321.29,-80.9 321.29,-86.9 321.29,-86.9 321.29,-105.8 321.29,-105.8 321.29,-111.8 315.29,-117.8 309.29,-117.8"/>
+<text xml:space="preserve" text-anchor="middle" x="249.08" y="-100.15" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">마일스톤 M1</text>
+<text xml:space="preserve" text-anchor="middle" x="249.08" y="-85.9" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">예시: Verifier+Logger 2개</text>
+</g>
+<g id="edge1" class="edge">
+<title>P&#45;&gt;M1</title>
+<path fill="none" stroke="var(--diagram-line)" stroke-width="1.1" d="M322.36,-149.27C311.26,-141.41 297.95,-131.98 285.74,-123.32"/>
+<polygon fill="var(--diagram-line)" stroke="var(--diagram-line)" stroke-width="1.1" points="287.18,-121.35 280.05,-119.3 284.35,-125.34 287.18,-121.35"/>
+</g>
+<g id="node3" class="node">
+<title>M2</title>
+<path fill="var(--diagram-verify-bg)" stroke="var(--diagram-verify)" stroke-width="1.1" d="M531.54,-117.8C531.54,-117.8 358.62,-117.8 358.62,-117.8 352.62,-117.8 346.62,-111.8 346.62,-105.8 346.62,-105.8 346.62,-86.9 346.62,-86.9 346.62,-80.9 352.62,-74.9 358.62,-74.9 358.62,-74.9 531.54,-74.9 531.54,-74.9 537.54,-74.9 543.54,-80.9 543.54,-86.9 543.54,-86.9 543.54,-105.8 543.54,-105.8 543.54,-111.8 537.54,-117.8 531.54,-117.8"/>
+<text xml:space="preserve" text-anchor="middle" x="445.08" y="-100.15" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">마일스톤 M2</text>
+<text xml:space="preserve" text-anchor="middle" x="445.08" y="-85.9" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">예시: Reviewer+Verifier+Logger 3개</text>
+</g>
+<g id="edge2" class="edge">
+<title>P&#45;&gt;M2</title>
+<path fill="none" stroke="var(--diagram-line)" stroke-width="1.1" d="M371.81,-149.27C382.91,-141.41 396.22,-131.98 408.43,-123.32"/>
+<polygon fill="var(--diagram-line)" stroke="var(--diagram-line)" stroke-width="1.1" points="409.82,-125.34 414.12,-119.3 406.99,-121.35 409.82,-125.34"/>
+</g>
+<g id="node4" class="node">
+<title>T1</title>
+<path fill="var(--diagram-impl-bg)" stroke="var(--diagram-impl)" stroke-width="1.1" d="M226.17,-42.9C226.17,-42.9 12,-42.9 12,-42.9 6,-42.9 0,-36.9 0,-30.9 0,-30.9 0,-12 0,-12 0,-6 6,0 12,0 12,0 226.17,0 226.17,0 232.17,0 238.17,-6 238.17,-12 238.17,-12 238.17,-30.9 238.17,-30.9 238.17,-36.9 232.17,-42.9 226.17,-42.9"/>
+<text xml:space="preserve" text-anchor="middle" x="119.08" y="-25.25" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">태스크 T1</text>
+<text xml:space="preserve" text-anchor="middle" x="119.08" y="-11" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">Implementer+Reviewer+Verifier+Logger 4개</text>
+</g>
+<g id="edge3" class="edge">
+<title>M1&#45;&gt;T1</title>
+<path fill="none" stroke="var(--diagram-line)" stroke-width="1.1" d="M211.83,-74.46C196.87,-66.07 179.5,-56.33 163.86,-47.56"/>
+<polygon fill="var(--diagram-line)" stroke="var(--diagram-line)" stroke-width="1.1" points="165.1,-45.44 157.8,-44.16 162.7,-49.72 165.1,-45.44"/>
+</g>
+<g id="node5" class="node">
+<title>T2</title>
+<path fill="var(--diagram-impl-bg)" stroke="var(--diagram-impl)" stroke-width="1.1" d="M322.54,-42.9C322.54,-42.9 275.62,-42.9 275.62,-42.9 269.62,-42.9 263.62,-36.9 263.62,-30.9 263.62,-30.9 263.62,-12 263.62,-12 263.62,-6 269.62,0 275.62,0 275.62,0 322.54,0 322.54,0 328.54,0 334.54,-6 334.54,-12 334.54,-12 334.54,-30.9 334.54,-30.9 334.54,-36.9 328.54,-42.9 322.54,-42.9"/>
+<text xml:space="preserve" text-anchor="middle" x="299.08" y="-25.25" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">태스크 T2</text>
+<text xml:space="preserve" text-anchor="middle" x="299.08" y="-11" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">4개</text>
+</g>
+<g id="edge4" class="edge">
+<title>M1&#45;&gt;T2</title>
+<path fill="none" stroke="var(--diagram-line)" stroke-width="1.1" d="M263.28,-74.65C268.56,-66.96 274.63,-58.1 280.26,-49.9"/>
+<polygon fill="var(--diagram-line)" stroke="var(--diagram-line)" stroke-width="1.1" points="281.97,-51.73 283.91,-44.57 277.93,-48.96 281.97,-51.73"/>
+</g>
+<g id="node6" class="node">
+<title>T3</title>
+<path fill="var(--diagram-impl-bg)" stroke="var(--diagram-impl)" stroke-width="1.1" d="M468.54,-42.9C468.54,-42.9 421.62,-42.9 421.62,-42.9 415.62,-42.9 409.62,-36.9 409.62,-30.9 409.62,-30.9 409.62,-12 409.62,-12 409.62,-6 415.62,0 421.62,0 421.62,0 468.54,0 468.54,0 474.54,0 480.54,-6 480.54,-12 480.54,-12 480.54,-30.9 480.54,-30.9 480.54,-36.9 474.54,-42.9 468.54,-42.9"/>
+<text xml:space="preserve" text-anchor="middle" x="445.08" y="-25.25" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">태스크 T3</text>
+<text xml:space="preserve" text-anchor="middle" x="445.08" y="-11" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">4개</text>
+</g>
+<g id="edge5" class="edge">
+<title>M2&#45;&gt;T3</title>
+<path fill="none" stroke="var(--diagram-line)" stroke-width="1.1" d="M445.08,-74.65C445.08,-67.42 445.08,-59.16 445.08,-51.38"/>
+<polygon fill="var(--diagram-line)" stroke="var(--diagram-line)" stroke-width="1.1" points="447.54,-51.86 445.09,-44.86 442.64,-51.86 447.54,-51.86"/>
+</g>
+</g>
+</svg>
