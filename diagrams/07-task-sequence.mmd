@@ -13,7 +13,7 @@ sequenceDiagram
     Note over Imp,Log: 부착 시 공통 — 태스크 → 상위 마일스톤(들) → 루트까지<br/>문서를 프롬프트 캐시로 읽고 시작 (11절)
 
     loop AC 단위 반복
-        Imp->>Imp: 구현 → claude-rails 테스트게이트 통과 → 커밋
+        Imp->>Imp: 구현 → claude-code-agile-hooks 테스트게이트 통과 → 커밋
         Note over Imp: git-format post-commit이<br/>이 커밋의 토큰 사용량을 즉시 측정
         par Reviewer — 판단
             Imp->>Rev: AC 완료 알림
@@ -39,4 +39,4 @@ sequenceDiagram
     deactivate Imp
     Log-->>Board: 통합 기록(recap+토큰 합계) 저장
     deactivate Log
-    Note over Imp,Log: 태스크 종료 → 각 세션 /clear로 컨텍스트 초기화 →<br/>에이전트 전원 회수(retire)
+    Note over Imp,Log: 태스크 종료 → 각 claude -p 프로세스 종료 = 컨텍스트 폐기<br/>(/clear 단계 없음) → 에이전트 전원 회수<br/>(retire = 프로세스·자손 종료 + Registry 제거 + 허가 반납)

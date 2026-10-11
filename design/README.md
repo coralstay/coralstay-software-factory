@@ -1,0 +1,77 @@
+# Sigkill Foundry 설계 문서
+
+Claude Code 세션을 찍어내고 `kill -9`로 끊어내는 소프트웨어 공장의 설계 문서. 스펙 주도 개발(SDD)을
+따르며, 규범 용어 · 요구사항 ID · 추적 규칙은 [0. 문서 정보](./00-문서-정보.md)에 있다.
+
+**편집 원본은 Claude 앱의 문서들이다** ([목차 문서](https://claude.ai/artifact/QAJmbuZWtjpfawkDHReQs6)). 이 디렉토리의 `**/*.md`는 Claude가 동기화하는
+사본이며, 문서와 어긋나면 문서가 맞다.
+
+## 문서 흐름
+
+| 문서 | 답하는 질문 |
+| --- | --- |
+| 1. 프로젝트 제안서 | 왜 만들고, 무엇을 어디까지 하는가 |
+| 2. 요구사항 명세서 | 무엇을 만족해야 하는가 |
+| 3. 아키텍처 설계서 | 어떻게 구성되고 동작하는가 |
+| 4. 구현 계획서 | 어떤 순서로 만들고, 무엇으로 판정하는가 |
+| 5. 구현 결과 보고서 | 무엇을 만들었고, 판정은 어떻게 나왔는가 |
+
+## 목차
+
+### 공통
+
+| 장 | 제목 | 상태 | Claude 앱 문서 |
+| --- | --- | --- | --- |
+| 0 | [문서 정보](./00-문서-정보.md) | 초안 | [열기](https://claude.ai/artifact/Kkh1r7pdyVWymAfC2Ba97e) |
+
+### 1. 프로젝트 제안서
+
+| 장 | 제목 | 상태 | Claude 앱 문서 |
+| --- | --- | --- | --- |
+| 1.01 | [배경과 문제](./1-제안서/01-배경과-문제.md) | 초안 | [열기](https://claude.ai/artifact/EwBucnjb1FJZfwH9QPg3sh) |
+| 1.02 | [원칙](./1-제안서/02-원칙.md) | 초안 | [열기](https://claude.ai/artifact/DmWDN6zKAdfrbLkrzfpshU) |
+| 1.03 | [목표와 범위](./1-제안서/03-목표와-범위.md) | 작성 전 | [열기](https://claude.ai/artifact/QbmDXni7oiBb5BdDKA37hP) |
+| 1.04 | [기대 효과와 리스크](./1-제안서/04-기대-효과와-리스크.md) | 작성 전 | [열기](https://claude.ai/code/artifact/bc917c67-c0d6-4e18-bdf7-a1bc18e89e3b) |
+
+### 2. 요구사항 명세서
+
+| 장 | 제목 | 상태 | Claude 앱 문서 |
+| --- | --- | --- | --- |
+| 2.01 | [이해관계자와 운영 환경](./2-요구사항-명세서/01-이해관계자와-운영-환경.md) | 작성 전 | [열기](https://claude.ai/code/artifact/1516280a-c63b-462f-8bd9-82f1b472e874) |
+| 2.02 | [도메인 모델](./2-요구사항-명세서/02-도메인-모델.md) | 작성 전 | [열기](https://claude.ai/artifact/HFSpoquu2H8JskZMKPy9m9) |
+| 2.03 | [기능 요구사항](./2-요구사항-명세서/03-기능-요구사항.md) | 작성 전 | [열기](https://claude.ai/code/artifact/723b4bf1-deaf-4704-8cca-8a303e8cf1d1) |
+| 2.04 | [품질 요구사항](./2-요구사항-명세서/04-품질-요구사항.md) | 작성 전 | [열기](https://claude.ai/artifact/FcjuvQYDBTAYLaV8sds3Fd) |
+
+### 3. 아키텍처 설계서
+
+| 장 | 제목 | 상태 | Claude 앱 문서 |
+| --- | --- | --- | --- |
+| 3.01 | [시스템 구성](./3-아키텍처-설계서/01-시스템-구성.md) | 작성 전 | [열기](https://claude.ai/artifact/Q1CJ63Gc6nnTsuwL1u8Uht) |
+| 3.02 | [동작 명세](./3-아키텍처-설계서/02-동작-명세.md) | 작성 전 | [열기](https://claude.ai/artifact/XBRS4SM3GHxtU41GBQLZiT) |
+| 3.03 | [컴포넌트 명세](./3-아키텍처-설계서/03-컴포넌트-명세.md) | 작성 전 | [열기](https://claude.ai/artifact/HHJgR3WFsfngx6sc5SwZNU) |
+| 3.04 | [인터페이스 계약](./3-아키텍처-설계서/04-인터페이스-계약.md) | 작성 전 | [열기](https://claude.ai/artifact/G5jcsfayUeiK9mRaUHV2tH) |
+| 3.05 | [설계 결정](./3-아키텍처-설계서/05-설계-결정.md) | 작성 전 | [열기](https://claude.ai/artifact/Gitrf6QTfB4pSvJA3KrpsF) |
+
+### 4. 구현 계획서
+
+| 장 | 제목 | 상태 | Claude 앱 문서 |
+| --- | --- | --- | --- |
+| 4.01 | [마일스톤과 작업 분해](./4-구현-계획서/01-마일스톤과-작업-분해.md) | 작성 전 | [열기](https://claude.ai/code/artifact/4c8e4c8e-5610-4151-872d-cd13273c4ce2) |
+| 4.02 | [수용 기준과 검증](./4-구현-계획서/02-수용-기준과-검증.md) | 작성 전 | [열기](https://claude.ai/artifact/1KyyZ1AHuzNfq1hrTc8G3S) |
+| 4.03 | [미결 사항](./4-구현-계획서/03-미결-사항.md) | 작성 전 | [열기](https://claude.ai/artifact/5FEhZ2ED4yGwnSs1mAoVeh) |
+
+### 5. 구현 결과 보고서
+
+| 장 | 제목 | 상태 | Claude 앱 문서 |
+| --- | --- | --- | --- |
+| 5.01 | [산출물](./5-구현-결과-보고서/01-산출물.md) | 작성 전 | [열기](https://claude.ai/code/artifact/05a0da2b-ac1d-448d-b268-c56bdcbf01f0) |
+| 5.02 | [수용 기준 판정](./5-구현-결과-보고서/02-수용-기준-판정.md) | 작성 전 | [열기](https://claude.ai/code/artifact/e231acbf-9e11-466e-b606-75f809dc44a6) |
+| 5.03 | [계획 대비 편차](./5-구현-결과-보고서/03-계획-대비-편차.md) | 작성 전 | [열기](https://claude.ai/code/artifact/3eece09b-03e5-4100-893b-3a67d5dbbf10) |
+| 5.04 | [후속 과제](./5-구현-결과-보고서/04-후속-과제.md) | 작성 전 | [열기](https://claude.ai/code/artifact/7b814089-bf3e-4fe9-9d1d-9101aacb23d0) |
+
+### 부록
+
+| 장 | 제목 | 상태 | Claude 앱 문서 |
+| --- | --- | --- | --- |
+| 부록 | [참고 문헌](./부록-참고-문헌.md) | 작성 전 | [열기](https://claude.ai/artifact/8abff2b7koK1vfGpf1k9R5) |
+| 부록 | [용어집](./부록-용어집.md) | 작성 전 | [열기](https://claude.ai/artifact/F1tfo4uREJ4zNopy71TPvA) |
