@@ -1,13 +1,19 @@
 ---
-id: DRAFT-3
+id: TASK-14
 title: 'coding-agent-git-commit-tool을 포맷 레이어로, 토큰 계량을 별도 컴포넌트로 설계 문서에 반영'
-status: Draft
+status: To Do
 assignee: []
 created_date: '2026-10-12 09:36'
-updated_date: '2026-10-12 09:36'
+updated_date: '2026-10-12 09:43'
 labels:
   - design
 dependencies: []
+documentation:
+  - README.md
+  - 'https://github.com/coralstay/coding-agent-git-commit-tool'
+  - >-
+    components/coding-agent-git-commit-tool/backlog/tasks/gf-146 -
+    토큰·툴콜-측정을-걷어내고-커밋-포맷-전용으로-축소한다.md
 priority: high
 ---
 
