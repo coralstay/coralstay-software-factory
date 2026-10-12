@@ -25,13 +25,13 @@ dependencies: []
 
 저장소 구조(2026-10-12 확인): 루트 .gitignore 2행이 components/를 제외하고, git check-ignore로 컴포넌트 3개와 agent-orchestrator-wt가 모두 무시되며, 최상위가 추적하는 components/ 파일은 0개다. .gitmodules는 없다 — 컴포넌트는 서브모듈이 아닌 독립 저장소다. 따라서 최상위 git · backlog는 그대로 둔다.
 
-DRAFT-1(구현 계획 · 단계별 커밋 등 설계 문서 반영)과 범위가 겹치지 않도록 별도 draft로 둔다. 전파 의무를 훅으로 강제하는 일은 claude-code-agile-hooks 쪽 draft에서 하고, 이 draft의 장 대응표를 그 훅이 읽는다. 영향 없음 사유의 기록 형식도 그 draft에서 확정한다. 계획: ~/.claude/plans/sunny-enchanting-conway.md
+DRAFT-1(구현 계획 · 단계별 커밋 등 설계 문서 반영)과 범위가 겹치지 않도록 별도 draft로 둔다. 전파 의무를 훅으로 강제하는 일은 claude-code-agile-hooks DRAFT-13에서 하고, 이 draft의 장 대응표를 그 훅이 읽는다. 영향 없음 사유의 기록 형식도 그 draft에서 확정한다. 계획: ~/.claude/plans/sunny-enchanting-conway.md
 <!-- SECTION:DESCRIPTION:END -->
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
 - [ ] #1 00 문서 정보: '대상 저장소' 표 아래 새 절 '문서 계층'을 두고, 컴포넌트는 components/<이름>에 두는 독립 저장소이며 최상위 .gitignore가 제외한다는 것(서브모듈 아님), 최상위는 ID · 원칙 · 목표를 소유하고 컴포넌트 design/이 그것을 이어받는다는 것, 장 대응표(최상위 장 → 컴포넌트 장)를 적는다
-- [ ] #2 00 편집 규칙: 최상위 문서를 고친 변경은 영향받는 컴포넌트 design/을 반드시 같이 고치고, 영향이 없으면 사유를 남긴다는 규칙을 넣는다(사유 기록 형식은 claude-code-agile-hooks 쪽 draft에서 확정한 것을 따른다)
+- [ ] #2 00 편집 규칙: 최상위 문서를 고친 변경은 영향받는 컴포넌트 design/을 반드시 같이 고치고, 영향이 없으면 사유를 남긴다는 규칙을 넣는다(사유 기록 형식은 claude-code-agile-hooks DRAFT-13에서 확정한 것을 따른다)
 - [ ] #3 2.03: 전파 의무와 그 훅 강제를 새 요구사항으로 넣는다. 번호는 반영 시점의 다음 번호를 쓴다
 - [ ] #4 3.05: 문서 계층을 저장소마다 두는 이유와 전파 규칙을 새 ADR로 넣고, 기각한 대안(최상위 하나만 · 컴포넌트에 사본 · 서브모듈)과 기각 이유를 적는다
 - [ ] #5 컴포넌트 3곳(agent-orchestrator · claude-code-agile-hooks · coding-agent-git-commit-tool)의 design/00-문서-정보.md에 '최상위 00 문서 계층' 참조 한 줄을 둔다
