@@ -17,7 +17,8 @@
 | --- | --- | --- |
 | agent-orchestrator | JVM 오케스트레이터 — 역할 에이전트 스폰 · 회수 | [coralstay/agent-orchestrator][ao] |
 | claude-code-agile-hooks | 규율 레이어 — 훅 · 테스트 게이트 · 상태 전이 | [coralstay/claude-code-agile-hooks][hooks] |
-| coding-agent-git-commit-tool | 계측 레이어 — 커밋 트레일러 · 토큰 계량 | [coralstay/coding-agent-git-commit-tool][commit] |
+| coding-agent-git-commit-tool | 포맷 레이어 — 커밋 메시지 형식만 맞춘다. 토큰 계량은 하지 않는다 | [coralstay/coding-agent-git-commit-tool][commit] |
+| 토큰 계량 컴포넌트 (이름 미정) | 계측 레이어 — 토큰 계량. coding-agent-git-commit-tool에서 분리 예정 | 미정 |
 | backlog.md | 태스크 계층 · 상태 저장소 (외부 오픈소스 CLI) | [MrLesk/Backlog.md][backlog] |
 
 ## 라이선스
