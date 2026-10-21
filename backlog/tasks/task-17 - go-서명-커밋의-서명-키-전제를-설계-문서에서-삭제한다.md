@@ -1,13 +1,15 @@
 ---
-id: DRAFT-1
+id: TASK-17
 title: go 서명 커밋의 서명 키 전제를 설계 문서에서 삭제한다
-status: Draft
+status: To Do
 assignee: []
 created_date: '2026-10-21 04:54'
-updated_date: '2026-10-21 04:54'
+updated_date: '2026-10-21 04:57'
 labels:
   - design
 dependencies: []
+references:
+  - decision-1
 ---
 
 ## Description
