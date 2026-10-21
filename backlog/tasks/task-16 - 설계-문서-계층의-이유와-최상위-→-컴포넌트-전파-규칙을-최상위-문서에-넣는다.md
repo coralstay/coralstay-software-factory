@@ -1,13 +1,19 @@
 ---
-id: DRAFT-2
+id: TASK-16
 title: 설계 문서 계층의 이유와 최상위 → 컴포넌트 전파 규칙을 최상위 문서에 넣는다
-status: Draft
+status: To Do
 assignee: []
 created_date: '2026-10-12 06:15'
-updated_date: '2026-10-12 06:15'
+updated_date: '2026-10-21 04:05'
 labels:
   - design
-dependencies: []
+dependencies:
+  - TASK-15
+documentation:
+  - >-
+    components/claude-code-agile-hooks/backlog/drafts/draft-13 -
+    최상위-설계-문서를-고치면-컴포넌트-설계-문서-전파를-훅으로-강제한다.md
+  - design/00-문서-정보.md
 ---
 
 ## Description
@@ -65,3 +71,9 @@ DRAFT-1(구현 계획 · 단계별 커밋 등 설계 문서 반영)과 범위가
 4. 컴포넌트 3곳의 design/00-문서-정보.md에 참조 한 줄을 각 저장소에서 커밋한다.
 5. design/ 상대 링크 검사를 돌린다.
 <!-- SECTION:PLAN:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+승격 시 조정(2026-10-21): 전파 영향 없음 사유의 기록 형식은 claude-code-agile-hooks DRAFT-13이 아직 draft이므로 문서에 '미정 — claude-code-agile-hooks DRAFT-13에서 확정'으로 적는다. 요구사항 · ADR 번호는 TASK-15가 쓴 다음 번호를 쓴다.
+<!-- SECTION:NOTES:END -->
