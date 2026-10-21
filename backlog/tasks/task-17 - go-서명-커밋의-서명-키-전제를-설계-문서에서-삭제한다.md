@@ -1,7 +1,7 @@
 ---
 id: TASK-17
 title: go 서명 커밋의 서명 키 전제를 설계 문서에서 삭제한다
-status: To Do
+status: In Progress
 assignee: []
 created_date: '2026-10-21 04:54'
 updated_date: '2026-10-21 04:57'
