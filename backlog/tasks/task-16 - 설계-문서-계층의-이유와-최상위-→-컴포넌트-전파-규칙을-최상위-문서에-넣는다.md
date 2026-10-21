@@ -1,10 +1,10 @@
 ---
 id: TASK-16
 title: 설계 문서 계층의 이유와 최상위 → 컴포넌트 전파 규칙을 최상위 문서에 넣는다
-status: To Do
+status: In Progress
 assignee: []
 created_date: '2026-10-12 06:15'
-updated_date: '2026-10-21 04:05'
+updated_date: '2026-10-21 04:20'
 labels:
   - design
 dependencies:
