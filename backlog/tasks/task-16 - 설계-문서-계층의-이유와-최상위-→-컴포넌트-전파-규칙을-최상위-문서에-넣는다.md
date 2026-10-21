@@ -4,7 +4,7 @@ title: 설계 문서 계층의 이유와 최상위 → 컴포넌트 전파 규�
 status: In Progress
 assignee: []
 created_date: '2026-10-12 06:15'
-updated_date: '2026-10-21 04:20'
+updated_date: '2026-10-21 04:38'
 labels:
   - design
 dependencies:
@@ -46,7 +46,7 @@ DRAFT-1(구현 계획 · 단계별 커밋 등 설계 문서 반영)과 범위가
 ## Definition of Done
 <!-- DOD:BEGIN -->
 - [ ] #1 design/ 상대 링크 검사에서 깨진 링크가 없다
-- [ ] #2 컴포넌트 3곳의 00 문서 정보 변경은 각 컴포넌트 저장소에 같은 태스크 ID로 커밋한다
+- [ ] #2 컴포넌트 3곳의 00 문서 정보 변경은 각 컴포넌트 저장소의 카드(AO-n · TASK-n · GF-n) 브랜치에 커밋하고, 커밋 본문에 TASK-16을 참조로 적는다
 <!-- DOD:END -->
 
 ## Implementation Plan
@@ -76,4 +76,6 @@ DRAFT-1(구현 계획 · 단계별 커밋 등 설계 문서 반영)과 범위가
 
 <!-- SECTION:NOTES:BEGIN -->
 승격 시 조정(2026-10-21): 전파 영향 없음 사유의 기록 형식은 claude-code-agile-hooks DRAFT-13이 아직 draft이므로 문서에 '미정 — claude-code-agile-hooks DRAFT-13에서 확정'으로 적는다. 요구사항 · ADR 번호는 TASK-15가 쓴 다음 번호를 쓴다.
+
+AC 밖 보완(유저 승인 2026-10-21): 3.03 §2 구현하는 요구사항 · ① 절차 강제 행에 RAIL-024 추가. TASK-15 후속으로 RAIL-009와 3.03 §2의 사람의 판단 지점을 세 곳(백로그 승인 · 착수 전 go · push 전 코드 리뷰)으로 고침. 컴포넌트 저장소 커밋은 prepare-commit-msg 훅이 브랜치에 그 저장소 카드 번호(AO-n · GF-n)를 요구해, 저장소마다 카드를 만들고 커밋 본문에 TASK-16을 참조로 적기로 함(유저 결정 2026-10-21) — DoD #2 문구를 그에 맞게 고침.
 <!-- SECTION:NOTES:END -->
