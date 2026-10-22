@@ -10,6 +10,7 @@ labels:
 dependencies: []
 references:
   - decision-1
+  - decision-2
 documentation:
   - 'https://github.com/coralstay/claude-code-agile-hooks/pulls'
 ---
