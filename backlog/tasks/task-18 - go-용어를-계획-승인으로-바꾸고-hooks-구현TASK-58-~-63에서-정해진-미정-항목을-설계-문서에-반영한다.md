@@ -1,10 +1,10 @@
 ---
 id: TASK-18
 title: 'go 용어를 계획 승인으로 바꾸고, hooks 구현(TASK-58 ~ 63)에서 정해진 미정 항목을 설계 문서에 반영한다'
-status: In Progress
+status: Done
 assignee: []
 created_date: '2026-10-21 08:57'
-updated_date: '2026-10-22 05:36'
+updated_date: '2026-10-22 05:46'
 labels:
   - design
 dependencies: []
@@ -23,19 +23,19 @@ documentation:
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 design/ 전체에서 go · go 판정 · Plan-Review-Go · Go: <태스크 ID> 표기를 계획 승인 · 승인 게이트 · 계획 → 리뷰 → 계획 승인 · Plan-Approved: <태스크 ID>로 바꾼다(용어집 항목 포함)
-- [ ] #2 2.02 구현 계획 형식 · 3.04 §1 · 3.05 ADR-022에 승인 게이트가 서명자(%GS)를 humanSigners 목록과 대조한다는 것과 두 키 구성(AI 전용 키 · 사람 키는 ssh-agent 밖)을 적고, ADR-022 기각한 대안에 '한 키로 유효 서명만 확인'을 추가한다
-- [ ] #3 3.04 §7 프로젝트 설정 표에 humanSigners 키를 추가한다
-- [ ] #4 '미정 — claude-code-agile-hooks DRAFT-N에서 확정'으로 남긴 항목을 hooks 구현 결과로 바꾼다: 계획 승인 커밋 형식(빈 서명 커밋, decision-14), 커버리지 지표 line + branch · 리포트 위치 설정 키 coverageReportDir · -s Done 게이트는 새 훅 require_coverage_on_done.py(TASK-62), 테스트 파일 헤더 '<ID>: <요약>' · 섹션 표식 '== AC/DoD ==' · '== Coverage ==' · 기존 파일 유예(TASK-61), 작업 순서 의존 출처 = 태스크 frontmatter dependencies(TASK-60), 전파 확인 = 로컬 components/* 모든 브랜치의 Refs 커밋 · 영향 없음 트레일러 Propagation-None: <컴포넌트>: <사유> · 차단 시점 최상위 -s Done(TASK-63, decision-15). 대상: 00 편집 규칙, 2.02, 2.03 RAIL-024, 3.04 §7, 3.05 ADR-022 · ADR-023 · ADR-025
-- [ ] #5 작업 순서 재계산 규칙: 2.02 상태와 전이 · 전이와 커밋, 2.03 BL-016 · RAIL-023에 'draft든 To Do 태스크든 앞으로 할 일이 새로 생기거나 다시 열리거나 의존이 바뀔 때마다 의존을 정리하고 작업 순서를 다시 계산해 바로 커밋한다(작업 순서에는 draft도 포함)'를 반영한다 — claude-code-agile-hooks DRAFT-14와 맞춘다
+- [x] #1 design/ 전체에서 go · go 판정 · Plan-Review-Go · Go: <태스크 ID> 표기를 계획 승인 · 승인 게이트 · 계획 → 리뷰 → 계획 승인 · Plan-Approved: <태스크 ID>로 바꾼다(용어집 항목 포함)
+- [x] #2 2.02 구현 계획 형식 · 3.04 §1 · 3.05 ADR-022에 승인 게이트가 서명자(%GS)를 humanSigners 목록과 대조한다는 것과 두 키 구성(AI 전용 키 · 사람 키는 ssh-agent 밖)을 적고, ADR-022 기각한 대안에 '한 키로 유효 서명만 확인'을 추가한다
+- [x] #3 3.04 §7 프로젝트 설정 표에 humanSigners 키를 추가한다
+- [x] #4 '미정 — claude-code-agile-hooks DRAFT-N에서 확정'으로 남긴 항목을 hooks 구현 결과로 바꾼다: 계획 승인 커밋 형식(빈 서명 커밋, decision-14), 커버리지 지표 line + branch · 리포트 위치 설정 키 coverageReportDir · -s Done 게이트는 새 훅 require_coverage_on_done.py(TASK-62), 테스트 파일 헤더 '<ID>: <요약>' · 섹션 표식 '== AC/DoD ==' · '== Coverage ==' · 기존 파일 유예(TASK-61), 작업 순서 의존 출처 = 태스크 frontmatter dependencies(TASK-60), 전파 확인 = 로컬 components/* 모든 브랜치의 Refs 커밋 · 영향 없음 트레일러 Propagation-None: <컴포넌트>: <사유> · 차단 시점 최상위 -s Done(TASK-63, decision-15). 대상: 00 편집 규칙, 2.02, 2.03 RAIL-024, 3.04 §7, 3.05 ADR-022 · ADR-023 · ADR-025
+- [x] #5 작업 순서 재계산 규칙: 2.02 상태와 전이 · 전이와 커밋, 2.03 BL-016 · RAIL-023에 'draft든 To Do 태스크든 앞으로 할 일이 새로 생기거나 다시 열리거나 의존이 바뀔 때마다 의존을 정리하고 작업 순서를 다시 계산해 바로 커밋한다(작업 순서에는 draft도 포함)'를 반영한다 — claude-code-agile-hooks DRAFT-14와 맞춘다
 <!-- AC:END -->
 
 ## Definition of Done
 <!-- DOD:BEGIN -->
-- [ ] #1 grep으로 design/에 go 계열 옛 표기가 0건이다(다른 뜻의 영단어 제외)
-- [ ] #2 design/ 상대 링크 검사에서 깨진 링크가 없다(기존 템플릿 예시 1건 제외)
-- [ ] #3 파일 하나에 커밋 하나, push하지 않는다
-- [ ] #4 grep -rn '미정 — claude-code-agile-hooks DRAFT' design 결과가 0건이다
+- [x] #1 grep으로 design/에 go 계열 옛 표기가 0건이다(다른 뜻의 영단어 제외)
+- [x] #2 design/ 상대 링크 검사에서 깨진 링크가 없다(기존 템플릿 예시 1건 제외)
+- [x] #3 파일 하나에 커밋 하나, push하지 않는다
+- [x] #4 grep -rn '미정 — claude-code-agile-hooks DRAFT' design 결과가 0건이다
 <!-- DOD:END -->
 
 ## Implementation Plan
@@ -58,3 +58,19 @@ design/에서 go 계열 표기는 6개 파일 약 48곳(2.02 · 2.03 · 3.03 · 
 
 추가(2026-10-22): hooks 저장소 TASK-58 ~ TASK-63이 끝나 '미정 — DRAFT-N에서 확정' 항목들이 정해졌다(PR coralstay/claude-code-agile-hooks#54 ~ #59). AC #4로 이 반영을 함께 한다. grep -rn '미정 — claude-code-agile-hooks DRAFT' design 결과가 0건이어야 한다(PRG 강제 방법처럼 hooks draft가 없는 미정은 그대로).
 <!-- SECTION:PLAN:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+go 용어를 업계 관행(plan approval · approval gate)에 맞춰 계획 승인 · 승인 게이트로 바꾸고, 사람 서명자 확인(두 키)과 claude-code-agile-hooks TASK-58 ~ 63 · TASK-64에서 정해진 내용을 설계 문서에 반영했다.
+
+- AC #1 go · go 판정 · Plan-Review-Go · Go: <ID> → 계획 승인 · 승인 게이트 · 계획 → 리뷰 → 계획 승인 · Plan-Approved: <ID>(2.02 · 2.03 RAIL-009 · RAIL-020 · BL-017 · 3.03 · 3.04 · 3.05 · 용어집)
+- AC #2 승인 게이트는 %G?=G이고 %GS가 humanSigners에 있을 때만 통과, 두 키 구성(Claude Code는 AI 전용 키, 사람 키는 ssh-agent 밖), ADR-022 기각 대안에 '한 키로 유효 서명만 확인' 추가, 남은 위험(로컬 파일 편집 가능) 명시. decision-2(decision-1 대체)
+- AC #3 3.04 §7 설정 예 · 표에 humanSigners · coverageReportDir
+- AC #4 '미정 — DRAFT-N에서 확정' 전부 구현 결과로: 계획 승인 커밋 형식(TASK-58), 커버리지 line + branch · coverageReportDir · Done 게이트 새 훅(TASK-62, 2.04 NFR-017 포함), 테스트 헤더 · 섹션 표식 · 기존 파일 유예(TASK-61), 의존 출처 frontmatter(TASK-60), 전파 확인 Refs · Propagation-None · 최상위 -s Done(TASK-63, decision-15). ADR-022 · 023 · 025 상태 '확정'
+- AC #5 작업 순서 재계산 규칙(draft 포함)을 2.02 · BL-016 · RAIL-023(+ 3.03 §4 · 3.04 §3 · ADR-023 · 용어집)에, 강제는 hooks TASK-64(미구현)라고 명시
+
+커밋 8개(파일당 하나: 00 b5a7b6c · 2.02 1b8ee53 · 2.03 945ac0f · 2.04 6bba779 · 3.03 3d7a140 · 3.04 256c57f · 3.05 755075c · 용어집 9a81cec).
+검증: go 계열 옛 표기 grep 0건, '미정 — claude-code-agile-hooks DRAFT' 0건, design/ 상대 링크 검사 → 기존 템플릿 예시 1건뿐. PRG 강제 방법은 hooks draft가 없어 미정 유지.
+남은 일: TASK-15 · 17 · 18의 컴포넌트 전파(RAIL-024)는 유저 결정(2026-10-22)으로 별도 카드에서 한다.
+<!-- SECTION:FINAL_SUMMARY:END -->
