@@ -1,13 +1,17 @@
 ---
-id: DRAFT-1
+id: TASK-18
 title: 'go 용어를 계획 승인으로 바꾸고, hooks 구현(TASK-58 ~ 63)에서 정해진 미정 항목을 설계 문서에 반영한다'
-status: Draft
+status: To Do
 assignee: []
 created_date: '2026-10-21 08:57'
-updated_date: '2026-10-22 05:35'
+updated_date: '2026-10-22 05:36'
 labels:
   - design
 dependencies: []
+references:
+  - decision-1
+documentation:
+  - 'https://github.com/coralstay/claude-code-agile-hooks/pulls'
 ---
 
 ## Description
