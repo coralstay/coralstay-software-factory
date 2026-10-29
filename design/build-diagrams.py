@@ -26,7 +26,7 @@ mermaid-cli가 실패하면 기존 SVG를 그대로 둔다(아직 토큰화되�
 """
 import io, os, re, subprocess, sys, pathlib, tempfile
 
-ROOT = pathlib.Path(__file__).parent
+ROOT = pathlib.Path(__file__).resolve().parent
 DIA = ROOT / "diagrams"
 BUILD_MARK = 'data-generated-by="design/build-diagrams.py"'
 
@@ -139,6 +139,10 @@ def render_dot(path: pathlib.Path) -> str:
 
 
 def main() -> None:
+    if len(sys.argv) > 1 and sys.argv[1] in ("-h", "--help", "help"):
+        print("사용법 (Usage): build-diagrams [-h|--help]")
+        print(f"  {DIA} 안의 *.dot 및 *.mmd 원본을 다크/라이트 테마 대응 SVG로 렌더링합니다.")
+        return
     sources = sorted(DIA.glob("*.dot")) + sorted(DIA.glob("*.mmd"))
     if not sources:
         sys.exit(f"소스 없음: {DIA}")
