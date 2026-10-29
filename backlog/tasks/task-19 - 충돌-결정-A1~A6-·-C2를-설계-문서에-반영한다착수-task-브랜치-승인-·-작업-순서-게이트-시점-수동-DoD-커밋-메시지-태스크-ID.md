@@ -6,7 +6,7 @@ title: >-
 status: In Progress
 assignee: []
 created_date: '2026-10-29 02:30'
-updated_date: '2026-10-29 02:45'
+updated_date: '2026-10-29 03:46'
 labels:
   - design
 dependencies: []
@@ -40,6 +40,9 @@ references:
 - [x] #4 A5: 2.02 · 2.03 RAIL-023 · 3.03 · 3.04 · 3.05 ADR-023 · 용어집에서 작업 순서 파일 검사 시점을 브랜치 생성으로 옮기고, ORC-005 배정 조건을 isReady ∧ To Do ∧ task/<ID> 브랜치 없음(work-order.md는 읽지 않음)으로 적는다
 - [x] #5 A6: 2.02 · 2.03 RAIL-022 · 3.04 · 3.05 ADR-023 · 4.02 · 용어집에 DoD 항목 끝 `(수동)` 표시는 #D 표식 요구에서 빠진다는 예외를 적는다
 - [x] #6 C2: 2.03에 RAIL-025(task/<ID> 브랜치에서 메시지에 그 ID가 단어 경계로 없는 커밋 거부)를 신설하고 3.03 · 3.04 · 3.05 ADR-023 · 4.02 수용 기준에 반영한다
+- [ ] #7 A1 보완(2026-10-29): 착수 검사(계획 승인 · 형식 · 작업 순서)를 브랜치 생성 · 전환과 -s "In Progress" 두 시점에 둔다 — 오케스트레이터의 git worktree add는 훅을 거치지 않으므로
+- [ ] #8 A6 보완(2026-10-29): (수동) 예외를 AC에도 허용한다(문서 전용 카드)
+- [ ] #9 decision-3 본문(Context · Decision · Consequences)을 채우고 제목을 두 시점 검사로 고친다
 <!-- AC:END -->
 
 ## Definition of Done
