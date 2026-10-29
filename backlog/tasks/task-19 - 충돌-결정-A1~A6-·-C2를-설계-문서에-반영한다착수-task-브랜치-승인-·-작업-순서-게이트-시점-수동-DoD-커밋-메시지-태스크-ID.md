@@ -1,9 +1,9 @@
 ---
-id: DRAFT-1
+id: TASK-19
 title: >-
   충돌 결정 A1~A6 · C2를 설계 문서에 반영한다(착수 = task 브랜치, 승인 · 작업 순서 게이트 시점, (수동) DoD, 커밋
   메시지 태스크 ID)
-status: Draft
+status: To Do
 assignee: []
 created_date: '2026-10-29 02:30'
 updated_date: '2026-10-29 02:30'
