@@ -6,7 +6,7 @@ title: >-
 status: In Progress
 assignee: []
 created_date: '2026-10-29 02:30'
-updated_date: '2026-10-29 05:48'
+updated_date: '2026-10-29 11:05'
 labels:
   - design
 dependencies: []
@@ -43,6 +43,7 @@ references:
 - [x] #7 A1 보완(2026-10-29): 착수 검사(계획 승인 · 형식 · 작업 순서)를 브랜치 생성 · 전환과 -s "In Progress" 두 시점에 둔다 — 오케스트레이터의 git worktree add는 훅을 거치지 않으므로
 - [x] #8 A6 보완(2026-10-29): (수동) 예외를 AC에도 허용한다(문서 전용 카드)
 - [x] #9 decision-3 본문(Context · Decision · Consequences)을 채우고 제목을 두 시점 검사로 고친다
+- [ ] #10 squash 대응(2026-10-29): 병합 뒤 task/<ID> 브랜치 삭제를 규칙으로 적고, 판정은 git cherry 유지, 지우지 않은 squash 브랜치는 착수 중으로 보이는 한계를 적는다
 <!-- AC:END -->
 
 ## Definition of Done
