@@ -6,7 +6,7 @@ title: >-
 status: In Progress
 assignee: []
 created_date: '2026-10-29 02:30'
-updated_date: '2026-10-29 03:46'
+updated_date: '2026-10-29 05:48'
 labels:
   - design
 dependencies: []
@@ -40,9 +40,9 @@ references:
 - [x] #4 A5: 2.02 · 2.03 RAIL-023 · 3.03 · 3.04 · 3.05 ADR-023 · 용어집에서 작업 순서 파일 검사 시점을 브랜치 생성으로 옮기고, ORC-005 배정 조건을 isReady ∧ To Do ∧ task/<ID> 브랜치 없음(work-order.md는 읽지 않음)으로 적는다
 - [x] #5 A6: 2.02 · 2.03 RAIL-022 · 3.04 · 3.05 ADR-023 · 4.02 · 용어집에 DoD 항목 끝 `(수동)` 표시는 #D 표식 요구에서 빠진다는 예외를 적는다
 - [x] #6 C2: 2.03에 RAIL-025(task/<ID> 브랜치에서 메시지에 그 ID가 단어 경계로 없는 커밋 거부)를 신설하고 3.03 · 3.04 · 3.05 ADR-023 · 4.02 수용 기준에 반영한다
-- [ ] #7 A1 보완(2026-10-29): 착수 검사(계획 승인 · 형식 · 작업 순서)를 브랜치 생성 · 전환과 -s "In Progress" 두 시점에 둔다 — 오케스트레이터의 git worktree add는 훅을 거치지 않으므로
-- [ ] #8 A6 보완(2026-10-29): (수동) 예외를 AC에도 허용한다(문서 전용 카드)
-- [ ] #9 decision-3 본문(Context · Decision · Consequences)을 채우고 제목을 두 시점 검사로 고친다
+- [x] #7 A1 보완(2026-10-29): 착수 검사(계획 승인 · 형식 · 작업 순서)를 브랜치 생성 · 전환과 -s "In Progress" 두 시점에 둔다 — 오케스트레이터의 git worktree add는 훅을 거치지 않으므로
+- [x] #8 A6 보완(2026-10-29): (수동) 예외를 AC에도 허용한다(문서 전용 카드)
+- [x] #9 decision-3 본문(Context · Decision · Consequences)을 채우고 제목을 두 시점 검사로 고친다
 <!-- AC:END -->
 
 ## Definition of Done
@@ -90,4 +90,10 @@ DoD 증거:
 - #2 design/ 상대 링크 34개 검사, 깨짐 0(00 편집 규칙의 '../diagrams/<이름>.svg' 표기 예시 1건은 기존 자리표시자).
 - #3 파일 하나에 커밋 하나, 모든 커밋 제목에 TASK-19, push 없음.
 - #4 2.03 ID 중복 0, 새 ID는 RAIL-025뿐, 재번호 없음.
+
+보완 반영 커밋(2026-10-29, push 없음): 2eee3c1 2.02 · 643eea8 2.03 · 73b87f2 2.03 원천(첫 커밋에서 빠진 원천 한 줄 — amend가 막혀 별도 커밋) · bd29130 3.03 · 5c99177 3.04 · f541946 3.05 · d53fe0a 4.02 · df51430 부록 용어집 · 602b23e 3.02 · a70d810 4.01 · 7ab1bef decision-3.
+- AC #7(착수 검사 두 시점): 2.02 착수 검사 두 시점 · 전이와 커밋 5 · 6단계, 2.03 RAIL-020 · RAIL-023 · BL-017, 3.03 §1 주의점(WorktreeManager의 git worktree add 우회, '착수 안 됨' 실패) · §2 · §4, 3.04 §1 계획 승인 · §3 착수 · 작업 순서 · §7 humanSigners, 3.05 ADR-014 근거 · ADR-022 결정 · 근거 · 기각한 대안('브랜치 생성 · 전환 시점만', '오케스트레이터가 직접 판정') · 결과 · ADR-023 결과, 3.02 부트스트랩 5단계, 4.01 hooks 행, 용어집 계획 승인 커밋 · 승인 게이트 · 착수 · 작업 순서 파일.
+- AC #8((수동) AC): 2.02 테스트 표식 · 구조 · Done 전이, 2.03 RAIL-019, 3.03 §2, 3.04 §1 AC · §3 완료 · §7 testFirst, 3.05 ADR-020 · ADR-023, 4.02 테스트 추적, 용어집 '(수동) AC · DoD'. 비즈니스 규칙 #B<k>는 예외 없음을 함께 적음.
+- AC #9: decision-3 Context(decision-2 원안 · 상태 락 실패 · 1.51.0 실측 · A1/A2/A5 · 오케스트레이터 worktree 우회 발견) · Decision 1~7 · Consequences 작성, 제목을 두 시점 검사로 수정(backlog decision list에서 파싱 확인).
+검사: grep(게이트를 돌지 않 · 게이트가 아니 · 브랜치 시점 · 단독 '(수동) DoD') design · decision에서 남은 것은 3.05 ADR-022 기각한 대안 '브랜치 생성 · 전환 시점만'과 decision-3 Context 서술뿐. 'In Progress … 기록' 중 검사 언급 없는 행은 단계 커밋 · 착수 철회 · 두 시점 명시 행뿐. design/ 상대 링크 34개 중 깨짐 1(00 편집 규칙의 '../diagrams/<이름>.svg' 기존 자리표시자).
 <!-- SECTION:NOTES:END -->
