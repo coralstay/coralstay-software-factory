@@ -6,7 +6,7 @@ title: >-
 status: In Progress
 assignee: []
 created_date: '2026-10-29 02:30'
-updated_date: '2026-10-29 11:05'
+updated_date: '2026-10-29 11:06'
 labels:
   - design
 dependencies: []
@@ -43,7 +43,7 @@ references:
 - [x] #7 A1 보완(2026-10-29): 착수 검사(계획 승인 · 형식 · 작업 순서)를 브랜치 생성 · 전환과 -s "In Progress" 두 시점에 둔다 — 오케스트레이터의 git worktree add는 훅을 거치지 않으므로
 - [x] #8 A6 보완(2026-10-29): (수동) 예외를 AC에도 허용한다(문서 전용 카드)
 - [x] #9 decision-3 본문(Context · Decision · Consequences)을 채우고 제목을 두 시점 검사로 고친다
-- [ ] #10 squash 대응(2026-10-29): 병합 뒤 task/<ID> 브랜치 삭제를 규칙으로 적고, 판정은 git cherry 유지, 지우지 않은 squash 브랜치는 착수 중으로 보이는 한계를 적는다
+- [x] #10 squash 대응(2026-10-29): 병합 뒤 task/<ID> 브랜치 삭제를 규칙으로 적고, 판정은 git cherry 유지, 지우지 않은 squash 브랜치는 착수 중으로 보이는 한계를 적는다
 <!-- AC:END -->
 
 ## Definition of Done
@@ -97,4 +97,8 @@ DoD 증거:
 - AC #8((수동) AC): 2.02 테스트 표식 · 구조 · Done 전이, 2.03 RAIL-019, 3.03 §2, 3.04 §1 AC · §3 완료 · §7 testFirst, 3.05 ADR-020 · ADR-023, 4.02 테스트 추적, 용어집 '(수동) AC · DoD'. 비즈니스 규칙 #B<k>는 예외 없음을 함께 적음.
 - AC #9: decision-3 Context(decision-2 원안 · 상태 락 실패 · 1.51.0 실측 · A1/A2/A5 · 오케스트레이터 worktree 우회 발견) · Decision 1~7 · Consequences 작성, 제목을 두 시점 검사로 수정(backlog decision list에서 파싱 확인).
 검사: grep(게이트를 돌지 않 · 게이트가 아니 · 브랜치 시점 · 단독 '(수동) DoD') design · decision에서 남은 것은 3.05 ADR-022 기각한 대안 '브랜치 생성 · 전환 시점만'과 decision-3 Context 서술뿐. 'In Progress … 기록' 중 검사 언급 없는 행은 단계 커밋 · 착수 철회 · 두 시점 명시 행뿐. design/ 상대 링크 34개 중 깨짐 1(00 편집 규칙의 '../diagrams/<이름>.svg' 기존 자리표시자).
+
+squash 대응 커밋(2026-10-29, push 없음): 8eb8788 3.03 · c5ffb96 2.02 · 1d30cba 2.01 · 38314d9 3.04 · 9c7aec8 3.05 · 4f34c06 부록 용어집 · bb4548d decision-3.
+- AC #10: 전체 서술은 3.03 §1 주의점 한 곳(병합 뒤 task/<ID> 브랜치 삭제 규칙 — GitHub 'Automatically delete head branches' + git fetch --prune · 로컬 브랜치 삭제, 판정은 git cherry 유지, 이 규칙을 지키면 병합 방식 무관, 한계: squash 병합하고 지우지 않은 브랜치는 착수로 보여 배정이 막힘). 한 줄 참조: 3.03 §4 주의점, 2.02 착수 정의, 2.01 사람 행, 3.04 착수 판정, 3.05 ADR-014 근거('병합되면 저절로 풀린다' → '병합 뒤 브랜치를 지우면 풀린다') · 한계, 용어집 착수, decision-3 Consequences(decision-14 병합 방식 제약 해소에 단서 + squash 한계 항목).
+- 검사: grep squash · merge commit · 병합 방식 · 병합되면 · 저절로 풀 — design · decision에 남은 병합 방식 서술은 decision-3 Consequences(단서 붙음)뿐.
 <!-- SECTION:NOTES:END -->
