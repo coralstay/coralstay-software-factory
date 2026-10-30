@@ -4,7 +4,7 @@ title: coding-agent-git-commit-tool 서술을 코드에 맞춘다(AI-Agent 트�
 status: In Progress
 assignee: []
 created_date: '2026-10-30T12:33:00Z'
-updated_date: '2026-10-30T12:56:00Z'
+updated_date: '2026-10-30T12:58:00Z'
 labels:
   - design
 dependencies: []
@@ -22,20 +22,20 @@ documentation:
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 트레일러 표기를 AI-Agent: <도구>/<버전> (<모델>) 한 줄로 바꾼다 — 3.04 §2 예시 · 표, 3.03 §3, 3.01, 4.01, 2.03 TRL-006, 3.05 ADR-021, 부록 용어집 (수동)
-- [ ] #2 트레일러 조건을 코드에 맞춘다 — Signed-off-by는 사람 커밋에만(값은 git var GIT_COMMITTER_IDENT), Co-Authored-By는 AI_AGENT 도구가 claude-code일 때, Verify-Bypassed 삭제(TRL-008 문구, ID 유지), Task-Id는 예외 브랜치(main · master · develop · release/*) · 재생 커밋 제외(TRL-003) (수동)
-- [ ] #3 형식 규칙을 코드에 맞춘다 — 50자는 제목 줄 전체, Revert · Reapply 제목 면제, TRL-002에 예외 브랜치 (수동)
-- [ ] #4 3.03 §3 구성 · 주의점을 코드에 맞춘다 — 훅은 prepare-commit-msg 하나, python3가 없으면 커밋이 막힘, commit --no-verify로 건너뛸 수 없음(탐지 못 하는 것은 push --no-verify), .gitformat-* 파일 서술 삭제, NFR-005를 구현 목록에서 뺌 (수동)
-- [ ] #5 3.04 §2에 AI 판정(AI_AGENT 하나), 메시지에 이미 있는 AI-Agent 줄은 그대로 두는 한계, 비 Claude AI 도구의 knownModel 게이트를 적는다 (수동)
+- [x] #1 트레일러 표기를 AI-Agent: <도구>/<버전> (<모델>) 한 줄로 바꾼다 — 3.04 §2 예시 · 표, 3.03 §3, 3.01, 4.01, 2.03 TRL-006, 3.05 ADR-021, 부록 용어집 (수동)
+- [x] #2 트레일러 조건을 코드에 맞춘다 — Signed-off-by는 사람 커밋에만(값은 git var GIT_COMMITTER_IDENT), Co-Authored-By는 AI_AGENT 도구가 claude-code일 때, Verify-Bypassed 삭제(TRL-008 문구, ID 유지), Task-Id는 예외 브랜치(main · master · develop · release/*) · 재생 커밋 제외(TRL-003) (수동)
+- [x] #3 형식 규칙을 코드에 맞춘다 — 50자는 제목 줄 전체, Revert · Reapply 제목 면제, TRL-002에 예외 브랜치 (수동)
+- [x] #4 3.03 §3 구성 · 주의점을 코드에 맞춘다 — 훅은 prepare-commit-msg 하나, python3가 없으면 커밋이 막힘, commit --no-verify로 건너뛸 수 없음(탐지 못 하는 것은 push --no-verify), .gitformat-* 파일 서술 삭제, NFR-005를 구현 목록에서 뺌 (수동)
+- [x] #5 3.04 §2에 AI 판정(AI_AGENT 하나), 메시지에 이미 있는 AI-Agent 줄은 그대로 두는 한계, 비 Claude AI 도구의 knownModel 게이트를 적는다 (수동)
 <!-- AC:END -->
 
 ## Definition of Done
 <!-- DOD:BEGIN -->
-- [ ] #1 바꾼 문장마다 근거 코드 위치(file:line)를 구현 노트에 적는다 (수동)
-- [ ] #2 옛 표현 grep 결과를 노트에 남긴다 (수동)
-- [ ] #3 design/ 상대 링크 깨짐 0, 요구사항 ID 재사용 · 재번호 없음 (수동)
-- [ ] #4 파일 하나에 커밋 하나, 각 커밋에 카드 ID, push 하지 않는다 (수동)
-- [ ] #5 Done 전에 장 대응표로 영향받는 컴포넌트마다 Refs 커밋 또는 Propagation-None 트레일러를 남긴다 (수동)
+- [x] #1 바꾼 문장마다 근거 코드 위치(file:line)를 구현 노트에 적는다 (수동)
+- [x] #2 옛 표현 grep 결과를 노트에 남긴다 (수동)
+- [x] #3 design/ 상대 링크 깨짐 0, 요구사항 ID 재사용 · 재번호 없음 (수동)
+- [x] #4 파일 하나에 커밋 하나, 각 커밋에 카드 ID, push 하지 않는다 (수동)
+- [x] #5 Done 전에 장 대응표로 영향받는 컴포넌트마다 Refs 커밋 또는 Propagation-None 트레일러를 남긴다 (수동)
 <!-- DOD:END -->
 
 ## Implementation Plan
@@ -97,4 +97,18 @@ grep(design/, svg 제외: AI-Tool · AI-Model · AI-Tool-Version · Verify-Bypas
 다이어그램: 07-task-sequence.mmd 라벨('훅이 커밋 형식 검사 · 트레일러 부착')은 코드와 어긋나지 않아 손대지 않음.
 
 범위 밖 발견(고치지 않음): 3.03 §1 주의점(:47)의 '(transcript-not-found)' 사유 표기 — 코드는 사유 없이 model-unavailable만 남긴다(PCM:643). 4.01:71 남은 작업 '토큰 측정 로직 제거(GF-146)'는 그 저장소에서 GF-146 완료(19695df).
+
+검증(메인 세션, 2026-10-30): 3.04 §2 · 2.03 TRL 변경을 prepare-commit-msg와 다시 대조(:236 REVERT_SUBJECT_RE, :309-310 제목 줄 전체 길이, :414 branchExempt, :435-436 ai_tool_id, :630-645 trailer_ai_agent) — 일치. 2.02:128 '커밋 트레일러' 행의 AI-Model도 같은 사실이라 AI-Agent로 고침(64abc03). grep AI-Tool · AI-Model · Verify-Bypassed · post-commit · .gitformat-: 남은 것은 3.03:94(삭제 이력) · 2.03 TRL-008(폐기 이력) 2건뿐. 전파: 세 컴포넌트 design/에 옛 서술 없음 → Propagation-None 3줄. 브랜치의 3f7ed86 '[chore][workspace] align layout and tags'(.claude-code-agile-hooks.json humanSigners 추가)는 출처 미상, 내용은 유저가 만든 설정과 같아 이력을 고치지 않음.
 <!-- SECTION:NOTES:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+최상위 design/의 coding-agent-git-commit-tool 서술을 코드(prepare-commit-msg · gitformat.conf · install.sh · tests/, task/GF-146)에 맞췄다.
+
+- 트레일러: AI-Tool · AI-Tool-Version · AI-Model을 AI-Agent 한 줄로(3.04 §2 · 3.03 §3 · 3.01 · 4.01 · 2.02 · 2.03 TRL-006 · ADR-021 · 용어집), Signed-off-by는 사람 커밋에만(GIT_COMMITTER_IDENT), Co-Authored-By는 claude-code일 때, Verify-Bypassed는 TRL-008에서 폐기 표시(ID 유지), Task-Id 예외 브랜치 · 재생 커밋.
+- 형식: 50자는 제목 줄 전체, Revert · Reapply 면제, TRL-001 · TRL-002 문구.
+- 구성: 훅은 prepare-commit-msg 하나, python3 없으면 커밋 차단, commit --no-verify로 못 건너뜀, .gitformat-* 서술 삭제, NFR-005를 이 도구 구현 목록에서 뺌, AI 판정 · knownModel 게이트 · 기존 AI-Agent 줄 유지 한계.
+- 검증: 서브에이전트 구현 후 메인 세션이 코드 줄과 재대조, 옛 표현 grep은 이력 서술 2건만, 상대 링크 깨짐 0, 요구사항 ID 재번호 없음. 전파는 세 컴포넌트 모두 Propagation-None.
+- 범위 밖 발견(노트): 3.03 §1의 '(transcript-not-found)' 표기(TASK-21 관련), 4.01의 GF-146 남은 작업 표기.
+<!-- SECTION:FINAL_SUMMARY:END -->
