@@ -1,13 +1,16 @@
 ---
-id: DRAFT-1
+id: TASK-20
 title: coding-agent-git-commit-tool 서술을 코드에 맞춘다(AI-Agent 트레일러 · 훅 하나 · 형식 규칙)
-status: Draft
+status: To Do
 assignee: []
 created_date: '2026-10-30T12:33:00Z'
-updated_date: '2026-10-30T12:33:00Z'
+updated_date: '2026-10-30T12:48:00Z'
 labels:
   - design
-dependencies: []
+dependencies:
+  - TASK-19
+documentation:
+  - /Users/flynn_macpro/.claude/plans/starry-greeting-curry.md
 ---
 
 ## Description
