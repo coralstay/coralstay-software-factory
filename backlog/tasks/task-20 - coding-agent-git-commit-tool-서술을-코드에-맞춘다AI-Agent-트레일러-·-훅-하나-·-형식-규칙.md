@@ -1,7 +1,7 @@
 ---
 id: TASK-20
 title: coding-agent-git-commit-tool 서술을 코드에 맞춘다(AI-Agent 트레일러 · 훅 하나 · 형식 규칙)
-status: In Progress
+status: Done
 assignee: []
 created_date: '2026-10-30T12:33:00Z'
 updated_date: '2026-10-30T12:58:00Z'
