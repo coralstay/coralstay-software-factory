@@ -4,11 +4,10 @@ title: coding-agent-git-commit-tool 서술을 코드에 맞춘다(AI-Agent 트�
 status: To Do
 assignee: []
 created_date: '2026-10-30T12:33:00Z'
-updated_date: '2026-10-30T12:48:00Z'
+updated_date: '2026-10-30T12:51:00Z'
 labels:
   - design
-dependencies:
-  - TASK-19
+dependencies: []
 documentation:
   - /Users/flynn_macpro/.claude/plans/starry-greeting-curry.md
 ---
