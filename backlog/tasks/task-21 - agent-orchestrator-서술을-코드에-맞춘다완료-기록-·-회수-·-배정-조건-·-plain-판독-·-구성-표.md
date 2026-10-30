@@ -1,13 +1,16 @@
 ---
-id: DRAFT-2
+id: TASK-21
 title: agent-orchestrator 서술을 코드에 맞춘다(완료 기록 · 회수 · 배정 조건 · --plain 판독 · 구성 표)
-status: Draft
+status: To Do
 assignee: []
 created_date: '2026-10-30T12:33:00Z'
-updated_date: '2026-10-30T12:33:00Z'
+updated_date: '2026-10-30T12:49:00Z'
 labels:
   - design
-dependencies: []
+dependencies:
+  - TASK-20
+documentation:
+  - /Users/flynn_macpro/.claude/plans/starry-greeting-curry.md
 ---
 
 ## Description
