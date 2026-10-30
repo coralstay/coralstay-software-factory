@@ -1,13 +1,16 @@
 ---
-id: DRAFT-3
+id: TASK-22
 title: claude-code-agile-hooks 서술을 코드에 맞춘다(구현 요구사항 범위 · 설정 키 · 검사 시점 · 요구사항 한계)
-status: Draft
+status: To Do
 assignee: []
 created_date: '2026-10-30T12:33:00Z'
-updated_date: '2026-10-30T12:33:00Z'
+updated_date: '2026-10-30T12:49:00Z'
 labels:
   - design
-dependencies: []
+dependencies:
+  - TASK-21
+documentation:
+  - /Users/flynn_macpro/.claude/plans/starry-greeting-curry.md
 ---
 
 ## Description
