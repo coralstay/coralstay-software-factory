@@ -1,10 +1,10 @@
 ---
 id: TASK-23
 title: 'source-header 적용: coralstay-software-factory'
-status: To Do
+status: In Progress
 assignee: []
 created_date: '2026-10-31T11:08:00Z'
-updated_date: '2026-10-31T11:18:00Z'
+updated_date: '2026-10-31T12:43:00Z'
 labels:
   - source-header
   - rollout
