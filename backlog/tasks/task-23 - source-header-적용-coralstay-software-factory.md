@@ -4,7 +4,7 @@ title: 'source-header 적용: coralstay-software-factory'
 status: In Progress
 assignee: []
 created_date: '2026-10-31T11:08:00Z'
-updated_date: '2026-10-31T12:43:00Z'
+updated_date: '2026-10-31T12:44:00Z'
 labels:
   - source-header
   - rollout
@@ -39,7 +39,7 @@ components/*는 각자 별도 저장소라 제외.
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
 - [ ] #1 .mailmap(전역 ~/.mailmap과 같은 매핑)을 저장소에 커밋해 다른 클론·CI에서도 authors가 coralstay로 나온다
-- [ ] #2 라이선스 조치를 마친다: AGPL 유지(README의 AGPL-3.0 표기를 AGPL-3.0-only로)
+- [x] #2 라이선스 조치를 마친다: AGPL 유지(README의 AGPL-3.0 표기를 AGPL-3.0-only로)
 - [ ] #3 .source-header.json을 확정하고(제외 대상 재확인) source-header init으로 헤더를 넣고, 서브에이전트가 description 초안을 쓴다. source-header lint 오류 0
 - [ ] #4 git-commit-tool --plugins source-header로 .githooks를 설치하고(core.hooksPath=.githooks) 헤더 없는 파일 커밋이 막히는 것을 실측한다
 <!-- AC:END -->
@@ -70,3 +70,9 @@ TASK-3 조사 결과는 Description 참고. source-header(init/lint/fix/hook)와
 4. (해당 시) 생성기 수정
 5. .githooks 설치(--plugins source-header) → 실측
 <!-- SECTION:PLAN:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+AC #2 (2026-10-31): README 라이선스 표기를 AGPL-3.0-only로 명확히 함(본문·영문 요약·기여 조항). LICENSE 본문은 그대로. 이전 MIT 스냅샷 안내는 유지.
+<!-- SECTION:NOTES:END -->
