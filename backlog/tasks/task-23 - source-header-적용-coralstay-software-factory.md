@@ -1,14 +1,16 @@
 ---
-id: DRAFT-1
+id: TASK-23
 title: 'source-header 적용: coralstay-software-factory'
-status: Draft
+status: To Do
 assignee: []
 created_date: '2026-10-31T11:08:00Z'
-updated_date: '2026-10-31T11:08:00Z'
+updated_date: '2026-10-31T11:18:00Z'
 labels:
   - source-header
   - rollout
 dependencies: []
+documentation:
+  - /Users/flynn_macpro/.claude/plans/giggly-kindling-snowglobe.md
 ---
 
 ## Description
