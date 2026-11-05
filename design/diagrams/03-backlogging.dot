@@ -1,0 +1,14 @@
+digraph backlogging {
+  bgcolor="transparent"; rankdir=LR; nodesep=0.3; ranksep=0.42;
+  node [shape=box, style="filled,rounded", fillcolor="#f00004", color="#f00003",
+        fontcolor="#f00001", fontname="Helvetica", fontsize=11, margin="0.18,0.10", penwidth=1.1];
+  edge [color="#f00006", arrowsize=0.7, penwidth=1.2];
+
+  B1 [label="브리핑\noverview/board/search"];
+  B2 [label="plan mode\n계획 프롬프트 출력"];
+  B3 [label="draft create"];
+  B4 [label="사용자 승인", fillcolor="#f00007", color="#f00006", fontcolor="#f00008"];
+  B5 [label="draft promote"];
+  B6 [label="보드에 반영\n(마일스톤/태스크)"];
+  B1 -> B2 -> B3 -> B4 -> B5 -> B6;
+}

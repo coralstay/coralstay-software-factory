@@ -1,0 +1,30 @@
+digraph seq_par {
+  bgcolor="transparent"; rankdir=LR; compound=true; nodesep=0.3; ranksep=0.5;
+  node [shape=box, style="filled,rounded", fillcolor="#f00004", color="#f00003",
+        fontcolor="#f00001", fontname="Helvetica", fontsize=11, margin="0.18,0.10", penwidth=1.1];
+  edge [color="#f00003", arrowsize=0.7, penwidth=1.1];
+
+  subgraph cluster_seq {
+    label="순차 체인 (의존 또는 결합) — 순서 지켜 우선 배정";
+    fontname="Helvetica"; fontsize=11; fontcolor="#f00002";
+    style="rounded"; color="#f00003"; penwidth=1.1; margin=14;
+    S1 [label="태스크: DB 스키마"];
+    S2 [label="태스크: API 구현"];
+    S3 [label="태스크: 프론트 연동"];
+    S1 -> S2 -> S3 [color="#f00006", penwidth=1.3];
+  }
+
+  subgraph cluster_par {
+    label="독립 노드 (의존·결합 없음) — 동시 병렬 배정";
+    fontname="Helvetica"; fontsize=11; fontcolor="#f00002";
+    style="rounded"; color="#f00003"; penwidth=1.1; margin=14;
+    P1 [label="태스크: 문서 정리"];
+    P2 [label="태스크: 로깅 설정"];
+    P3 [label="태스크: 테스트 픽스처"];
+    P1 -> P2 -> P3 [style=invis];
+  }
+
+  S3 -> P1 [ltail=cluster_seq, lhead=cluster_par, style=dashed, color="#f00002",
+             fontname="Helvetica", fontsize=10, fontcolor="#f00002",
+             label="같은 큐에서 함께 스케줄"];
+}

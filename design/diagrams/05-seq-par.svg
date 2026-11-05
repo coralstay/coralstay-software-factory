@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg data-generated-by="design/build-diagrams.py" role="img" aria-label="05-seq-par" width="996pt" height="110pt"
+ viewBox="0.00 0.00 996.00 110.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<style>:root { --diagram-ink: #1a2330; --diagram-muted: #51616c; --diagram-line: #c9d3d8; --diagram-surface: #ffffff; --diagram-surface-2: #eaf0f2; --diagram-accent: #0e7c86; --diagram-accent-bg: #d8eeef; --diagram-accent-ink: #08565d; --diagram-impl: #2b6cb0; --diagram-impl-bg: #dbe9f7; --diagram-review: #7c3aed; --diagram-review-bg: #ece3fc; --diagram-verify: #2f855a; --diagram-verify-bg: #def0e6; --diagram-logger: #5b6b78; --diagram-logger-bg: #e4e9ec; }
+@media (prefers-color-scheme: dark) { :root { --diagram-ink: #e7eef2; --diagram-muted: #9aaab4; --diagram-line: #2e3d47; --diagram-surface: #182129; --diagram-surface-2: #1f2a33; --diagram-accent: #3fc4ce; --diagram-accent-bg: #163238; --diagram-accent-ink: #8ee3e9; --diagram-impl: #7db3e8; --diagram-impl-bg: #1c2c3d; --diagram-review: #b79bf5; --diagram-review-bg: #291f3d; --diagram-verify: #7cd1a3; --diagram-verify-bg: #173226; --diagram-logger: #a6b4bd; --diagram-logger-bg: #232e36; } }</style>
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 106)">
+<title>seq_par</title>
+<g id="clust1" class="cluster">
+<title>cluster_seq</title>
+<path fill="none" stroke="var(--diagram-line)" stroke-width="1.1" d="M20,-8C20,-8 421.76,-8 421.76,-8 427.76,-8 433.76,-14 433.76,-20 433.76,-20 433.76,-82 433.76,-82 433.76,-88 427.76,-94 421.76,-94 421.76,-94 20,-94 20,-94 14,-94 8,-88 8,-82 8,-82 8,-20 8,-20 8,-14 14,-8 20,-8"/>
+<text xml:space="preserve" text-anchor="middle" x="220.88" y="-79.55" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-muted)">순차 체인 (의존 또는 결합) — 순서 지켜 우선 배정</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_par</title>
+<path fill="none" stroke="var(--diagram-line)" stroke-width="1.1" d="M560.76,-8C560.76,-8 967.77,-8 967.77,-8 973.77,-8 979.77,-14 979.77,-20 979.77,-20 979.77,-82 979.77,-82 979.77,-88 973.77,-94 967.77,-94 967.77,-94 560.76,-94 560.76,-94 554.76,-94 548.76,-88 548.76,-82 548.76,-82 548.76,-20 548.76,-20 548.76,-14 554.76,-8 560.76,-8"/>
+<text xml:space="preserve" text-anchor="middle" x="764.27" y="-79.55" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-muted)">독립 노드 (의존·결합 없음) — 동시 병렬 배정</text>
+</g>
+<g id="node1" class="node">
+<title>S1</title>
+<path fill="var(--diagram-surface)" stroke="var(--diagram-line)" stroke-width="1.1" d="M119.17,-58C119.17,-58 34,-58 34,-58 28,-58 22,-52 22,-46 22,-46 22,-34 22,-34 22,-28 28,-22 34,-22 34,-22 119.17,-22 119.17,-22 125.17,-22 131.17,-28 131.17,-34 131.17,-34 131.17,-46 131.17,-46 131.17,-52 125.17,-58 119.17,-58"/>
+<text xml:space="preserve" text-anchor="middle" x="76.59" y="-36.67" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">태스크: DB 스키마</text>
+</g>
+<g id="node2" class="node">
+<title>S2</title>
+<path fill="var(--diagram-surface)" stroke="var(--diagram-line)" stroke-width="1.1" d="M257.84,-58C257.84,-58 180.17,-58 180.17,-58 174.17,-58 168.17,-52 168.17,-46 168.17,-46 168.17,-34 168.17,-34 168.17,-28 174.17,-22 180.17,-22 180.17,-22 257.84,-22 257.84,-22 263.84,-22 269.84,-28 269.84,-34 269.84,-34 269.84,-46 269.84,-46 269.84,-52 263.84,-58 257.84,-58"/>
+<text xml:space="preserve" text-anchor="middle" x="219.01" y="-36.67" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">태스크: API 구현</text>
+</g>
+<g id="edge1" class="edge">
+<title>S1&#45;&gt;S2</title>
+<path fill="none" stroke="var(--diagram-accent)" stroke-width="1.3" d="M131.47,-40C140.41,-40 149.71,-40 158.77,-40"/>
+<polygon fill="var(--diagram-accent)" stroke="var(--diagram-accent)" stroke-width="1.3" points="158.75,-42.45 165.75,-40 158.75,-37.55 158.75,-42.45"/>
+</g>
+<g id="node3" class="node">
+<title>S3</title>
+<path fill="var(--diagram-surface)" stroke="var(--diagram-line)" stroke-width="1.1" d="M407.76,-58C407.76,-58 318.84,-58 318.84,-58 312.84,-58 306.84,-52 306.84,-46 306.84,-46 306.84,-34 306.84,-34 306.84,-28 312.84,-22 318.84,-22 318.84,-22 407.76,-22 407.76,-22 413.76,-22 419.76,-28 419.76,-34 419.76,-34 419.76,-46 419.76,-46 419.76,-52 413.76,-58 407.76,-58"/>
+<text xml:space="preserve" text-anchor="middle" x="363.3" y="-36.67" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">태스크: 프론트 연동</text>
+</g>
+<g id="edge2" class="edge">
+<title>S2&#45;&gt;S3</title>
+<path fill="none" stroke="var(--diagram-accent)" stroke-width="1.3" d="M270.17,-40C279.15,-40 288.61,-40 297.92,-40"/>
+<polygon fill="var(--diagram-accent)" stroke="var(--diagram-accent)" stroke-width="1.3" points="297.8,-42.45 304.8,-40 297.8,-37.55 297.8,-42.45"/>
+</g>
+<g id="node4" class="node">
+<title>P1</title>
+<path fill="var(--diagram-surface)" stroke="var(--diagram-line)" stroke-width="1.1" d="M653.93,-58C653.93,-58 574.76,-58 574.76,-58 568.76,-58 562.76,-52 562.76,-46 562.76,-46 562.76,-34 562.76,-34 562.76,-28 568.76,-22 574.76,-22 574.76,-22 653.93,-22 653.93,-22 659.93,-22 665.93,-28 665.93,-34 665.93,-34 665.93,-46 665.93,-46 665.93,-52 659.93,-58 653.93,-58"/>
+<text xml:space="preserve" text-anchor="middle" x="614.35" y="-36.67" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">태스크: 문서 정리</text>
+</g>
+<g id="edge5" class="edge">
+<title>S3&#45;&gt;P1</title>
+<path fill="none" stroke="var(--diagram-muted)" stroke-width="1.1" stroke-dasharray="5,2" d="M433.76,-40C466.91,-40 506.59,-40 540.21,-40"/>
+<polygon fill="var(--diagram-muted)" stroke="var(--diagram-muted)" stroke-width="1.1" points="540.1,-42.45 547.1,-40 540.1,-37.55 540.1,-42.45"/>
+<text xml:space="preserve" text-anchor="middle" x="491.26" y="-42.5" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="10.00" fill="var(--diagram-muted)">같은 큐에서 함께 스케줄</text>
+</g>
+<g id="node5" class="node">
+<title>P2</title>
+<path fill="var(--diagram-surface)" stroke="var(--diagram-line)" stroke-width="1.1" d="M794.1,-58C794.1,-58 714.93,-58 714.93,-58 708.93,-58 702.93,-52 702.93,-46 702.93,-46 702.93,-34 702.93,-34 702.93,-28 708.93,-22 714.93,-22 714.93,-22 794.1,-22 794.1,-22 800.1,-22 806.1,-28 806.1,-34 806.1,-34 806.1,-46 806.1,-46 806.1,-52 800.1,-58 794.1,-58"/>
+<text xml:space="preserve" text-anchor="middle" x="754.52" y="-36.67" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">태스크: 로깅 설정</text>
+</g>
+<g id="node6" class="node">
+<title>P3</title>
+<path fill="var(--diagram-surface)" stroke="var(--diagram-line)" stroke-width="1.1" d="M953.77,-58C953.77,-58 855.1,-58 855.1,-58 849.1,-58 843.1,-52 843.1,-46 843.1,-46 843.1,-34 843.1,-34 843.1,-28 849.1,-22 855.1,-22 855.1,-22 953.77,-22 953.77,-22 959.77,-22 965.77,-28 965.77,-34 965.77,-34 965.77,-46 965.77,-46 965.77,-52 959.77,-58 953.77,-58"/>
+<text xml:space="preserve" text-anchor="middle" x="904.44" y="-36.67" font-family='"IBM Plex Sans", ui-sans-serif, system-ui, sans-serif' font-size="11.00" fill="var(--diagram-ink)">태스크: 테스트 픽스처</text>
+</g>
+</g>
+</svg>
