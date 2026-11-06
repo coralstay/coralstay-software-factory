@@ -4,7 +4,7 @@ title: 'source-header 적용: coralstay-software-factory'
 status: In Progress
 assignee: []
 created_date: '2026-10-31T11:08:00Z'
-updated_date: '2026-11-06T12:12:00Z'
+updated_date: '2026-11-06T13:36:00Z'
 labels:
   - source-header
   - rollout
@@ -38,18 +38,18 @@ components/*는 각자 별도 저장소라 제외.
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 .mailmap(전역 ~/.mailmap과 같은 매핑)을 저장소에 커밋해 다른 클론·CI에서도 authors가 coralstay로 나온다
+- [x] #1 .mailmap(전역 ~/.mailmap과 같은 매핑)을 저장소에 커밋해 다른 클론·CI에서도 authors가 coralstay로 나온다
 - [x] #2 라이선스 조치를 마친다: AGPL 유지(README의 AGPL-3.0 표기를 AGPL-3.0-only로)
-- [ ] #3 .source-header.json을 확정하고(제외 대상 재확인) source-header init으로 헤더를 넣고, 서브에이전트가 description 초안을 쓴다. source-header lint 오류 0
-- [ ] #4 규격(source-header README '본문 노트 표식', TASK-23)에 따라 중요한 지점(진입점·불변식·비자명한 결정·외부 연동)의 줄 끝에 '---- N' 표식을 달고 파일 맨 아래 노트 구역에 설명을 쓴다. 이미 있는 주석은 변환 규칙(B4)으로 새 포맷에 옮기고 정보를 버리지 않는다. 번호는 파일마다 1부터 연속, 표식:노트 1:1. 주석·헤더 외 코드 줄은 바뀌지 않는다
+- [x] #3 .source-header.json을 확정하고(제외 대상 재확인) source-header init으로 헤더를 넣고, 서브에이전트가 description 초안을 쓴다. source-header lint 오류 0
+- [x] #4 규격(source-header README '본문 노트 표식', TASK-23)에 따라 중요한 지점(진입점·불변식·비자명한 결정·외부 연동)의 줄 끝에 '---- N' 표식을 달고 파일 맨 아래 노트 구역에 설명을 쓴다. 이미 있는 주석은 변환 규칙(B4)으로 새 포맷에 옮기고 정보를 버리지 않는다. 번호는 파일마다 1부터 연속, 표식:노트 1:1. 주석·헤더 외 코드 줄은 바뀌지 않는다
 <!-- AC:END -->
 
 ## Definition of Done
 <!-- DOD:BEGIN -->
-- [ ] #1 source-header lint . 오류 0 (출력을 Implementation Notes에 첨부)
-- [ ] #2 저장소의 기존 테스트·빌드가 헤더 추가 후에도 통과
-- [ ] #3 유저가 description diff를 검토
-- [ ] #4 표식 번호가 파일마다 1부터 연속이고 표식:노트가 1:1임을 확인한 출력과, git diff에 주석·헤더 외 변경이 없음을 확인한 결과를 Implementation Notes에 첨부했다
+- [x] #1 source-header lint . 오류 0 (출력을 Implementation Notes에 첨부)
+- [x] #2 저장소의 기존 테스트·빌드가 헤더 추가 후에도 통과
+- [x] #3 유저가 description diff를 검토
+- [x] #4 표식 번호가 파일마다 1부터 연속이고 표식:노트가 1:1임을 확인한 출력과, git diff에 주석·헤더 외 변경이 없음을 확인한 결과를 Implementation Notes에 첨부했다
 <!-- DOD:END -->
 
 ## Implementation Plan
@@ -80,4 +80,13 @@ AC #2 (2026-10-31): README 라이선스 표기를 AGPL-3.0-only로 명확히 함
 2026-11-06 범위 추가(유저 결정): 헤더 적용 뒤 같은 카드에서 본문 노트 표식(AC #5)까지 한다. 계획 6단계 추가 — 표식 커밋: 디렉터리 단위 서브에이전트가 파일을 읽고 중요한 지점에만 줄 끝 '---- N'과 하단 노트를 달고 기존 주석은 B4로 변환한다(헤더 커밋과 분리). components/* 3개는 별도 저장소이므로 .source-header.json에서 제외하고 루트 자체만 대상으로 한다.
 
 2026-11-06 유저 결정: AC '.githooks 설치(--plugins source-header)'는 후속 draft(source-header DRAFT-7, GF-149 이후)로 분리했다. 이 카드의 AC 번호가 이에 맞춰 당겨졌다(표식 AC 번호 -1).
+
+2026-11-06 구현·검증 기록 (브랜치 task/TASK-23, 커밋 d934865 ad4d0af 2bfe9cf ebe680a 2b10a04)
+- AC #1: .mailmap은 전역 ~/.mailmap과 같다(주석뿐, 매핑 없음).
+- AC #2: README가 AGPL-3.0-only(카드에 완료로 이미 체크됨).
+- AC #3: .source-header.json은 components/**와 README·CHANGELOG·backlog 등을 제외. 처음에는 **/*.md 전부를 제외했으나 유저 결정(설계 문서 포함)에 따라 design/ 설계 문서 23개를 포함하도록 고쳤다(ebe680a). design/build-diagrams.py와 설계 md 23개에 헤더와 한 줄 description. lint --strict . exit 0(직접 실행).
+- AC #4: design/build-diagrams.py에 표식 11·노트 11, 번호 연속·1:1(직접 확인). ast.dump가 변경 전과 같다(직접 확인). 모듈 docstring은 AST의 일부라 옮기지 않고 그대로 뒀다.
+- DoD #2/#4 증거(직접 확인): 설계 md 23개는 헤더 블록을 뺀 나머지가 변경 전과 바이트 단위로 같다. components/, diagrams/, build-diagrams.py의 .dot·.svg는 변경 없음. 이 저장소에는 테스트·빌드가 없고 build-diagrams.py --help만 확인했다(실제 빌드는 추적되는 svg를 다시 쓰므로 하지 않았다).
+- DoD #3: 유저가 description 286개(8개 저장소) 중 무작위 20개를 샘플 검토하고 '그래도 모두 남겨'라고 결정했다.
+- AC '.githooks 설치'는 유저 결정으로 후속 draft(source-header DRAFT-7, GF-149 이후)로 분리했다.
 <!-- SECTION:NOTES:END -->
