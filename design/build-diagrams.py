@@ -1,4 +1,14 @@
 #!/usr/bin/env python3
+# ---
+# title: build-diagrams
+# description: design/diagrams의 DOT·mermaid 원본을 라이트/다크 테마 대응 독립 SVG로 렌더하는 빌드 스크립트
+# authors: [coralstay]
+# license: AGPL-3.0-only
+# status: draft
+# task: TASK-23
+# created_date: '2026-11-06'
+# updated_date: '2026-11-06'
+# ---
 """design/diagrams/*.dot (·.mmd) → design/diagrams/<이름>.svg 독립 SVG 렌더.
 
 표기 원칙 — DOT 우선:
