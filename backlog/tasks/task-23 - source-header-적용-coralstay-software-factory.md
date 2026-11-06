@@ -90,3 +90,9 @@ AC #2 (2026-10-31): README 라이선스 표기를 AGPL-3.0-only로 명확히 함
 - DoD #3: 유저가 description 286개(8개 저장소) 중 무작위 20개를 샘플 검토하고 '그래도 모두 남겨'라고 결정했다.
 - AC '.githooks 설치'는 유저 결정으로 후속 draft(source-header DRAFT-7, GF-149 이후)로 분리했다.
 <!-- SECTION:NOTES:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+팩토리 루트의 소스 파일 design/build-diagrams.py와 설계 문서 md 23개에 source-header 헤더(AGPL-3.0-only, 한 줄 description)를 적용했고, build-diagrams.py에 본문 노트 표식 11개를 달았다. 설계 md는 헤더 아래 본문이 바이트 단위로 같고 build-diagrams.py는 ast.dump가 같다. components/*(별도 저장소)와 .dot·.svg는 건드리지 않았다. lint --strict 0 오류. .githooks 설치는 GF-149 이후 후속 draft로 분리. 커밋 d934865 ad4d0af 2bfe9cf ebe680a 2b10a04 (브랜치 task/TASK-23).
+<!-- SECTION:FINAL_SUMMARY:END -->
