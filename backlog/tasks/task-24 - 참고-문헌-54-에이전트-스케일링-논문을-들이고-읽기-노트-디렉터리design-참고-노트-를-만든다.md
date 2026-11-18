@@ -1,10 +1,10 @@
 ---
 id: TASK-24
 title: 참고 문헌 [54] 에이전트 스케일링 논문을 들이고 읽기 노트 디렉터리(design/참고-노트/)를 만든다
-status: In Progress
+status: Done
 assignee: []
 created_date: '2026-11-18T00:17:00Z'
-updated_date: '2026-11-18T00:49:00Z'
+updated_date: '2026-11-18T00:54:00Z'
 labels:
   - design
   - references
@@ -44,17 +44,17 @@ Towards a Science of Scaling Agent Systems — Yubin Kim 외(Google Research · 
 
 ## Acceptance Criteria
 <!-- AC:BEGIN -->
-- [ ] #1 design/참고-노트/README.md 가 목적·파일 이름 규칙(<번호>-<arXiv ID 또는 짧은 이름>.md)·노트 형식·저작권 원칙(원문 PDF·긴 인용 금지)을 담는다(B1)
-- [ ] #2 부록 목록에 [54] 가 추가되고 노트 54-2512.08296.md 가 서지 전체·v3 기준 요약·버전별 수치를 담는다(B2·B4)
-- [ ] #3 노트와 관련 연구 표 행이 재는 것(과제 성능)과 닿는 범위를 적고 G-6·R-6·1.01 '얼마나'에 연결하며 G-1 근거로 쓰지 않는다고 밝힌다(B3)
-- [ ] #4 R-6·G-6 본문에 [54] 각주가 범위와 함께 붙는다
-- [ ] #5 agent-orchestrator design/부록-참고-문헌.md 에 최상위 [54] 이어받음과 AO-33·SessionRegistry 연결 한 줄이 있고, 두 저장소 source-header lint --strict 가 0 이다
+- [x] #1 design/참고-노트/README.md 가 목적·파일 이름 규칙(<번호>-<arXiv ID 또는 짧은 이름>.md)·노트 형식·저작권 원칙(원문 PDF·긴 인용 금지)을 담는다(B1)
+- [x] #2 부록 목록에 [54] 가 추가되고 노트 54-2512.08296.md 가 서지 전체·v3 기준 요약·버전별 수치를 담는다(B2·B4)
+- [x] #3 노트와 관련 연구 표 행이 재는 것(과제 성능)과 닿는 범위를 적고 G-6·R-6·1.01 '얼마나'에 연결하며 G-1 근거로 쓰지 않는다고 밝힌다(B3)
+- [x] #4 R-6·G-6 본문에 [54] 각주가 범위와 함께 붙는다
+- [x] #5 agent-orchestrator design/부록-참고-문헌.md 에 최상위 [54] 이어받음과 AO-33·SessionRegistry 연결 한 줄이 있고, 두 저장소 source-header lint --strict 가 0 이다
 <!-- AC:END -->
 
 ## Definition of Done
 <!-- DOD:BEGIN -->
-- [ ] #1 v3 원문(HTML 판)을 직접 읽고 노트의 요약 문장마다 출처 절을 표기했다
-- [ ] #2 build-diagrams.py 로 다이어그램을 다시 만들어도 변경이 없다
+- [x] #1 v3 원문(HTML 판)을 직접 읽고 노트의 요약 문장마다 출처 절을 표기했다
+- [x] #2 build-diagrams.py 로 다이어그램을 다시 만들어도 변경이 없다
 - [ ] #3 팩토리·agent-orchestrator 각각 PR 이 있다
 <!-- DOD:END -->
 
@@ -80,3 +80,21 @@ Towards a Science of Scaling Agent Systems — Yubin Kim 외(Google Research · 
 4. agent-orchestrator 부록 한 줄(그 저장소 브랜치에서 커밋).
 5. lint·다이어그램 확인, 커밋, PR 두 개.
 <!-- SECTION:PLAN:END -->
+
+## Implementation Notes
+
+<!-- SECTION:NOTES:BEGIN -->
+## 2026-11-18 작성·검증
+- 원문: arXiv 2512.08296 v3 HTML 을 내려받아 핵심 수치를 원문 문장에서 직접 대조(WebFetch 요약은 참고만). 확인한 것: 260 구성·6 벤치마크(§1·§3), +80.8%/−70.0%(초록·§1), 독립형 17.2×·중앙형 4.4× 'validation bottlenecks'(§1), 단일 45% 넘으면 역효과 β=−0.236 p=0.004(§1), SWE-bench Verified 다중 4종 모두 단일(0.522)보다 낮음 Hybrid −2.1%·Centralized −3.1%·Decentralized −5.4%·Independent −14.9%(§4.2), 교차검증 R² 0.373/0.413(§4.3), held-out 87%(초록), 에이전트 수 9 까지·오버헤드 초선형(Limitations), 저자 20명·소속(v3 저자 표기), 라이선스 arXiv perpetual non-exclusive
+- 커밋(팩토리 task/TASK-24): 31dc2c2 참고-노트 README(#1) → 7193eaa [54] 노트·목록·관련 연구 행(#2·#3) → bc20c16 G-6·R-6 각주(#4)
+- 전파(RAIL-024): agent-orchestrator task/SF-24 64bf492(이어받은 항목 [54], Refs 트레일러, 다른 GitHub 저장소라 노트 링크는 팩토리 GitHub URL)(#5). claude-code-agile-hooks·coding-agent-git-commit-tool 은 Propagation-None(a635065·3425e19)
+- 원문 PDF·HTML 사본은 저장소에 넣지 않음. 인용은 'validation bottleneck' 두 단어만(B1)
+- 노트 수치마다 버전(v3)·절 표기(B2). G-1 근거로 쓰지 않는다는 문장을 노트·관련 연구 행·목록·이어받은 항목 네 곳에 둠(B3). 번호 [54] 신규·기존 번호 불변(B4)
+- source-header lint --strict: 팩토리 rc=0, agent-orchestrator rc=0. build-diagrams.py 재실행 rc=0, design/diagrams 변경 없음
+<!-- SECTION:NOTES:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+참고 문헌 [54] Kim et al. 'Towards a Science of Scaling Agent Systems'(arXiv 2512.08296 v3)를 팩토리 최상위 설계의 참고 문헌 SSOT 에 들이고, 문헌 번호별 읽기 노트 디렉터리 design/참고-노트/ 를 만들었다. 노트는 v3 원문을 대조해 서지·버전별 수치·재는 것과 닿는 범위·설계 연결(G-6·R-6·1.01·오케스트레이터 중앙형·AO-33)·열린 질문을 담는다. 과제 성공률을 잰 연구라 G-1(판정 독립성) 근거로는 쓰지 않는다. 이 설계에 가장 가까운 결과는 SWE-bench Verified 에서 다중 에이전트 4종이 모두 단일보다 낮았다는 것(§4.2)이다. agent-orchestrator 부록에 이어받은 항목으로 전파했다.
+<!-- SECTION:FINAL_SUMMARY:END -->
