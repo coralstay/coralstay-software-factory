@@ -4,11 +4,15 @@ title: 참고 문헌 [54] 에이전트 스케일링 논문을 들이고 읽기 �
 status: To Do
 assignee: []
 created_date: '2026-11-18T00:17:00Z'
-updated_date: '2026-11-18T00:17:00Z'
+updated_date: '2026-11-18T00:43:00Z'
 labels:
   - design
   - references
 dependencies: []
+documentation:
+  - /Users/flynn_macpro/.claude/plans/factory-ref-54-scaling-agents.md
+  - https://arxiv.org/abs/2512.08296
+  - design/부록-참고-문헌.md
 ---
 
 ## Description
