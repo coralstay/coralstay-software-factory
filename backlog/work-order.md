@@ -1,4 +1,4 @@
-<!-- work-order-hash: 32dec436a6c302a6143709ef2e5ea58eefa47a9cc0d7e5719d50a1dd3ae27570 -->
+<!-- work-order-hash: 0c577ad329d99d8ca73973cff2cb8d3223c7464ec8b47570626fbf5a54161983 -->
 # 작업 순서
 
 `work_order.py`가 backlog/tasks의 의존(`dependencies`)으로 만든 파일이다 — 직접 고치지 말고 다시 생성한다. 같은 단계의 태스크는 병렬로, 단계는 위에서 아래로 순차로 진행한다. Done 태스크와 없는 태스크에 대한 의존은 충족된 것으로 본다.
@@ -7,5 +7,4 @@
 |---|---|---|
 | 1 | TASK-19 | 충돌 결정 A1~A6 · C2를 설계 문서에 반영한다(착수 = task 브랜치, 승인 · 작업 순서 게이트 시점, (수동) DoD, 커밋 메시지 태스크 ID) |
 | 1 | TASK-21 | agent-orchestrator 서술을 코드에 맞춘다(완료 기록 · 회수 · 배정 조건 · --plain 판독 · 구성 표) |
-| 1 | TASK-24 | 참고 문헌 [54] 에이전트 스케일링 논문을 들이고 읽기 노트 디렉터리(design/참고-노트/)를 만든다 |
 | 2 | TASK-22 | claude-code-agile-hooks 서술을 코드에 맞춘다(구현 요구사항 범위 · 설정 키 · 검사 시점 · 요구사항 한계) |
